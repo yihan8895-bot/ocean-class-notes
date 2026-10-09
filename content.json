@@ -1,0 +1,490 @@
+[
+  {
+    "id": "scs-eof-data-atlas",
+    "category": "专题分析",
+    "title": "南海海洋热浪 × EOF：观测、空间模态与动画 / South China Sea Marine Heatwaves × EOF: Observations, Spatial Modes and Animation",
+    "summary": "基于本地 1996—2025 年 NOAA OISST 分析：数据观测、热浪识别、EOF 地图和逐年重建动画。\nAn atlas of local NOAA OISST analysis for 1996–2025: observations, marine-heatwave detection, EOF maps and annual reconstruction animation.",
+    "tags": [
+      "EOF",
+      "经验正交分解",
+      "南海",
+      "海洋热浪",
+      "OISST",
+      "观测方法"
+    ],
+    "href": "eof.html"
+  },
+  {
+    "id": "scs-heatwave-atlas",
+    "category": "专题分析",
+    "title": "南海海洋热浪：识别与时空特征 / South China Sea Marine Heatwaves: Detection and Space–Time Patterns",
+    "summary": "全南海 1982–2022 空间统计、季节差异与夏季变化趋势，配图解读。\nBasin-wide spatial statistics for 1982–2022, seasonal differences and summer changes, with annotated figures.",
+    "tags": [
+      "南海",
+      "海洋热浪",
+      "时空特征",
+      "强度",
+      "持续时间",
+      "频次"
+    ],
+    "href": "heatwaves.html"
+  },
+  {
+    "id": "mixed-layer-depth",
+    "category": "课堂问答",
+    "title": "1. 风混合层有多深？冷却能使它达到多深？ / 1. How Deep Is the Wind-Mixed Layer, and How Deep Can Cooling Make It?",
+    "summary": "风搅拌通常形成几十米的混合层；冬季浮力损失可使其显著加深。\nWind commonly mixes the upper tens of metres; winter buoyancy loss can deepen the layer substantially.",
+    "tags": [
+      "混合层",
+      "风",
+      "对流"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "海洋表层混合层的温度与盐度在垂向上较均匀。常见的风混合层深度约为 10–100 m，但并不存在全球固定值：风应力、日照、降水、原有层结和季节都会改变它。强层结的夏季通常较浅，冬季更深。\nThe ocean surface mixed layer has nearly uniform temperature and salinity with depth. A wind-mixed layer is often roughly 10–100 m deep, but there is no single global depth: wind stress, sunlight, rain, prior stratification and season all matter. It is generally shallower in strongly stratified summer conditions and deeper in winter."
+      },
+      {
+        "type": "p",
+        "text": "海面冷却使表层水密度升高，产生对流并卷入下层水；若伴有蒸发或结冰排盐，混合可继续加深。中高纬冬季可达数百米，拉布拉多海等深对流区的个别年份可超过 1000 m，甚至约 1500–2000 m。这里的深对流是特殊区域与时段，不能当作一般风混合层的典型深度。\nSurface cooling increases near-surface density, causing convection and entrainment of water from below. Evaporation or brine rejection during sea-ice formation can deepen mixing further. Winter mixed layers at middle and high latitudes can reach hundreds of metres; in some years, deep convection in the Labrador Sea exceeds 1,000 m and can approach 1,500–2,000 m. Such deep convection is specific to particular places and times, not a typical wind-mixed-layer depth."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI 物理海洋学教材：混合层一般为 1–100 m / WHOI textbook: mixed layers are commonly 1–100 m",
+        "url": "https://www.whoi.edu/science/PO/people/jprice/class/miscart/Stewart2006.pdf"
+      },
+      {
+        "label": "NOAA PMEL：混合层季节变化与浮力损失 / NOAA PMEL: seasonal mixed-layer change and buoyancy loss",
+        "url": "https://www.pmel.noaa.gov/public/pmel/publications-search/search_abstract.php?fmContributionNum=5294"
+      },
+      {
+        "label": "NOAA WOCE：拉布拉多海深对流观测 / NOAA WOCE: observed deep convection in the Labrador Sea",
+        "url": "https://www.nodc.noaa.gov/archive/arc0116/0000841/1.1/data/0-data/wocedata_1/wocedocs/workshops/natl_wkshop.pdf"
+      }
+    ]
+  },
+  {
+    "id": "north-pacific-profiles",
+    "category": "课堂问答",
+    "title": "2. 北太平洋副热带与副极地的温盐垂向剖面 / 2. Vertical Temperature and Salinity Profiles in the Subtropical and Subpolar North Pacific",
+    "summary": "比较暖而较咸的副热带表层与冷而偏淡的副极地表层。\nCompare warm, relatively salty subtropical surface water with cold, fresher subpolar surface water.",
+    "tags": [
+      "温跃层",
+      "盐跃层",
+      "北太平洋"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "副热带：表层温暖，常有浅的季节性混合层；其下温度随深度迅速下降，形成明显的永久温跃层。副热带蒸发较强，表层或上层海水往往相对偏咸；盐度剖面随水团而变化，不能简单画成处处单调递减。\nSubtropics: The surface is warm, often with a shallow seasonal mixed layer. Temperature falls rapidly beneath it, forming a pronounced permanent thermocline. Stronger evaporation tends to make surface or upper-ocean water relatively salty. The salinity profile depends on water masses and need not decrease monotonically everywhere."
+      },
+      {
+        "type": "p",
+        "text": "副极地：表层较冷、降水和高纬淡水输入使其相对偏淡，温度垂向差较小，永久温跃层通常较弱；冬季冷却和风可使混合层加深。较淡表水覆盖较咸的下层水时，盐度对稳定层结尤其重要。\nSubpolar region: The surface is colder and relatively fresh because of precipitation and high-latitude freshwater input. The vertical temperature contrast and permanent thermocline are usually weaker. Winter cooling and wind can deepen the mixed layer. When fresher surface water overlies saltier water, salinity is especially important to stable stratification."
+      },
+      {
+        "type": "note",
+        "text": "考试作图时请同时标清温度和盐度的横轴方向、深度向下，以及季节。这里描述的是区域典型特征，具体剖面仍取决于经纬度和季节。\nFor an exam sketch, label the direction of both temperature and salinity axes, increasing depth downward, and the season. These are regional typical patterns; an actual profile still depends on location and season."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA World Ocean Atlas 温盐气候态 / NOAA World Ocean Atlas temperature–salinity climatology",
+        "url": "https://www.ncei.noaa.gov/products/world-ocean-atlas"
+      },
+      {
+        "label": "NOAA PMEL：上层海洋垂向结构 / NOAA PMEL: upper-ocean vertical structure",
+        "url": "https://pmel.noaa.gov/people/cronin/encycl/ms0149.pdf"
+      }
+    ]
+  },
+  {
+    "id": "net-evaporation",
+    "category": "课堂问答",
+    "title": "3. 海洋净蒸发主要发生在哪里？ / 3. Where Does Net Ocean Evaporation Mainly Occur?",
+    "summary": "净蒸发指蒸发量超过降水量，即 E − P > 0。\nNet evaporation means evaporation exceeds precipitation: E − P > 0.",
+    "tags": [
+      "蒸发",
+      "降水",
+      "盐度"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "主要位于南北半球的副热带海域，特别是副热带高压控制的干燥区域：空气下沉、云和降水较少，信风促进海面蒸发。大西洋副热带海区尤其明显；阿拉伯海等地区也会有强烈的季节性蒸发。\nIt mainly occurs in the subtropical oceans of both hemispheres, especially dry regions under subtropical high pressure. Descending air limits clouds and rain, while trade winds enhance evaporation. The subtropical Atlantic is a prominent example; places such as the Arabian Sea can also have strong seasonal evaporation."
+      },
+      {
+        "type": "p",
+        "text": "赤道辐合带和部分高纬海域通常降水较多，未必为净蒸发区。要区分‘蒸发量大’与‘净蒸发大’：后者还必须扣除降水，研究海表盐度时还要考虑河流、海冰和水平输运。\nThe equatorial convergence zone and some high-latitude seas receive more precipitation and need not have net evaporation. Distinguish high evaporation from high net evaporation: the latter subtracts precipitation. River flow, sea ice and horizontal transport also matter when interpreting sea-surface salinity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI OAFlux 海洋蒸发与热通量资料 / WHOI OAFlux evaporation and heat-flux data",
+        "url": "https://oaflux.whoi.edu/data-products/"
+      },
+      {
+        "label": "NASA：全球海表盐度与降水、蒸发 / NASA: sea-surface salinity, precipitation and evaporation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/a-measure-of-salt-78250/"
+      }
+    ]
+  },
+  {
+    "id": "mixed-layer-heat-budget",
+    "category": "课堂问答",
+    "title": "4. 混合层热量收支有哪些关键项？ / 4. What Are the Key Terms in the Mixed-Layer Heat Budget?",
+    "summary": "把海气交换、水平输运和混合层底部交换放在同一方程中。\nPlace air–sea exchange, horizontal advection and exchange across the mixed-layer base in one budget.",
+    "tags": [
+      "热量收支",
+      "短波",
+      "长波",
+      "潜热",
+      "感热"
+    ],
+    "blocks": [
+      {
+        "type": "formula",
+        "text": "ρ cₚ h · ∂T/∂t ≈ Qnet − ρ cₚ h (u∂T/∂x + v∂T/∂y) + Qentrainment + Qmixing"
+      },
+      {
+        "type": "p",
+        "text": "取‘进入海洋为正’，海面净热通量可写为 Qnet = Qs − Qb − Qe − Qh。其中 Qs 是吸收的太阳短波辐射；Qb 是海洋向外的净长波辐射；Qe 是蒸发带走的潜热；Qh 是海气温差导致的感热交换。\nTaking heat into the ocean as positive, the net surface heat flux is Qnet = Qs − Qb − Qe − Qh. Qs is absorbed solar shortwave radiation; Qb is net outgoing longwave radiation; Qe is latent heat removed by evaporation; and Qh is sensible heat exchange driven by the air–sea temperature difference."
+      },
+      {
+        "type": "p",
+        "text": "混合层本身还会因洋流水平平流、底部卷入较冷或较暖的水、垂向湍流扩散而改变温度。浅混合层在同样净热通量下升温更快；短波有一部分可穿透混合层底部，精确预算须单独处理。\nHorizontal current advection, entrainment of colder or warmer water through the layer base, and vertical turbulent diffusion also change mixed-layer temperature. A shallower layer warms faster under the same net heat flux. Some shortwave radiation penetrates below the mixed layer and must be handled separately in a precise budget."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI OAFlux 通量符号约定 / WHOI OAFlux flux variables and sign convention",
+        "url": "https://oaflux.whoi.edu/data-products/"
+      },
+      {
+        "label": "NOAA PMEL：上层海洋热量收支实例 / NOAA PMEL: upper-ocean heat-budget example",
+        "url": "https://www.pmel.noaa.gov/pubs/outstand/cron1713/cron1713.shtml"
+      }
+    ]
+  },
+  {
+    "id": "atlantic-salinity",
+    "category": "课堂问答",
+    "title": "5. 北大西洋比北太平洋更咸还是更淡？为什么？ / 5. Is the North Atlantic Saltier or Fresher Than the North Pacific, and Why?",
+    "summary": "北大西洋通常更咸；关键是淡水收支和跨洋盆水汽输送。\nThe North Atlantic is generally saltier; freshwater balance and cross-basin water-vapour transport are central.",
+    "tags": [
+      "盐度",
+      "大西洋",
+      "太平洋"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "北大西洋海表总体比同纬度北太平洋更咸。大西洋副热带净蒸发较强；部分在大西洋蒸发的水汽随信风越过中美洲，最终在太平洋一侧降水，相当于把淡水从大西洋输送到太平洋。\nAt comparable latitudes, the North Atlantic surface is generally saltier than the North Pacific. Net evaporation is stronger in the subtropical Atlantic. Some vapour evaporated from the Atlantic crosses Central America with the trade winds and rains out on the Pacific side, transferring freshwater between basins."
+      },
+      {
+        "type": "p",
+        "text": "降水、河流、海冰和海流同样会调节局地盐度。更咸的北大西洋表水在冬季冷却后更容易达到较高密度，这与深水形成有关；不能仅凭蒸发解释每个地点的盐度。\nPrecipitation, rivers, sea ice and currents also alter local salinity. Saltier North Atlantic surface water can reach higher density after winter cooling, which is relevant to deep-water formation. Evaporation alone cannot explain salinity at every location."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NASA：大西洋比太平洋更咸的卫星观测 / NASA: satellite evidence that the Atlantic is saltier than the Pacific",
+        "url": "https://science.nasa.gov/earth/earth-observatory/a-measure-of-salt-78250/"
+      },
+      {
+        "label": "AGU 研究：跨中美洲水汽输送 / AGU study: water-vapour transport across Central America",
+        "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016GL069796"
+      }
+    ]
+  },
+  {
+    "id": "seasonal-variability",
+    "category": "课堂问答",
+    "title": "6. 哪些海区夏冬差异最大？哪里最小？ / 6. Where Are Summer–Winter Differences Largest and Smallest?",
+    "summary": "中高纬表层季节变化大，低纬大洋内部和深层变化通常较小。\nSurface seasonality is often strong at middle and high latitudes and weaker in the tropical open ocean and deep water.",
+    "tags": [
+      "季节变化",
+      "混合层",
+      "海温"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "若问题指表层温度与混合层：温带和副极地海域、边缘海及陆架海往往夏冬差异较大。夏季太阳加热使表层变暖并建立浅层结，冬季热量损失和风浪使混合层加深。\nFor surface temperature and mixed-layer depth, temperate and subpolar oceans, marginal seas and shelves often show large summer–winter differences. Summer solar heating warms the surface and builds shallow stratification; winter heat loss and wind deepen the mixed layer."
+      },
+      {
+        "type": "p",
+        "text": "赤道附近以及远离季节性表面强迫的深海，温度季节变化通常较弱；但赤道海区仍可能受上升流、季风和厄尔尼诺影响。‘最小’与‘最大’必须先说明比较的是温度、盐度、混合层深度还是通量，不能用同一地区回答所有变量。\nSeasonal temperature changes are usually weaker near the equator and in deep water far from seasonal surface forcing. Yet upwelling, monsoons and El Niño can affect equatorial regions. The locations of a maximum and minimum depend on whether one compares temperature, salinity, mixed-layer depth or a flux; one answer does not fit every variable."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA PMEL 全球混合层月气候态 / NOAA PMEL: global monthly mixed-layer climatology",
+        "url": "https://www.pmel.noaa.gov/public/pmel/publications-search/search_abstract.php?fmContributionNum=5294"
+      },
+      {
+        "label": "NOAA World Ocean Atlas / NOAA World Ocean Atlas",
+        "url": "https://www.ncei.noaa.gov/products/world-ocean-atlas"
+      }
+    ]
+  },
+  {
+    "id": "thermocline-processes",
+    "category": "课堂问答",
+    "title": "7. 哪两类过程维持温跃层？ / 7. Which Two Classes of Processes Maintain the Thermocline?",
+    "summary": "表层浮力强迫建立温度和密度差，环流与混合决定其深度和形状。\nSurface buoyancy forcing creates temperature and density contrasts; circulation and mixing shape their depth and slope.",
+    "tags": [
+      "温跃层",
+      "浮力",
+      "环流"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "第一类是海面热量与淡水通量：太阳加热使较暖、较轻的水留在上方；高纬冷却使较冷、较密的水下沉。这样形成上暖下冷的温度差与稳定层结，夏季还会形成季节性温跃层。\nFirst, surface heat and freshwater fluxes create buoyancy contrasts. Solar heating leaves warmer, lighter water above; high-latitude cooling makes denser water sink. Together these processes establish a warm-over-cold temperature contrast and stable stratification, including a seasonal thermocline in summer."
+      },
+      {
+        "type": "p",
+        "text": "第二类是动力过程：风驱 Ekman 辐合下沉、次表层俯冲和大尺度环流把受海面影响的水带入海洋内部；上升流与垂向混合则把较冷的水带向上方，并与加热相竞争。永久温跃层的深度与坡度由这些过程共同决定。\nSecond, dynamical processes shape the thermocline. Wind-driven Ekman convergence and downwelling, subsurface subduction and large-scale circulation carry surface-influenced water into the interior. Upwelling and vertical mixing bring cooler water toward the surface and compete with heating. Their combined effects set the depth and slope of the permanent thermocline."
+      },
+      {
+        "type": "note",
+        "text": "如果课堂把‘两过程’特指垂向扩散与冷水上升流，请以教师给出的方程和图示为准；本答案按物理机制分成表面浮力强迫与环流/混合两类。\nIf the class uses “two processes” specifically for vertical diffusion and cold-water upwelling, follow the teacher's equation and diagram. This answer groups the physics into surface buoyancy forcing and circulation/mixing."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI：风驱通风温跃层讲义 / WHOI lecture on the wind-driven ventilated thermocline",
+        "url": "https://gfd.whoi.edu/wp-content/uploads/sites/18/2018/03/Lecture9_32351.pdf"
+      },
+      {
+        "label": "NOAA PMEL：风与浮力驱动的上层海洋 / NOAA PMEL: upper ocean driven by wind and buoyancy",
+        "url": "https://www.pmel.noaa.gov/people/cronin/encycl/ms0157.pdf"
+      }
+    ]
+  },
+  {
+    "id": "surface-flux-factors",
+    "category": "热量收支",
+    "title": "8. Qs、Qb、Qe、Qh 分别受什么控制？ / 8. What Controls Qs, Qb, Qe and Qh?",
+    "summary": "从辐射、湿度差、风速和海气温差理解四项通量。\nUnderstand the four fluxes through radiation, humidity contrast, wind and air–sea temperature contrast.",
+    "tags": [
+      "Qs",
+      "Qb",
+      "Qe",
+      "Qh"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Qs（海面吸收短波）：主要受太阳高度和昼长、云量、气溶胶及海面反照率影响。日照强、云少时增大；极夜时接近零。\nQs (absorbed shortwave radiation) mainly depends on solar angle and day length, cloud cover, aerosols and surface albedo. It rises with stronger sunshine and fewer clouds, and approaches zero during polar night."
+      },
+      {
+        "type": "p",
+        "text": "Qb（净向上长波）：取决于海表温度发射的红外辐射，与大气温度、湿度和云的向下长波辐射之差。晴朗干燥天空通常使净向外长波损失较大。\nQb (net upward longwave radiation) is the difference between infrared emission from the sea surface and downward longwave radiation from the atmosphere, so it depends on sea-surface temperature, air temperature, humidity and clouds. Clear, dry skies commonly produce larger net outward loss."
+      },
+      {
+        "type": "p",
+        "text": "Qe（向上潜热）：蒸发带走的热，主要由海表与近海面空气的水汽压或比湿差、风速、海气稳定度决定。暖海面遇到干冷大风时很强。\nQe (upward latent heat) is heat removed by evaporation. It mainly depends on the sea-to-air vapour-pressure or specific-humidity difference, wind speed and air–sea stability. Warm water under dry, cold, windy air gives strong evaporation."
+      },
+      {
+        "type": "p",
+        "text": "Qh（向上感热）：主要由海表与近海面空气的温差、风速、稳定度决定。冷空气越过暖流时，向上的感热通量显著增强；暖空气经过冷海面时可转为向下。\nQh (upward sensible heat) mainly depends on the sea-to-air temperature difference, wind speed and stability. It becomes strongly upward when cold air crosses a warm current; it may reverse when warm air crosses a colder sea."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI OAFlux 通量变量和正方向 / WHOI OAFlux variables and positive directions",
+        "url": "https://oaflux.whoi.edu/data-products/"
+      },
+      {
+        "label": "NOAA 海洋热通量气候资料 / NOAA ocean-heat-flux climate data",
+        "url": "https://www.ncei.noaa.gov/products/climate-data-records/ocean-heat-fluxes"
+      }
+    ]
+  },
+  {
+    "id": "surface-flux-ranges",
+    "category": "热量收支",
+    "title": "9. 四项热通量的量级与极值区域 / 9. Typical Magnitudes and Extreme Regions of the Four Heat Fluxes",
+    "summary": "给出可用于复习的典型量级；精确极值依赖地图、时段和数据集。\nReview approximate magnitudes; exact extrema depend on the map, averaging period and dataset.",
+    "tags": [
+      "热通量",
+      "量级",
+      "极值"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "text": "原图只包含问题，没有配套的全球通量地图。因此不能可靠读出教材所问的精确最大/最小值与中心坐标。下列为月平均或季节平均的示意量级，单位均为 W m⁻²；符号约定：Qs 向海洋为正，其余三项向大气为正。\nThe supplied photo shows the questions but no accompanying global flux maps, so the exact maximum and minimum values and centre coordinates cannot be read reliably. The figures below are illustrative monthly or seasonal means in W m⁻². Qs is positive into the ocean; Qb, Qe and Qh are positive upward."
+      },
+      {
+        "type": "p",
+        "text": "Qs：通常从极夜接近 0 到晴朗低纬约 200–300 以上；高值多见于日照强、少云海区，低值在冬季极区和多云区。\nQs: From nearly zero in polar night to roughly 200–300 W m⁻² or more in sunny low latitudes. Strong sunlight and few clouds favour high values; winter polar and cloudy regions favour low values."
+      },
+      {
+        "type": "p",
+        "text": "Qb：常为几十到约 100；晴朗干燥的副热带海域净向外长波损失偏大，湿润多云区偏小。\nQb: Commonly tens to about 100 W m⁻². Clear, dry subtropical skies favour stronger net outward longwave loss; humid, cloudy conditions reduce it."
+      },
+      {
+        "type": "p",
+        "text": "Qe：常为数十到数百；冬季湾流、黑潮等暖流与冷干空气相遇处可非常高，低风速、空气潮湿或冷海面处较低。\nQe: Commonly tens to hundreds of W m⁻². It can be very high when cold, dry winter air crosses the warm Gulf Stream or Kuroshio, and lower over cold seas or in weak winds and humid air."
+      },
+      {
+        "type": "p",
+        "text": "Qh：通常比潜热小，很多开阔海域在约 −20 到 100 的量级；冬季强冷空气经过暖流时可更高，暖空气越过较冷海面时可为负值。\nQh: Usually smaller than latent heat; many open-ocean values are on the order of −20 to 100 W m⁻². Strong cold-air outbreaks across warm currents can be higher. Warm air over colder water can give negative upward flux."
+      },
+      {
+        "type": "p",
+        "text": "作为实际量级参照，北大西洋副热带 SPURS 一年观测的四项年平均约为：入海短波 220、出海长波 59、潜热 124、感热 6。它们是一个站点的年平均，不是全球极值。\nFor a measured scale, annual mean values at one subtropical North Atlantic SPURS site were about 220 W m⁻² shortwave into the sea, and 59 longwave, 124 latent and 6 sensible W m⁻² out of the sea. These are station annual means, not global extremes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "WHOI OAFlux 全球月平均通量图和数据 / WHOI OAFlux global monthly heat-flux maps and data",
+        "url": "https://oaflux.whoi.edu/heat-flux/heat-flux-plots/"
+      },
+      {
+        "label": "SPURS 海气热通量实测研究 / SPURS observational study of air–sea heat flux",
+        "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2015.00107/full"
+      }
+    ]
+  },
+  {
+    "id": "bohai-budget",
+    "category": "计算例题",
+    "title": "渤海淡水通量与海水更新期 / Bohai Sea Freshwater Flux and Water-Renewal Time",
+    "summary": "用体积守恒和盐守恒解截图中的渤海海峡练习题。\nUse volume and salt conservation to solve the Bohai Strait exercise shown in the screenshot.",
+    "tags": [
+      "渤海",
+      "淡水收支",
+      "更新时间"
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "text": "题目给出：表层流出 Qout = 7×10³ m³/s，盐度 30；次表层流入 Qin = 6×10³ m³/s，盐度 35。盐通量约为 7×10³×30 = 6×10³×35，满足稳态盐守恒。\nThe exercise gives surface outflow Qout = 7×10³ m³/s at salinity 30 and subsurface inflow Qin = 6×10³ m³/s at salinity 35. The approximate salt fluxes, 7×10³×30 and 6×10³×35, match under a steady salt balance."
+      },
+      {
+        "type": "formula",
+        "text": "净淡水输入 F = Qout − Qin = 1×10³ m³/s ≈ 3.15×10¹⁰ m³/年 ≈ 31.5 km³/年"
+      },
+      {
+        "type": "p",
+        "text": "若采用题目所示平均水深约 20 m，并用约 7.7×10⁴ km² 的海域面积，海水体积 V ≈ 1.54×10¹² m³。按表层交换流出量定义的更新时间 τ = V/Qout ≈ 7.0 年；若按次表层流入量定义则约 8.1 年。\nUsing the exercise's mean depth of about 20 m and an area of roughly 7.7×10⁴ km² gives volume V ≈ 1.54×10¹² m³. Defining renewal time by surface outflow, τ = V/Qout ≈ 7.0 years; defining it by subsurface inflow gives about 8.1 years."
+      },
+      {
+        "type": "note",
+        "text": "更新时间是简化箱体模型估算，不等于每个水团的实际停留时间。不同面积、平均深度与交换流定义会改变数值。\nThis is a simple box-model renewal estimate, not the residence time of every water parcel. Changing the area, mean depth or definition of exchange flow changes the value."
+      }
+    ],
+    "sources": [
+      {
+        "label": "渤海面积和平均水深研究 / Study of Bohai Sea area and mean depth",
+        "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2020.00079/full"
+      }
+    ]
+  },
+  {
+    "id": "physical-oceanography-map",
+    "category": "图片解读",
+    "title": "物理海洋学脑图：六个模块怎样连起来？ / Physical Oceanography Concept Map: How Do Six Modules Connect?",
+    "summary": "从力和守恒出发，理解水团、环流、波动、海气作用与观测。\nBegin with forces and conservation, then link water masses, circulation, waves, air–sea exchange and observations.",
+    "tags": [
+      "脑图",
+      "物理海洋学",
+      "知识框架"
+    ],
+    "image": "assets/physical-oceanography-map.png",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "这张脑图的主线是‘驱动力 → 海水性质与运动 → 观测和应用’。六栏是学习顺序的提示，并非互相孤立的章节。\nThe map's main line is driving forces → seawater properties and motion → observations and applications. Its six columns suggest a learning sequence, not six isolated subjects."
+      },
+      {
+        "type": "p",
+        "text": "① 基础物理：重力、压强梯度力、科里奥利力、摩擦及守恒律，解释海水为什么运动。地转平衡是大尺度流动的重要近似。\n1. Fundamental physics: Gravity, pressure-gradient force, Coriolis force, friction and conservation laws explain why seawater moves. Geostrophic balance is an important approximation for large-scale flow."
+      },
+      {
+        "type": "p",
+        "text": "② 水团结构：温度、盐度决定密度与层结；输运、扩散、卷入、上升流会改变温盐剖面，也连接了前面混合层和温跃层问题。\n2. Water-mass structure: Temperature and salinity control density and stratification. Transport, diffusion, entrainment and upwelling change temperature–salinity profiles and connect to the mixed-layer and thermocline questions."
+      },
+      {
+        "type": "p",
+        "text": "③ 环流与海流：风应力通过 Ekman 输运和抽吸驱动大洋环流；西边界流、温盐环流和翻转环流把热量及物质在海盆间搬运。\n3. Circulation and currents: Wind stress drives gyres through Ekman transport and pumping. Western boundary currents, thermohaline circulation and overturning carry heat and matter among basins."
+      },
+      {
+        "type": "p",
+        "text": "④ 波动与变率：表面重力波、内波、潮汐、Kelvin 波和 Rossby 波在不同尺度上传播能量与信息；中尺度涡和次中尺度过程影响混合。\n4. Waves and variability: Surface gravity waves, internal waves, tides, Kelvin waves and Rossby waves transmit energy and information across different scales. Mesoscale eddies and submesoscale processes affect mixing."
+      },
+      {
+        "type": "p",
+        "text": "⑤ 海气相互作用：风应力是动量强迫，短波、长波、潜热、感热和淡水通量是热盐强迫。海洋反过来影响大气，这是双向反馈。\n5. Air–sea interaction: Wind stress provides momentum forcing; shortwave, longwave, latent and sensible heat plus freshwater fluxes provide heat and salt forcing. The ocean also influences the atmosphere, producing two-way feedback."
+      },
+      {
+        "type": "p",
+        "text": "⑥ 观测与应用：卫星海表温度和海面高度、Argo 浮标、锚系、船测、再分析及数值模式用于检验前五部分的机制。海洋热浪就是用观测数据分析变率的一个应用。\n6. Observation and applications: Satellite SST and sea level, Argo floats, moorings, ship surveys, reanalysis and numerical models test the preceding mechanisms. Marine heatwaves are one application of observed variability."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA 世界海洋图集 / NOAA World Ocean Atlas",
+        "url": "https://www.ncei.noaa.gov/products/world-ocean-atlas"
+      },
+      {
+        "label": "NOAA 海洋热通量数据 / NOAA ocean-heat-flux data",
+        "url": "https://www.ncei.noaa.gov/products/climate-data-records/ocean-heat-fluxes"
+      }
+    ]
+  },
+  {
+    "id": "marine-heatwave-chart",
+    "category": "图片解读",
+    "title": "南海北部海洋热浪季节图如何读？ / How to Read the Northern South China Sea Marine-Heatwave Seasonal Chart",
+    "summary": "四幅图分别表示开始事件数、持续时间、热浪天数和强度。\nThe four panels show event starts, duration, heatwave days and intensity, respectively.",
+    "tags": [
+      "海洋热浪",
+      "NOAA OISST",
+      "南海",
+      "季节变化"
+    ],
+    "image": "assets/marine-heatwaves-seasonal.png",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "图题显示使用 NOAA OISST 数据研究南海北部海洋热浪的季节变化。常见定义是在某地、某日的海表温度超过季节性历史第 90 百分位阈值，连续至少 5 天。图中没有写明基准时段、分析年份和空间汇总方法，因此只能解释它展示的统计结果，不能据此复算或断言长期趋势。\nThe figure title says NOAA OISST was used to study seasonal marine heatwaves in the northern South China Sea. A common definition is sea-surface temperature above the seasonally varying local 90th-percentile threshold for at least five consecutive days. The figure does not state its baseline, analysis years or spatial aggregation method, so we can explain the displayed statistics but cannot reproduce them or infer a long-term trend from this image alone."
+      },
+      {
+        "type": "p",
+        "text": "(a) 按开始月份统计的事件数：5 月最高，为 537 次；2 月较少。它反映‘事件何时开始’，不是每月在海上同时存在多少热浪。\n(a) Number of events grouped by start month: May is highest at 537; February is lower. This records when an event begins, not the number simultaneously active in a month."
+      },
+      {
+        "type": "p",
+        "text": "(b) 按开始月份统计的平均持续时间：5 月最高，约 13.97 天；4 月约 9.7 天较低。持续时间统计的是单次事件从开始到结束的长度。\n(b) Mean duration grouped by start month: May is highest at about 13.97 days; April is lower at about 9.7 days. Duration is the length of an individual event from start to end."
+      },
+      {
+        "type": "p",
+        "text": "(c) 月平均热浪天数：6 月最高，约 4.40 天/年。这里的单位‘天/年’表示跨研究年份平均的每年该月热浪天数，因此它与 (a) 的事件数、(b) 的单次持续天数不能直接相加或互相替代。\n(c) Mean monthly heatwave days: June is highest at about 4.40 days/year. “Days/year” means the average number of heatwave days in that month per research year; this is not interchangeable with event count in (a) or duration per event in (b)."
+      },
+      {
+        "type": "p",
+        "text": "(d) 月平均强度：4 月最高，约 1.84 °C；10 月最低，约 1.42 °C。它表示发生热浪时的海温异常强度，并不表示 4 月海水绝对温度最高。\n(d) Mean monthly intensity: April is highest at about 1.84 °C; October is lowest at about 1.42 °C. This is the sea-temperature anomaly during heatwaves, not the month's absolute sea temperature."
+      },
+      {
+        "type": "note",
+        "text": "5 月事件最频繁、6 月热浪天数最多、4 月强度最强并不矛盾：四项指标的统计对象和分母不同。形成机制还需结合季风、净热通量、混合层深度及海流等资料验证，仅凭这张图不能判定因果。\nThe different peaks—May for event starts, June for heatwave days and April for intensity—are compatible because the metrics have different numerators and denominators. Testing causes requires monsoon, net heat flux, mixed-layer depth and current data; this plot alone cannot establish causation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA：海洋热浪常用定义与 OISST / NOAA: common marine-heatwave definition and OISST",
+        "url": "https://www.ncei.noaa.gov/news/data-behind-our-warming-oceans"
+      },
+      {
+        "label": "NOAA：海洋热浪指标与计算背景 / NOAA: marine-heatwave metrics and calculation background",
+        "url": "https://ecowatch.noaa.gov/thematic/marine-heatwaves"
+      }
+    ]
+  }
+]
