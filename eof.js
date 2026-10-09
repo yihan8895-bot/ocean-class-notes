@@ -59,7 +59,7 @@
     svg.append(svgElement('path',{d:path,class:'pc-line'}));
     values.forEach((v,i) => {
       const c = svgElement('circle',{cx:x(i),cy:y(v),r:2.9,class:'pc-dot'});
-      const title = svgElement('title'); title.textContent = `${data.years[i]}：${v > 0 ? '+' : ''}${v.toFixed(2)} SD`;
+      const title = svgElement('title'); title.textContent = `${data.years[i]} 年 / year：${v > 0 ? '+' : ''}${v.toFixed(2)} 标准差 / SD`;
       c.append(title);
       svg.append(c);
     });
@@ -71,7 +71,7 @@
     container.replaceChildren(svg);
   }
   function main(data) {
-    if (data.nx !== 88 || data.ny !== 100 || data.years.length !== 30 || data.patterns.length < 2) throw new Error('EOF 数据结构不符合预期');
+    if (data.nx !== 88 || data.ny !== 100 || data.years.length !== 30 || data.patterns.length < 2) throw new Error('EOF 数据结构不符合预期 / Unexpected EOF data structure');
     for (let k=0;k<2;k++) {
       const vals = data.patterns[k].filter(Number.isFinite);
       const limit = Math.ceil(Math.max(...vals.map(Math.abs)) / 5) * 5;

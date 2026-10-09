@@ -3,16 +3,16 @@
   PUBLIC '-//W3C//DTD SVG 1.0//EN'
   'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
 <svg width="900" height="470" preserveAspectRatio="xMinYMin meet" viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<title>...</title>
-	<desc>...</desc>
+	<title>南海各季节海洋热浪持续时间 / Seasonal marine heatwave duration in the South China Sea</title>
+	<desc>春季约八点一天，夏季约八点一天，秋季八点五天，冬季九点八天。 / Mean event duration is about 8.1 days in spring, 8.1 in summer, 8.5 in autumn and 9.8 in winter.</desc>
 	<clipPath id="clip">
 		<rect x="0" y="0" width="900" height="470"/>
 	</clipPath>
 	<g id="group" transform="scale(1,-1) translate(0,-470)" style="clip-path: url(#clip)">
 		<g transform="">
 			<rect x="0" y="0" width="900" height="470" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
-			<text x="52" y="416" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,832) scale(1,-1)">Mean MHW duration by season</text>
-			<text x="52" y="388" style="font-family: Helvetica; font-size: 13px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,776) scale(1,-1)">South China Sea  |  1982-2022  |  days per event</text>
+			<text x="52" y="416" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,832) scale(1,-1)">各季节热浪平均持续时间 / Mean MHW duration by season</text>
+			<text x="52" y="388" style="font-family: Helvetica; font-size: 13px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,776) scale(1,-1)">南海 / South China Sea  |  1982–2022  |  天/次 / days per event</text>
 			<path d="M 105,96 L 845,96 Z" style="stroke: rgb(86%,91%,91%); stroke-linecap: butt; stroke-width: 1;"/>
 			<text x="82.328" y="92.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,184) scale(1,-1)">0</text>
 			<path d="M 105,143.272727 L 845,143.272727 Z" style="stroke: rgb(86%,91%,91%); stroke-linecap: butt; stroke-width: 1;"/>
@@ -27,17 +27,17 @@
 			<text x="75.656" y="328.3636363636364" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,656) scale(1,-1)">10</text>
 			<rect x="141.5" y="96" width="112.0" height="191.4545454545455" rx="8" ry="8" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(17%,71%,62%); fill-rule: evenodd;"/>
 			<text x="184.99" y="301.4545454545455" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,602) scale(1,-1)">8.1</text>
-			<text x="175.331" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">Spring</text>
+			<text x="175.331" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">春 / Spring</text>
 			<rect x="326.5" y="96" width="112.0" height="191.4545454545455" rx="8" ry="8" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(17%,71%,62%); fill-rule: evenodd;"/>
 			<text x="369.99" y="301.4545454545455" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,602) scale(1,-1)">8.1</text>
-			<text x="354.493" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">Summer</text>
+			<text x="354.493" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">夏 / Summer</text>
 			<rect x="511.5" y="96" width="112.0" height="200.90909090909088" rx="8" ry="8" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(17%,71%,62%); fill-rule: evenodd;"/>
 			<text x="554.99" y="310.9090909090909" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,621) scale(1,-1)">8.5</text>
-			<text x="541.061" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">Autumn</text>
+			<text x="541.061" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">秋 / Autumn</text>
 			<rect x="696.5" y="96" width="112.0" height="231.63636363636363" rx="8" ry="8" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,49%,37%); fill-rule: evenodd;"/>
 			<text x="739.99" y="341.6363636363636" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,683) scale(1,-1)">9.8</text>
-			<text x="730.723" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">Winter</text>
-			<text x="52" y="25" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,50) scale(1,-1)">Reported seasonal means; spring and summer are approximately 8.1 days.</text>
+			<text x="730.723" y="64" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">冬 / Winter</text>
+			<text x="52" y="25" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,50) scale(1,-1)">春、夏为约数 / Spring and summer values are approximate.</text>
 		</g>
 	</g>
 </svg>

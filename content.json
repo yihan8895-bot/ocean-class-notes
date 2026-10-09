@@ -224,7 +224,7 @@
         "url": "https://www.pmel.noaa.gov/public/pmel/publications-search/search_abstract.php?fmContributionNum=5294"
       },
       {
-        "label": "NOAA World Ocean Atlas / NOAA World Ocean Atlas",
+        "label": "NOAA 世界海洋图集 / NOAA World Ocean Atlas",
         "url": "https://www.ncei.noaa.gov/products/world-ocean-atlas"
       }
     ]
@@ -368,7 +368,7 @@
       },
       {
         "type": "formula",
-        "text": "净淡水输入 F = Qout − Qin = 1×10³ m³/s ≈ 3.15×10¹⁰ m³/年 ≈ 31.5 km³/年"
+        "text": "净淡水输入：F = Qout − Qin = 1×10³ m³/s ≈ 3.15×10¹⁰ m³/年 ≈ 31.5 km³/年\nNet freshwater input: F = Qout − Qin = 1×10³ m³/s ≈ 3.15×10¹⁰ m³/year ≈ 31.5 km³/year"
       },
       {
         "type": "p",

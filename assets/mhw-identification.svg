@@ -3,18 +3,18 @@
   PUBLIC '-//W3C//DTD SVG 1.0//EN'
   'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
 <svg width="900" height="380" preserveAspectRatio="xMinYMin meet" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<title>...</title>
-	<desc>...</desc>
+	<title>海洋热浪识别示意 / Marine heatwave detection schematic</title>
+	<desc>连续八天超过季节性第九十百分位阈值，满足至少五天的热浪定义。 / Eight consecutive days exceed the seasonal 90th-percentile threshold, meeting the five-day event definition.</desc>
 	<clipPath id="clip">
 		<rect x="0" y="0" width="900" height="380"/>
 	</clipPath>
 	<g id="group" transform="scale(1,-1) translate(0,-380)" style="clip-path: url(#clip)">
 		<g transform="">
 			<rect x="0" y="0" width="900" height="380" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
-			<text x="50" y="325" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,650) scale(1,-1)">How an event is identified</text>
-			<text x="50" y="299" style="font-family: Helvetica; font-size: 13px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,598) scale(1,-1)">Schematic temperatures - not measured observations</text>
+			<text x="50" y="325" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(5%,18%,27%); stroke:none;" transform="translate(0,650) scale(1,-1)">如何识别一次热浪 / How an event is identified</text>
+			<text x="50" y="299" style="font-family: Helvetica; font-size: 13px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,598) scale(1,-1)">虚构海温示意 / Hypothetical temperatures, not observations</text>
 			<path d="M 80,190 L 840,190 Z" style="stroke: rgb(94%,49%,37%); stroke-linecap: butt; stroke-width: 2; stroke-dasharray: 7, 5;"/>
-			<text x="675.94" y="201" style="font-family: Helvetica; font-size: 12px;fill: rgb(94%,49%,37%); stroke:none;" transform="translate(0,402) scale(1,-1)">Daily 90th-percentile threshold</text>
+			<text x="675.94" y="201" style="font-family: Helvetica; font-size: 12px;fill: rgb(94%,49%,37%); stroke:none;" transform="translate(0,402) scale(1,-1)">90% 阈值 / 90th-percentile threshold</text>
 			<polyline points="80 150, 138.4615 158, 196.9231 169, 255.3846 181, 313.8462 208, 372.3077 227, 430.7692 230, 489.2308 217, 547.6923 211, 606.1538 224, 664.6154 213, 723.0769 202, 781.5385 183, 840 169" style="stroke: rgb(5%,18%,27%); stroke-linecap: butt; stroke-width: 3; fill: None; fill-rule: evenodd;"/>
 			<circle cx="80.0" cy="150" r="5" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(17%,71%,62%); fill-rule: evenodd;"/>
 			<text x="77.22" y="73" style="font-family: Helvetica; font-size: 10px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,146) scale(1,-1)">1</text>
@@ -47,8 +47,8 @@
 			<path d="M 313.846154,118 L 723.076923,118 Z" style="stroke: rgb(94%,49%,37%); stroke-linecap: butt; stroke-width: 3;"/>
 			<path d="M 313.846154,113 L 313.846154,123 Z" style="stroke: rgb(94%,49%,37%); stroke-linecap: butt; stroke-width: 2;"/>
 			<path d="M 723.076923,113 L 723.076923,123 Z" style="stroke: rgb(94%,49%,37%); stroke-linecap: butt; stroke-width: 2;"/>
-			<text x="406.83703846153844" y="131" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(94%,49%,37%); stroke:none;" transform="translate(0,262) scale(1,-1)">8 consecutive days above threshold</text>
-			<text x="50" y="27" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,54) scale(1,-1)">An MHW needs at least 5 consecutive days above the local seasonal threshold.</text>
+			<text x="406.83703846153844" y="131" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(94%,49%,37%); stroke:none;" transform="translate(0,262) scale(1,-1)">连续 8 天超阈值 / 8 days above threshold</text>
+			<text x="50" y="27" style="font-family: Helvetica; font-size: 12px;fill: rgb(42%,52%,58%); stroke:none;" transform="translate(0,54) scale(1,-1)">热浪至少连续 5 天超阈值 / An MHW needs at least 5 days above threshold.</text>
 		</g>
 	</g>
 </svg>
