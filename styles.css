@@ -14,3 +14,12 @@
 .article-content .en-copy{margin-top:5px;color:#527587;line-height:1.8;font-size:.92em;font-weight:400}
 .article-content .block-note .en-copy{color:#577783}
 @media(max-width:600px){.site-header{min-height:72px}.site-header nav{font-size:10px;gap:6px 9px}.hero h1 .hero-english,.hero-english{font-size:16px}}
+
+@media(max-width:600px){
+  .site-header{display:grid;grid-template-columns:1fr;justify-items:start;row-gap:10px;padding:12px 5%}
+  .site-header .identity{max-width:100%;font-size:14px}
+  .site-header .identity small{letter-spacing:.06em}
+  .site-header nav{width:100%;justify-content:flex-start;gap:8px 14px;font-size:11px}
+  .site-header nav a{white-space:nowrap;line-height:1.4}
+  .site-header .admin-link{padding:7px 10px}
+}
