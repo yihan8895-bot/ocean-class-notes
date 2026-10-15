@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>地转流 / Geostrophic Flow｜形成机制、动画与观测 / Formation, Animation and Observation</title>
   <link rel="stylesheet" href="styles.css?v=20261009-bilingual">
-  <link rel="stylesheet" href="geostrophic.css?v=20261015-section">
+  <link rel="stylesheet" href="geostrophic.css?v=20261015-global">
   <script src="geostrophic.js?v=20261015c" defer></script>
 </head>
 <body class="geo-page">
@@ -41,7 +41,7 @@
 
     <div class="geo-stat-strip"><div><strong>2 Ω sinφ</strong><span>科氏参数 f / Coriolis parameter</span></div><div><strong>Ro ≪ 1</strong><span>旋转效应占主导 / Rotation dominates</span></div><div><strong>u<sub>g</sub> ∥ 等压线</strong><span>流速平行于等压线 / Flow follows pressure contours</span></div><div><strong>|u<sub>g</sub>| ∝ 坡度 / slope</strong><span>坡度越大，地转流越快 / Steeper slope, faster flow</span></div></div>
 
-    <nav class="geo-section-nav" aria-label="专题目录 / Atlas contents"><a href="#idea">01 核心概念 / Core Idea</a><a href="#lab">02 形成动画 / Formation Animation</a><a href="#equations">03 方程与方向 / Equations and Direction</a><a href="#data-study">04 十年数据 / Ten-year Data</a><a href="#eddies">05 海面与涡旋 / Sea Level and Eddies</a><a href="#observe">06 如何观测 / How We Observe</a><a href="#limits">07 适用边界 / Limits</a></nav>
+    <nav class="geo-section-nav" aria-label="专题目录 / Atlas contents"><a href="#idea">01 核心概念 / Core Idea</a><a href="#lab">02 形成动画 / Formation Animation</a><a href="#equations">03 方程与方向 / Equations and Direction</a><a href="#data-study">04 十年数据 / Ten-year Data</a><a href="#eddies">05 海面与涡旋 / Sea Level and Eddies</a><a href="#observe">06 如何观测 / How We Observe</a><a href="#limits">07 适用边界 / Limits</a><a href="#global">08 全球环流 / Global Schematic</a></nav>
 
     <section class="geo-section idea-section" id="idea">
       <div class="geo-heading"><span>01 / 核心概念 / CORE IDEA</span><h2>地转流是两种水平力的<br>近似平衡。<small class="heading-en" lang="en">Geostrophic Flow Is an Approximate Balance of Two Horizontal Forces</small></h2><p>“地转”描述的是一种动力平衡，不是一种固定海流名称。它常用于解释远离海岸和海底边界层的大尺度海流与中尺度涡旋。 / “Geostrophic” describes a dynamical balance, not the name of one particular current. It commonly explains large-scale currents and mesoscale eddies away from coastal and bottom boundary layers.</p></div>
@@ -102,8 +102,8 @@
     <section class="geo-section equation-section" id="equations">
       <div class="geo-heading"><span>03 / 方程与方向 / EQUATIONS AND DIRECTION</span><h2>一条向量方程，<br>读出速度方向和大小。<small class="heading-en" lang="en">One Vector Equation Gives Both Direction and Speed</small></h2><p>忽略局地加速度、平流加速度和摩擦后，水平动量方程留下压强梯度力与科氏力。 / Neglecting local acceleration, advective acceleration and friction leaves the pressure-gradient and Coriolis terms in the horizontal momentum equation.</p></div>
       <div class="equation-board">
-        <div class="main-equation"><small>地转平衡 / Geostrophic balance</small><strong>f k̂ × u<sub>g</sub> = − (1/ρ) ∇<sub>h</sub>p</strong><span>科氏项 / Coriolis term   =   水平压强梯度项 / Horizontal pressure-gradient term</span></div>
-        <div class="surface-equations"><div><small>东西向速度 / Zonal velocity</small><strong>u<sub>g</sub> = − g/f · ∂η/∂y</strong></div><div><small>南北向速度 / Meridional velocity</small><strong>v<sub>g</sub> =   g/f · ∂η/∂x</strong></div></div>
+        <div class="main-equation"><small>地转平衡 / Geostrophic balance</small><strong>f k̂ × u<sub>g</sub> = − (1/ρ) ∇<sub>h</sub>p</strong><span>科氏项 / Coriolis term   =   水平压强梯度项 / Horizontal pressure-gradient term</span></div>
+        <div class="surface-equations"><div><small>东西向速度 / Zonal velocity</small><strong>u<sub>g</sub> = − g/f · ∂η/∂y</strong></div><div><small>南北向速度 / Meridional velocity</small><strong>v<sub>g</sub> =   g/f · ∂η/∂x</strong></div></div>
         <p>其中 f = 2Ωsinφ，η 为海面高度。海面坡度越大，压强梯度越强；在相同坡度下，|f| 越小，公式给出的地转速度越大，但接近赤道时该近似失效。 / Here f = 2Ωsinφ and η is sea-surface height. A steeper surface means a stronger pressure gradient. For the same slope, smaller |f| gives a larger geostrophic speed, but the approximation fails near the equator.</p>
       </div>
       <div class="direction-guide"><article><span>北半球 / NORTHERN HEMISPHERE</span><h3>高压在流向右侧 / High pressure lies to the right of the flow</h3><p>面向水流下游，较高海面或较高压力位于右手侧。 / Looking downstream, higher sea level or pressure is on your right.</p></article><article><span>南半球 / SOUTHERN HEMISPHERE</span><h3>高压在流向左侧 / High pressure lies to the left of the flow</h3><p>科氏偏转方向反转，因此同一海面坡度会给出相反的沿等高线流向。 / The Coriolis deflection reverses, so the same sea-level slope produces the opposite along-contour flow.</p></article></div>
@@ -177,8 +177,194 @@
       <div class="check-card"><div><span>快速自测 / QUICK CHECK</span><h3 id="quiz-question">北半球中，海面西高东低时，近地转流主要指向哪里？ / In the Northern Hemisphere, sea level is higher in the west and lower in the east. Which way does the near-geostrophic current flow?</h3></div><div class="quiz-options"><button type="button" data-answer="wrong">向东 / East</button><button type="button" data-answer="correct">向南 / South</button><button type="button" data-answer="wrong">向北 / North</button></div><p id="quiz-feedback" role="status">先判断压强梯度力向东，再让科氏力与它反向平衡。 / First identify the eastward pressure-gradient force, then find the current direction that gives an opposing Coriolis force.</p></div>
     </section>
 
+        <section class="geo-section global-section" id="global">
+      <div class="geo-heading light"><span>08 / 全球示意 / GLOBAL SCHEMATIC</span><h2>把地转平衡放到全球海洋，<br>能解释哪些大海流？<small class="heading-en" lang="en">What Can Geostrophic Balance Explain on the Global Ocean?</small></h2><p>大洋表层的许多大海流都近似处于地转平衡：海面坡度和密度结构给出压强梯度力，科氏力与之相抵，流动沿等压线前进。下面这幅示意图把前五节的概念放到全球尺度，并用四个课堂问题逐一读图。 / Many large surface currents are close to geostrophic balance: sea-surface slope and density structure set the pressure-gradient force, the Coriolis force opposes it, and the flow runs along pressure contours. The schematic below places the previous concepts on the global ocean and reads the map through four classroom questions.</p></div>
+
+      <div class="global-map-card">
+        <div class="global-map-top"><div><span>全球地转流示意 / GLOBAL GEOSTROPHIC CURRENTS</span><strong>五大环流、边界流与南极绕极流 / Gyres, Boundary Currents and the ACC</strong></div><small>示意图：位置与走向经简化，不按比例 / Schematic: simplified, not to scale</small></div>
+        <svg id="gmap" viewBox="0 0 1200 640" role="img" aria-labelledby="gmap-title gmap-desc">
+        <title id="gmap-title">全球地转流示意图 / Schematic map of global geostrophic currents</title>
+        <desc id="gmap-desc">世界地图上标注五个副热带环流（北半球顺时针、南半球逆时针）、主要暖流与寒流、连续的南极绕极流，以及赤道附近 f 趋于零的非地转带。 / World map showing five subtropical gyres (clockwise in the Northern Hemisphere, counterclockwise in the Southern), major warm and cold boundary currents, the continuous Antarctic Circumpolar Current, and the near-equatorial band where the Coriolis parameter vanishes.</desc>
+        <defs>
+          <linearGradient id="gmap-ocean" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10586f"/><stop offset=".55" stop-color="#0d4763"/><stop offset="1" stop-color="#092f4b"/></linearGradient>
+          <marker id="gm-arrow-warm" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#ffb36b"/></marker>
+          <marker id="gm-arrow-cold" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#74b9ff"/></marker>
+          <marker id="gm-arrow-mint" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#7ce0c7"/></marker>
+          <marker id="gm-arrow-gray" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c9d6d8"/></marker>
+        </defs>
+        <rect x="0" y="0" width="1200" height="640" rx="18" fill="url(#gmap-ocean)"/>
+        <g class="gmap-grat" aria-hidden="true">
+          <line x1="210.7" y1="24" x2="210.7" y2="616"/><line x1="405.3" y1="24" x2="405.3" y2="616"/><line x1="600" y1="24" x2="600" y2="616"/><line x1="794.7" y1="24" x2="794.7" y2="616"/><line x1="989.3" y1="24" x2="989.3" y2="616"/>
+          <line x1="16" y1="85.3" x2="1184" y2="85.3"/><line x1="16" y1="200.8" x2="1184" y2="200.8"/><line x1="16" y1="431.4" x2="1184" y2="431.4"/><line x1="16" y1="546.6" x2="1184" y2="546.6"/>
+        </g>
+        <rect class="gmap-eqband" x="16" y="296.9" width="1168" height="38.5" rx="6"/>
+        <g class="gmap-land">
+          <path d="M100,616L113,616L125,616L120,616L113,616L105,616L97,616L91,616L99,616L92,616L87,615L91,612L100,613L112,615L120,615L126,613L124,608L133,608L139,607L144,607L151,605L157,604L168,604L176,606L185,608L190,605L196,602L200,600L206,600L211,601L215,599L220,599L218,603L223,605L227,605L231,605L236,604L236,600L240,603L247,605L245,601L250,602L256,605L261,604L267,603L271,604L276,604L271,602L276,599L271,598L267,596L277,596L282,597L287,600L284,596L277,594L272,593L281,593L285,592L290,593L295,595L301,596L306,596L312,596L318,596L323,597L331,596L336,596L342,597L347,595L352,595L357,596L363,598L368,598L373,597L378,597L383,594L381,589L378,585L382,583L383,578L378,577L380,572L385,575L386,571L392,568L397,565L400,563L406,562L412,560L416,561L412,561L409,564L404,565L399,568L397,572L392,572L388,575L388,579L393,580L398,584L400,587L403,591L402,596L403,602L400,605L396,605L387,610L382,612L389,613L397,612L405,612L413,613L418,614L426,616L432,616L440,616L445,616L457,616L467,616L475,616L482,616L486,615L492,614L497,613L503,612L508,610L512,609L522,606L528,602L533,601L537,600L543,598L547,597L552,596L560,595L564,593L568,589L572,592L576,590L581,588L585,590L590,590L595,587L598,590L604,590L609,589L615,587L621,587L628,586L632,586L637,586L641,586L646,586L651,586L655,586L659,586L665,587L670,587L675,587L680,587L688,586L692,585L697,585L702,584L709,583L711,580L717,583L724,584L729,583L734,579L741,577L749,577L756,576L762,577L764,572L769,570L774,569L779,570L785,571L791,574L797,575L803,576L811,576L815,577L820,577L825,576L829,581L827,586L833,587L838,584L845,585L850,582L854,579L861,578L868,575L876,574L880,573L884,572L891,573L895,572L902,572L908,572L915,572L920,572L924,571L929,570L937,570L944,571L950,572L955,572L959,570L966,569L971,570L978,572L986,573L990,573L997,571L1003,573L1008,572L1014,572L1019,574L1024,570L1033,570L1039,570L1046,571L1052,572L1061,573L1065,573L1070,576L1076,577L1081,579L1088,579L1095,580L1101,580L1106,583L1111,582L1119,583L1123,587L1130,586L1134,587L1139,587L1143,588L1147,590L1152,591L1150,596L1142,598L1136,601L1129,605L1129,610L1131,615L1135,616L1124,616L1119,616L1127,616Z"/>
+          <path d="M1140,614L1146,613L1150,614L1146,615L1140,614Z"/>
+          <path d="M68,616L75,616L81,616L75,616L69,616Z"/>
+          <path d="M353,589L358,589L363,589L370,588L368,584L372,581L375,585L378,589L377,594L368,596L363,595L359,594L353,592Z"/>
+          <path d="M340,316L343,312L345,308L349,304L349,299L349,292L346,288L344,283L340,284L339,288L335,285L330,284L327,280L323,278L322,273L318,269L316,265L310,265L306,263L302,261L298,257L294,254L290,255L284,255L279,252L274,250L269,247L264,246L260,242L257,238L259,234L256,229L252,224L249,219L245,216L243,212L239,209L236,205L234,200L232,196L228,194L228,199L230,202L234,207L237,212L239,216L241,221L244,225L239,223L236,219L234,215L230,212L227,209L228,204L224,200L223,196L220,191L217,186L213,184L209,183L206,178L204,174L203,169L199,167L198,162L198,157L196,152L197,147L198,142L198,137L196,132L200,131L200,125L195,124L190,121L186,119L183,115L179,112L176,109L178,105L173,103L168,100L171,104L167,102L164,98L168,97L164,97L163,92L163,98L158,94L155,92L150,89L147,86L142,86L136,86L130,85L124,82L119,82L118,86L113,87L107,89L109,83L113,81L108,82L105,85L101,88L99,93L93,95L88,98L85,101L79,102L74,104L69,106L73,102L79,101L84,98L88,95L89,90L84,92L78,90L74,85L68,87L65,83L61,80L65,75L71,74L78,72L78,67L72,69L65,68L60,68L57,65L62,61L68,61L74,62L70,58L64,55L70,51L72,47L80,45L84,44L89,44L93,42L98,43L105,44L112,45L117,45L121,46L126,46L133,47L140,48L147,49L154,51L159,52L165,49L170,48L174,47L179,46L183,47L189,47L193,49L199,49L206,48L214,50L219,51L224,51L228,52L233,56L238,55L242,55L249,56L253,52L261,53L266,55L276,56L280,54L282,48L287,50L286,55L290,55L294,53L290,48L288,43L292,40L291,35L298,31L304,32L302,36L295,37L297,42L302,44L304,49L308,53L314,52L317,58L323,54L323,50L327,48L331,48L336,50L333,53L337,56L332,60L324,61L319,61L318,66L313,70L308,70L306,74L300,76L296,80L294,83L293,89L298,91L300,96L305,96L311,98L315,100L321,102L327,104L333,105L333,109L335,114L339,119L344,118L344,112L342,106L347,104L351,101L350,96L347,92L349,87L347,83L347,77L352,76L357,77L363,77L368,79L372,82L375,85L376,90L380,93L385,90L388,88L393,87L396,91L399,94L400,100L404,102L408,104L412,106L414,110L419,112L419,116L416,118L410,119L405,123L400,124L394,123L390,123L383,124L379,127L375,129L372,134L375,131L379,129L383,127L388,127L392,130L385,131L390,133L390,138L395,140L400,140L403,135L406,139L402,141L396,144L391,146L386,148L388,143L383,143L379,145L374,148L370,152L371,156L366,158L362,158L359,163L355,164L357,168L354,173L352,168L353,164L352,169L353,175L351,178L352,183L347,185L343,188L339,192L336,195L336,201L339,207L340,212L340,217L335,217L332,212L332,208L329,202L325,202L321,200L317,200L312,199L307,199L309,203L304,204L299,202L294,202L290,206L285,209L284,214L284,219L283,225L282,230L284,234L286,239L289,244L293,246L298,245L304,245L306,241L307,235L311,234L316,234L316,239L316,245L314,251L311,255L316,255L321,255L325,255L329,258L329,263L329,269L329,275L332,279L336,283L341,281L346,280L350,284L353,280L355,276L359,273L364,271L367,268L367,274L366,279L368,274L372,272L377,272L379,276L384,275L389,277L394,275L398,279L402,280L405,283L408,286L410,290L414,292L418,294L423,294L427,295L432,299L435,304L436,309L436,314L433,319L436,323L436,318L441,317L442,322L447,319L452,321L456,325L460,326L465,328L470,327L475,331L479,334L483,336L486,341L487,345L486,349L483,355L480,358L478,362L475,366L473,370L473,376L473,382L472,387L470,393L468,397L465,402L460,405L455,405L452,407L447,411L444,414L442,420L442,426L438,430L436,435L431,440L428,445L425,449L419,450L415,448L410,448L415,452L416,458L414,461L410,464L405,465L399,466L397,471L393,474L389,474L391,479L388,484L387,489L382,491L383,496L387,497L385,502L381,505L378,509L376,514L374,518L370,521L366,522L369,519L365,522L362,519L357,517L359,512L356,509L355,503L359,498L355,495L358,492L358,488L361,491L363,487L364,481L364,477L360,474L362,468L362,463L363,457L365,453L367,449L367,444L368,439L368,432L368,428L370,422L371,417L371,412L371,406L372,401L372,395L372,390L370,385L366,382L362,379L356,375L353,371L352,366L350,362L346,355L345,349L342,346L339,341L337,336L338,331L341,327L338,323L339,317Z"/>
+          <path d="M194,62L199,62L204,61L200,66L205,66L208,64L213,65L217,62L213,61L206,60L202,60L194,62Z"/>
+          <path d="M220,81L226,82L230,82L236,79L240,77L244,75L238,75L233,78L226,76L224,81Z"/>
+          <path d="M239,91L246,89L250,89L246,87L241,89Z"/>
+          <path d="M278,111L281,115L286,118L285,123L288,119L285,116L283,112L279,110Z"/>
+          <path d="M301,137L306,137L311,135L315,134L319,138L324,136L324,132L319,129L314,128L310,131L305,134L301,137Z"/>
+          <path d="M314,145L315,150L315,155L320,154L319,148L321,143L324,141L329,142L328,147L333,151L336,145L340,145L338,140L333,139L329,138L323,139L319,140L314,145Z"/>
+          <path d="M329,156L335,156L341,154L336,152L330,155Z"/>
+          <path d="M341,150L347,150L353,149L348,147L342,148Z"/>
+          <path d="M377,518L379,522L383,525L389,526L384,528L379,529L373,529L369,528L365,525L360,522L365,522L370,524L374,522L377,518Z"/>
+          <path d="M402,515L406,513L411,513L407,517L402,515Z"/>
+          <path d="M325,232L329,228L334,227L339,228L343,230L347,232L352,235L356,237L359,239L355,240L350,240L347,237L344,233L340,233L335,231L330,230L327,232Z"/>
+          <path d="M358,246L364,246L363,241L367,240L373,241L377,243L373,246L368,249L364,247L358,246Z"/>
+          <path d="M408,132L410,128L413,124L416,119L416,125L420,124L425,126L428,129L425,133L428,137L423,134L419,136L413,133L408,134Z"/>
+          <path d="M317,71L320,68L324,62L329,66L335,68L340,71L334,71L329,70L325,73L317,71Z"/>
+          <path d="M308,40L311,35L318,32L323,32L327,32L323,33L319,36L323,41L323,36L331,33L337,33L337,39L344,38L351,37L359,37L365,41L374,44L378,45L381,49L383,54L389,54L395,57L401,60L398,64L393,66L387,63L382,61L383,65L389,68L392,72L387,74L380,72L383,75L379,77L375,75L369,74L364,70L358,69L352,69L347,69L349,64L353,65L358,65L361,61L365,58L359,53L353,52L349,48L344,48L336,47L326,47L322,47L317,45L311,42Z"/>
+          <path d="M339,33L347,33L352,35L346,36L339,36Z"/>
+          <path d="M288,24L294,24L298,24L304,24L308,24L319,26L325,25L330,25L335,25L341,26L333,30L329,29L319,30L314,30L308,30L302,29L301,24L292,24Z"/>
+          <path d="M357,24L347,24L337,24L332,24L327,24L315,24L310,24L314,24L318,24L323,24Z"/>
+          <path d="M276,24L280,24L289,24L285,24L279,24L273,24L269,24L262,24L256,24Z"/>
+          <path d="M285,24L292,24L300,24L291,24L285,24Z"/>
+          <path d="M259,24L266,24L272,24L277,24L282,24L274,28L266,26L262,24Z"/>
+          <path d="M266,36L274,35L279,32L284,32L286,36L287,40L283,41L276,40L269,38Z"/>
+          <path d="M231,24L241,24L247,24L240,24L231,24Z"/>
+          <path d="M197,24L202,24L209,24L218,24L225,24L219,24L214,24L209,25L204,24L197,24Z"/>
+          <path d="M218,27L222,24L229,24L234,24L239,26L243,26L248,24L253,24L257,24L251,28L245,28L238,30L230,30L226,28L218,27Z"/>
+          <path d="M214,41L217,38L224,35L231,34L237,35L244,36L250,37L254,33L259,33L258,37L261,41L263,44L268,46L273,46L269,48L263,51L256,49L248,51L243,52L238,52L233,53L226,50L221,47L230,46L234,45L230,44L226,44L220,44L214,41Z"/>
+          <path d="M194,39L198,36L196,31L202,31L207,30L213,31L219,31L227,34L222,35L218,36L213,37L209,42L201,43L194,39Z"/>
+          <path d="M184,121L190,122L194,125L199,128L194,129L190,126L186,123Z"/>
+          <path d="M363,24L372,24L537,24L541,24L534,24L537,27L530,32L534,34L528,35L529,39L524,38L529,42L525,45L521,43L515,45L523,46L518,51L511,53L503,54L498,54L493,57L490,60L484,62L480,64L475,64L470,66L469,70L465,74L462,80L460,86L453,85L449,83L444,82L439,78L437,75L433,70L430,64L426,61L427,54L435,53L434,47L426,50L423,46L429,44L434,45L429,43L421,42L419,37L417,32L413,28L405,25L400,24L394,24L388,24L378,24L372,24L378,24L373,24L367,24L363,24Z"/>
+          <path d="M521,64L525,62L530,62L536,63L541,62L545,62L552,61L556,64L553,69L549,69L543,71L535,72L530,71L526,71L522,67L527,66L521,64Z"/>
+          <path d="M630,316L631,310L632,304L629,301L624,299L619,300L617,296L615,292L609,291L604,292L599,295L595,297L590,297L585,296L579,298L575,300L571,297L566,293L563,290L558,286L557,281L553,277L550,273L547,270L546,265L545,260L547,255L547,251L548,245L548,240L545,235L546,230L548,226L551,221L553,216L556,212L561,209L566,205L569,200L568,195L570,191L574,187L578,185L580,181L585,181L590,180L596,180L600,178L606,176L611,175L616,175L623,175L628,174L633,173L634,179L634,184L636,188L642,190L646,191L650,194L654,196L659,198L664,199L665,195L667,191L673,190L677,193L682,195L687,195L692,197L697,196L703,195L705,200L706,205L709,209L710,214L713,219L715,224L716,229L720,231L721,236L721,242L725,247L727,253L729,257L734,260L737,264L740,268L741,274L745,276L750,275L756,274L761,273L766,271L765,276L764,282L761,287L759,292L756,297L753,302L750,306L745,309L741,313L738,318L735,323L731,325L730,330L728,334L726,340L728,343L728,348L729,352L731,357L731,364L732,370L732,374L729,379L724,382L720,385L718,389L714,392L714,396L715,401L715,406L713,411L708,414L707,418L706,424L702,428L700,433L696,438L692,442L688,446L684,447L679,448L674,447L668,448L664,450L660,448L658,442L658,437L656,431L653,426L650,422L649,418L648,412L647,406L646,401L644,396L642,392L639,387L638,383L638,378L640,372L641,367L644,363L645,357L643,352L643,348L641,342L639,337L637,332L634,328L630,323L630,318Z"/>
+          <path d="M706,201L705,196L710,196L713,191L715,185L716,179L717,174L712,175L708,177L701,175L697,177L693,175L689,174L687,170L687,165L686,160L682,159L676,160L674,164L677,168L678,172L673,169L668,169L666,165L663,161L663,156L658,152L654,149L649,147L646,142L641,141L640,146L644,149L646,153L652,155L657,159L659,163L655,160L655,166L652,170L652,165L649,162L645,159L640,157L637,153L634,151L631,147L626,148L621,151L615,150L610,151L609,156L605,158L602,161L599,164L598,170L594,173L589,175L584,176L579,175L575,174L572,170L570,165L572,160L571,155L571,150L576,149L581,149L586,150L591,149L595,148L596,142L594,137L592,134L588,132L590,128L595,129L594,125L598,127L602,125L606,121L610,119L614,116L619,114L623,111L628,110L628,105L626,101L628,97L634,95L633,99L631,105L635,108L640,107L644,107L649,108L654,106L659,105L664,107L668,102L669,97L673,94L677,97L679,92L676,89L681,87L687,88L692,87L696,86L692,83L685,84L679,85L673,85L669,83L669,78L673,72L678,69L682,66L677,63L673,63L668,67L664,72L660,74L657,77L656,82L660,85L657,90L654,94L652,100L646,102L641,100L639,95L637,91L632,89L628,92L622,93L618,91L618,86L616,82L618,77L623,74L628,73L633,70L637,67L641,63L645,59L649,55L652,53L645,54L649,51L654,51L659,49L665,47L670,46L676,44L681,43L686,44L694,44L701,45L696,47L701,48L707,48L712,50L716,50L723,53L730,55L734,58L728,62L721,61L715,61L708,59L712,62L712,68L719,70L723,69L718,67L725,67L732,68L729,65L735,62L740,61L744,61L743,56L740,52L748,53L746,57L750,59L756,58L763,54L769,53L775,51L778,54L782,53L789,52L794,53L798,51L792,47L800,48L808,50L814,51L820,53L824,52L820,49L817,44L821,41L825,36L830,34L834,36L834,41L836,45L835,49L839,53L835,57L829,60L835,61L840,58L842,52L839,48L840,43L842,39L850,43L855,43L848,41L854,39L850,38L855,38L861,39L866,40L862,38L861,34L866,33L872,33L877,32L882,32L884,28L894,26L899,25L907,24L913,24L918,24L923,24L928,24L933,24L938,24L943,24L938,24L942,24L948,24L956,24L961,24L968,24L965,28L960,30L956,31L951,33L946,35L953,34L957,34L963,33L969,34L976,33L980,33L985,33L989,36L996,36L1000,36L1005,33L1012,34L1017,35L1021,36L1018,40L1023,44L1028,43L1033,41L1038,41L1043,41L1050,41L1055,41L1058,37L1067,37L1071,37L1076,38L1082,38L1086,39L1092,42L1098,44L1106,43L1111,43L1115,44L1119,46L1126,49L1132,48L1138,49L1142,49L1146,47L1149,51L1155,51L1158,47L1162,47L1167,48L1172,48L1180,49L1184,51L1190,53L1198,55L1202,58L1206,58L1211,59L1215,61L1209,64L1207,69L1200,67L1194,64L1189,64L1184,62L1183,67L1176,67L1179,70L1182,74L1174,76L1169,78L1164,79L1159,82L1154,84L1149,84L1143,84L1139,86L1135,86L1130,86L1127,91L1129,94L1130,100L1125,101L1126,106L1120,107L1119,112L1115,113L1112,118L1108,120L1107,116L1106,111L1105,105L1105,100L1109,95L1113,93L1118,90L1122,87L1125,84L1130,82L1132,77L1129,79L1125,81L1120,83L1120,79L1115,78L1109,79L1105,83L1101,86L1097,89L1093,90L1089,87L1085,86L1081,88L1075,88L1069,88L1063,88L1057,92L1053,95L1049,98L1045,101L1041,104L1043,108L1047,110L1053,108L1057,110L1058,115L1056,120L1056,126L1053,132L1049,135L1047,139L1044,142L1040,146L1036,150L1032,152L1027,150L1024,154L1020,156L1018,161L1014,163L1016,168L1019,172L1020,178L1017,182L1013,183L1011,179L1009,174L1005,170L1007,165L1003,163L997,165L993,167L996,162L991,162L987,165L982,167L986,171L990,172L996,172L992,176L988,179L990,184L992,189L995,193L996,197L991,200L996,201L994,206L991,211L989,215L987,219L983,223L980,226L975,229L970,231L965,232L960,234L958,238L956,234L950,234L946,237L943,241L945,247L948,251L952,256L954,259L954,265L954,271L951,274L946,276L943,280L940,277L936,275L934,271L930,267L926,264L924,270L922,275L922,279L924,283L926,289L930,291L934,295L936,301L937,306L938,311L933,309L929,305L926,300L926,294L924,289L920,284L920,279L920,274L920,268L919,264L918,259L917,253L912,253L908,256L907,250L906,246L904,242L901,238L898,234L897,229L893,232L888,233L883,234L881,238L877,241L874,245L870,248L867,251L863,254L860,257L860,263L860,267L859,273L856,279L853,284L848,282L847,277L845,272L843,266L841,260L839,257L838,251L837,247L836,242L836,236L835,231L833,236L827,235L824,231L828,228L823,227L819,224L817,220L813,219L808,219L804,219L798,219L794,219L788,217L785,214L781,213L776,214L772,212L767,209L764,204L761,201L757,202L758,208L761,212L763,217L767,217L766,223L771,223L776,223L780,219L782,216L783,221L787,225L792,227L793,232L791,236L788,239L787,243L784,247L779,250L775,251L770,254L766,258L761,259L757,263L753,265L748,265L744,267L740,265L739,260L738,256L738,251L735,246L732,241L728,237L727,232L726,227L722,223L719,217L716,212L712,209L714,203L712,207L707,204Z"/>
+          <path d="M703,324L708,326L710,321L710,316L705,316L703,319L703,324Z"/>
+          <path d="M695,339L697,343L699,347L699,342L697,339L696,334L695,329L695,333L695,339Z"/>
+          <path d="M711,363L711,368L715,372L713,368L713,363L712,359L712,354L711,358L711,363Z"/>
+          <path d="M689,153L693,157L699,158L704,156L710,155L715,156L719,158L724,159L730,159L735,156L734,152L729,149L725,146L721,144L715,143L711,145L706,142L703,138L698,140L696,144L693,147L691,152Z"/>
+          <path d="M712,140L715,142L721,142L724,138L728,135L722,135L717,137L712,140Z"/>
+          <path d="M751,144L754,148L755,153L759,157L762,160L760,164L759,170L763,173L767,176L773,174L774,168L773,164L772,159L778,159L774,154L771,158L770,153L767,150L765,146L767,143L772,143L774,138L771,135L765,135L761,136L757,140L752,143Z"/>
+          <path d="M789,143L789,148L794,148L798,146L800,142L799,138L794,138L790,142Z"/>
+          <path d="M838,141L843,139L847,137L851,137L856,138L851,137L844,137L839,139Z"/>
+          <path d="M936,118L941,118L947,114L951,112L955,109L956,104L952,107L949,110L946,113L941,117L936,118Z"/>
+          <path d="M697,81L701,86L705,85L703,80L698,80Z"/>
+          <path d="M740,400L742,397L744,391L743,385L744,381L747,377L752,375L754,371L758,367L760,362L762,366L763,371L764,375L761,381L760,385L759,390L757,395L756,400L755,405L754,409L751,413L746,414L742,410L741,406L740,400Z"/>
+          <path d="M859,285L860,280L864,283L865,289L862,293L859,289Z"/>
+          <path d="M953,242L957,239L959,244L954,246L953,242Z"/>
+          <path d="M990,225L993,220L994,226L992,232L990,227Z"/>
+          <path d="M1020,188L1025,186L1028,190L1026,195L1022,193L1020,188Z"/>
+          <path d="M1025,184L1029,181L1035,179L1040,180L1043,175L1048,173L1052,170L1054,165L1054,160L1059,157L1060,162L1059,167L1057,172L1056,177L1053,182L1048,183L1044,182L1042,186L1038,183L1033,184L1028,186Z"/>
+          <path d="M1054,152L1058,150L1060,146L1060,141L1064,145L1068,147L1071,150L1066,152L1060,152L1055,153L1054,157L1054,152Z"/>
+          <path d="M1060,111L1062,107L1065,112L1065,118L1067,124L1064,127L1062,132L1065,136L1061,140L1061,133L1060,129L1061,124L1061,118L1060,113Z"/>
+          <path d="M1184,43L1180,43L1184,41L1190,41L1184,43Z"/>
+          <path d="M1075,26L1084,27L1090,27L1084,29L1078,28Z"/>
+          <path d="M1045,27L1051,24L1057,25L1065,25L1070,25L1063,28L1056,28L1048,29Z"/>
+          <path d="M922,24L941,24L935,24L928,24L922,24Z"/>
+          <path d="M768,41L771,38L774,35L778,31L781,28L787,27L792,24L798,24L805,24L811,24L820,24L824,24L818,24L813,25L807,25L802,27L797,28L790,31L785,34L780,37L783,43L787,44L780,44L775,44L770,42Z"/>
+          <path d="M670,24L675,24L681,24L674,24L668,24L662,24L656,24L649,24L644,24L649,24L644,24L638,24Z"/>
+          <path d="M582,124L585,121L590,119L586,118L587,113L590,110L589,105L585,106L584,102L581,98L581,94L587,91L591,94L592,99L595,103L598,107L601,111L605,113L603,117L600,121L595,121L591,121L585,123Z"/>
+          <path d="M566,116L571,112L568,109L572,108L576,104L580,104L580,109L580,114L574,117L569,118Z"/>
+          <path d="M627,159L631,159L631,164L627,166L627,160Z"/>
+          <path d="M640,170L644,170L649,170L650,174L644,173L640,170Z"/>
+          <path d="M974,448L976,443L976,438L974,433L973,428L970,424L970,420L968,415L968,410L969,405L970,400L975,399L979,396L984,394L989,393L994,391L997,386L998,382L1002,382L1004,378L1006,373L1011,371L1016,373L1021,375L1021,370L1023,365L1027,364L1030,360L1035,362L1041,363L1043,367L1040,372L1043,378L1048,380L1052,383L1057,383L1059,378L1059,372L1060,366L1061,362L1065,365L1066,369L1070,373L1072,378L1074,383L1075,388L1079,391L1083,395L1085,400L1089,403L1091,408L1095,413L1097,418L1097,422L1099,426L1097,431L1096,437L1094,442L1091,446L1089,450L1087,456L1086,461L1081,462L1076,465L1072,463L1067,464L1063,464L1058,463L1054,460L1052,454L1050,451L1044,452L1046,447L1047,442L1044,447L1040,451L1038,446L1036,441L1031,439L1026,438L1021,438L1015,439L1010,440L1005,442L1001,446L996,446L990,447L985,450L980,451L975,448Z"/>
+          <path d="M1070,472L1074,474L1080,473L1081,478L1080,482L1074,483L1072,480L1070,474Z"/>
+          <path d="M1168,458L1174,462L1179,461L1177,466L1173,470L1171,474L1169,471L1164,468L1167,464L1167,459L1164,454L1162,451L1166,453L1168,457Z"/>
+          <path d="M1140,493L1144,488L1148,485L1152,483L1155,480L1158,476L1160,472L1164,475L1163,480L1160,483L1156,487L1155,491L1150,495L1146,495L1141,494Z"/>
+          <path d="M909,294L914,296L919,299L923,303L927,308L932,310L934,314L936,319L939,323L944,326L944,332L943,338L939,338L936,334L932,331L929,326L926,320L924,316L921,312L919,308L916,303L912,300L909,294Z"/>
+          <path d="M942,342L946,339L952,340L956,342L960,340L965,342L968,346L971,349L967,348L962,348L957,346L952,346L947,344L942,342Z"/>
+          <path d="M999,348L995,350L989,350L993,349L999,348Z"/>
+          <path d="M1001,356L1003,351L1008,349L1013,348L1009,351L1004,355Z"/>
+          <path d="M953,312L955,308L960,310L962,305L967,303L971,298L974,296L977,292L982,291L985,295L983,300L982,306L984,310L982,314L981,318L977,323L977,327L974,331L969,329L964,329L960,328L957,323L954,318L953,312Z"/>
+          <path d="M986,327L987,321L989,316L992,311L997,312L1002,313L1006,309L1004,314L999,314L994,314L990,316L992,321L996,320L1001,320L996,323L997,328L999,333L998,338L997,334L993,331L993,326L991,332L991,337L988,334L986,330Z"/>
+          <path d="M1013,312L1015,308L1017,312L1015,316L1013,312Z"/>
+          <path d="M1015,328L1020,327L1024,329L1020,329L1015,328Z"/>
+          <path d="M1024,321L1029,317L1034,319L1035,323L1037,328L1042,326L1045,323L1051,324L1056,325L1061,327L1066,329L1070,332L1073,337L1078,339L1077,344L1081,347L1082,351L1086,353L1089,357L1084,356L1079,355L1075,350L1072,347L1068,345L1065,348L1061,351L1056,349L1052,347L1047,348L1049,344L1049,340L1046,335L1040,333L1035,331L1031,330L1032,326L1028,324Z"/>
+          <path d="M989,254L990,249L993,245L996,247L997,251L994,256L995,260L999,262L1002,265L998,263L993,264L992,259L989,256Z"/>
+          <path d="M980,284L984,279L988,273L987,277L983,281Z"/>
+          <path d="M996,276L996,271L1000,272L1000,276L1004,279L1000,279L996,276Z"/>
+          <path d="M996,289L999,285L1003,284L1007,281L1011,287L1009,292L1005,293L1002,289L999,286L996,290Z"/>
+          <path d="M1081,337L1087,337L1091,335L1094,332L1093,338L1089,340L1084,340Z"/>
+          <path d="M1133,394L1138,398L1141,401L1137,399L1133,394Z"/>
+        </g>
+        <g class="gmap-gyres" fill="none" stroke-linecap="round">
+          <path d="M35,223 A55,42 0 1 1 33,202" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M415,223 A52,40 0 1 1 413,202" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M136,426 A52,40 0 1 0 134,405" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M516,425 A48,38 0 1 0 514,406" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M829,437 A50,38 0 1 0 827,418" marker-end="url(#gm-arrow-mint)"/>
+        </g>
+        <g class="gmap-acc" fill="none" stroke-linecap="round">
+          <path d="M30,548 L300,548" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M380,548 L660,548" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M740,548 L1010,548" marker-end="url(#gm-arrow-mint)"/>
+          <path d="M1080,548 L1180,548" marker-end="url(#gm-arrow-mint)"/>
+        </g>
+        <g class="gmap-warm" fill="none" stroke-linecap="round">
+          <path d="M337,220 C355,200 370,180 390,163 C415,150 440,145 454,143 C470,138 480,135 487,132 C505,125 530,110 551,101" marker-end="url(#gm-arrow-warm)"/>
+          <path d="M1015,197 C1030,185 1045,175 1057,166 C1065,158 1072,155 1093,162 C1115,165 1150,160 1177,159" marker-end="url(#gm-arrow-warm)"/>
+          <path d="M22,155 C45,150 75,140 97,136" marker-end="url(#gm-arrow-warm)"/>
+          <path d="M431,389 C445,405 455,425 464,447 C462,455 456,462 451,466" marker-end="url(#gm-arrow-warm)"/>
+          <path d="M1100,408 C1108,425 1105,445 1087,470 C1082,477 1078,482 1077,485" marker-end="url(#gm-arrow-warm)"/>
+          <path d="M704,420 C695,438 685,452 668,474 C663,478 660,480 658,481" marker-end="url(#gm-arrow-warm)"/>
+        </g>
+        <g class="gmap-cold" fill="none" stroke-linecap="round">
+          <path d="M185,151 C195,172 205,195 220,224" marker-end="url(#gm-arrow-cold)"/>
+          <path d="M558,189 C552,205 548,220 545,235" marker-end="url(#gm-arrow-cold)"/>
+          <path d="M373,478 C365,450 358,420 340,374 C333,360 328,350 324,343" marker-end="url(#gm-arrow-cold)"/>
+          <path d="M649,443 C645,425 642,405 639,389" marker-end="url(#gm-arrow-cold)"/>
+          <path d="M967,443 C962,427 957,410 947,393" marker-end="url(#gm-arrow-cold)"/>
+          <path d="M1080,116 C1073,126 1066,137 1061,147" marker-end="url(#gm-arrow-cold)"/>
+        </g>
+        <g class="gmap-eq" fill="none" stroke-linecap="round" stroke-dasharray="7 6">
+          <path d="M1050,270 L800,270" marker-end="url(#gm-arrow-gray)"/>
+          <path d="M1050,355 L820,355" marker-end="url(#gm-arrow-gray)"/>
+        </g>
+        <g class="gmap-gyre-label" text-anchor="middle">
+          <text x="87" y="205">北太平洋环流</text><text x="87" y="219" class="en">顺时针 / CW</text>
+          <text x="464" y="205">北大西洋环流</text><text x="464" y="219" class="en">顺时针 / CW</text>
+          <text x="185" y="408">南太平洋环流</text><text x="185" y="422" class="en">逆时针 / CCW</text>
+          <text x="561" y="408">南大西洋环流</text><text x="561" y="422" class="en">逆时针 / CCW</text>
+          <text x="876" y="420">南印度洋环流</text><text x="876" y="434" class="en">逆时针 / CCW</text>
+        </g>
+        <g class="gmap-label" text-anchor="middle">
+          <text x="428" y="128">湾流 / Gulf Stream</text>
+          <text x="1002" y="222">黑潮 / Kuroshio</text>
+          <text x="472" y="462" text-anchor="start">巴西流 / Brazil</text>
+          <text x="1100" y="505">东澳流 / E. Australian</text>
+          <text x="645" y="505">阿古拉斯流 / Agulhas</text>
+          <text x="232" y="252" text-anchor="start">加利福尼亚流 / California</text>
+          <text x="515" y="260">加那利流 / Canary</text>
+          <text x="300" y="448">秘鲁流 / Peru</text>
+          <text x="640" y="478">本格拉流 / Benguela</text>
+          <text x="955" y="485">西澳流 / W. Australian</text>
+          <text x="1086" y="110" text-anchor="start">亲潮 / Oyashio</text>
+          <text x="700" y="566" class="acc-label">南极绕极流 / Antarctic Circumpolar Current</text>
+        </g>
+        <g class="gmap-eq-label" text-anchor="middle">
+          <text x="920" y="262">北赤道流（风驱动）/ N. Equatorial Current (wind-driven)</text>
+          <text x="920" y="372">南赤道流（风驱动）/ S. Equatorial Current (wind-driven)</text>
+          <text x="600" y="321" class="band">赤道 ±5°：f ≈ 0，地转平衡失效 / f → 0: geostrophy breaks down</text>
+        </g>
+        <g class="gmap-legend">
+          <rect x="24" y="452" width="232" height="88" rx="10"/>
+          <text x="38" y="472" class="legend-title">图例 / LEGEND</text>
+          <line x1="38" y1="486" x2="66" y2="486" class="lg-warm"/><text x="74" y="490">暖流 / Warm current</text>
+          <line x1="38" y1="503" x2="66" y2="503" class="lg-cold"/><text x="74" y="507">寒流 / Cold current</text>
+          <line x1="38" y1="520" x2="66" y2="520" class="lg-mint"/><text x="74" y="524">地转流方向 / Geostrophic flow</text>
+          <line x1="38" y1="537" x2="66" y2="537" class="lg-gray"/><text x="74" y="541" class="legend-small">风驱动（非地转）/ Wind-driven</text>
+        </g>
+      </svg>
+        <p class="gmap-note"><strong>读图 / How to read：</strong>琥珀色为暖流，多位于大洋西边界；蓝色为寒流，多位于东边界；绿色箭头与圆环标出地转流方向及五个副热带环流的旋转方向；赤道阴影带内 f≈0，地转关系不适用，流系以风驱动为主（灰色虚线）。 / Amber marks warm currents, mostly on western boundaries; blue marks cold currents, mostly on eastern boundaries; mint arrows show geostrophic-flow direction and the rotation of the five subtropical gyres; inside the shaded equatorial band f≈0, where the geostrophic relation fails and currents are mainly wind-driven (grey dashed).</p>
+      </div>
+
+      <div class="gqa-grid">
+        <article><span>问题 01 / QUESTION 01</span><h3>为什么副热带环流北半球顺时针、南半球逆时针？<small lang="en">Why do subtropical gyres spin clockwise in the Northern Hemisphere but counterclockwise in the Southern?</small></h3><p>风把表层海水向副热带辐聚，堆出中央高、四周低的海面"山丘"：压强梯度力向外，科氏力向内，二者近似平衡。北半球流动保持高压在右，于是沿"山丘"顺时针转；南半球偏转方向相反，环流随之逆转。 / Winds pile surface water into a subtropical sea-level dome: the outward pressure-gradient force balances the inward Coriolis force. Northern-Hemisphere flow keeps the high on its right and circulates clockwise; reversed deflection in the south reverses the gyre.</p><div class="gqa-hint"><b>图上线索 / ON THE MAP →</b> 五个绿色圆环：北半球两个顺时针，南半球三个逆时针。 / Five mint loops: two clockwise in the north, three counterclockwise in the south.</div></article>
+        <article><span>问题 02 / QUESTION 02</span><h3>为什么湾流、黑潮又窄又快，而东边界流又宽又慢？<small lang="en">Why are the Gulf Stream and Kuroshio narrow and swift, while eastern boundary currents are broad and gentle?</small></h3><p>β 效应与风应力旋度把回流"挤"到大洋西侧（西向强化）：西边界海面坡度更陡，由 u<sub>g</sub> ∝ 坡度/f，地转流更快并集中在窄带内；东侧坡度平缓，流动宽而弱。注意分工：地转关系解释"坡度陡则流快"，西向强化本身来自风应力旋度与 β 效应。 / The β effect and wind-stress curl squeeze the return flow against the western boundary (westward intensification): a steeper sea-surface slope there means, via u<sub>g</sub> ∝ slope/f, a swifter geostrophic current confined to a narrow band, while gentle eastern slopes give broad, weak flows. Geostrophy explains the slope–speed link; the intensification itself comes from wind curl and β.</p><div class="gqa-hint"><b>图上线索 / ON THE MAP →</b> 西侧暖流（湾流、黑潮、巴西流、东澳流、阿古拉斯流）为粗箭头，东侧寒流为细箭头。 / Thick amber arrows on western boundaries versus thin blue arrows on eastern boundaries.</div></article>
+        <article><span>问题 03 / QUESTION 03</span><h3>为什么南极绕极流能不间断地环绕地球？<small lang="en">Why can the Antarctic Circumpolar Current circle the globe without interruption?</small></h3><p>南半球高纬没有陆地阻挡，南极洲以北的海面坡度带连续贯通，地转平衡让流动沿闭合等压线绕行一整圈；强西风持续输入动量，使它成为全球体积输送最大的海流。其他纬带则被大陆分割成一个个环流圈。 / With no land barrier at high southern latitudes, the sea-surface slope band north of Antarctica is continuous, so geostrophic flow follows closed pressure contours all the way around the globe. Persistent westerlies keep feeding momentum, making the ACC the largest current by volume transport; other latitude bands are broken into separate gyres by continents.</p><div class="gqa-hint"><b>图上线索 / ON THE MAP →</b> 图底部 50–60°S 连续贯穿三大洋的东向箭头带。 / The continuous eastward arrow band at 50–60°S crossing all three ocean basins.</div></article>
+        <article><span>问题 04 / QUESTION 04</span><h3>为什么赤道附近的海流不能用地转公式计算？<small lang="en">Why can't equatorial currents be computed with the geostrophic formula?</small></h3><p>u<sub>g</sub> = (g/f)·坡度 中的 f = 2Ωsinφ 在赤道趋于零，公式发散，近似本身失效。赤道流系主要由信风直接驱动，并伴有赤道波导过程，属于非地转流动；高度计产品在赤道附近必须改用 β 平面等特殊处理。 / In u<sub>g</sub> = (g/f)·slope, f = 2Ωsinφ vanishes at the equator, so the formula blows up and the balance itself fails. Equatorial currents are driven mainly by the trade winds and equatorial wave dynamics — they are ageostrophic. Altimetry products switch to special treatments such as the β-plane approximation near the equator.</p><div class="gqa-hint"><b>图上线索 / ON THE MAP →</b> 赤道 ±5° 阴影带与两条灰色虚线风驱动箭头。 / The shaded ±5° equatorial band and the two grey dashed wind-driven arrows.</div></article>
+      </div>
+    </section>
+
     <section class="geo-sources"><div><span>资料来源 / SOURCES</span><h2>核验依据 / Evidence Base</h2><p>页面的方向判断、公式、Argo 质量控制和 TEOS-10 换算依据 Argo、TEOS-10、NOAA、AVISO 与公开课程资料交叉核验。年度曲线保留采样缺口并报告显著性，不能作单因子气候归因。 / Directions, equations, Argo quality control and TEOS-10 conversions were cross-checked against Argo, TEOS-10, NOAA, AVISO and open-course sources. Annual curves preserve sampling gaps and report significance; they do not support single-cause climate attribution.</p></div><ul><li><a href="https://argo.ucsd.edu/data/data-from-gdacs/" target="_blank" rel="noopener noreferrer">Argo GDAC：全球数据汇交中心 / Global Data Assembly Centres</a><span>官方全球剖面索引与 NetCDF 数据入口 / Official global profile index and NetCDF access</span></li><li><a href="https://argo.ucsd.edu/data/how-to-use-argo-files/" target="_blank" rel="noopener noreferrer">Argo：剖面文件与质量控制 / Profile Files and Quality Control</a><span>QC 标志、数据模式与调整变量说明 / QC flags, data modes and adjusted variables</span></li><li><a href="https://www.teos-10.org/software.htm" target="_blank" rel="noopener noreferrer">TEOS-10：GSW 海水热力学工具箱 / Gibbs SeaWater Toolbox</a><span>SA、CT、σ0 与原位密度的标准算法 / Standard algorithms for SA, CT, sigma0 and in-situ density</span></li><li><a href="https://www.aviso.altimetry.fr/fileadmin/user_upload/tx_ausyclsseminar/files/SO_OSTSM_-_poster_F_01.pdf" target="_blank" rel="noopener noreferrer">AVISO：海面高度与表层地转流公式 / Sea Level and Surface Geostrophic Equations</a><span>由绝对动力海面高度梯度计算 u<sub>g</sub> 与 v<sub>g</sub> / Computing u<sub>g</sub> and v<sub>g</sub> from absolute dynamic topography</span></li><li><a href="https://coastwatch.noaa.gov/cwn/products/sea-level-anomaly-and-geostrophic-currents-multi-mission-global-optimal-interpolation.html" target="_blank" rel="noopener noreferrer">NOAA CoastWatch：海面高度异常与地转流产品 / Sea-Level Anomaly and Geostrophic Currents</a><span>卫星高度计、SLA 与地转流产品说明 / Altimetry, SLA and geostrophic-current product description</span></li><li><a href="https://www.aoml.noaa.gov/phod/dhos/altimetry.php" target="_blank" rel="noopener noreferrer">NOAA AOML：高度计推算海流 / Altimetry-Derived Ocean Currents</a><span>海面高度图、地转流和漂流浮标验证 / Sea-height fields, geostrophic currents and drifter checks</span></li><li><a href="https://ocw.mit.edu/courses/2-011-introduction-to-ocean-science-and-engineering-spring-2006/resources/geostrophic/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare：Geostrophic Currents</a><span>地转方程与物理背景 / Geostrophic equations and physical background</span></li><li><a href="https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html" target="_blank" rel="noopener noreferrer">NOAA Ocean Service：科氏效应 / The Coriolis Effect</a><span>南北半球偏转方向 / Deflection directions in both hemispheres</span></li></ul></section>
   </main>
-  <footer><span>≈   海洋课堂笔记 / Ocean Classroom Notes</span><span>地转流专题 · 物理海洋学 / Geostrophic Flow Atlas · Physical Oceanography</span><a href="./">返回资料库 / Back to Library</a></footer>
+  <footer><span>≈   海洋课堂笔记 / Ocean Classroom Notes</span><span>地转流专题 · 物理海洋学 / Geostrophic Flow Atlas · Physical Oceanography</span><a href="./">返回资料库 / Back to Library</a></footer>
 </body>
 </html>
