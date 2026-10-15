@@ -1,0 +1,23 @@
+{
+  "period": "2016-01-01 to 2025-12-31",
+  "totalDays": 3653,
+  "longitudeRange": [
+    100.125,
+    121.875
+  ],
+  "latitudeRange": [
+    0.125,
+    24.875
+  ],
+  "gridResolutionDegrees": [
+    0.25,
+    0.25
+  ],
+  "areaWeightedMeanSST_C": 28.411968678274658,
+  "areaWeightedMeanFront_C_per_100km": 0.58524334026708369,
+  "maximumMeanFront_C_per_100km": 3.4662778893169182,
+  "maximumMeanFrontLongitude": 119.375,
+  "maximumMeanFrontLatitude": 24.625,
+  "meanOISSTError_C": 0.18770238679340359,
+  "caveat": "OISST contains SST, not sea-surface height or velocity; SST gradients are not absolute geostrophic currents."
+}
