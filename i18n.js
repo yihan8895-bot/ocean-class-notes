@@ -17,7 +17,7 @@
     if (newline && /\p{Script=Han}/u.test(newline[1]) && /[A-Za-z]/.test(newline[2])) {
       return {zh: newline[1], en: newline[2]};
     }
-    const separators = [...value.matchAll(/\s\/\s/g)];
+    const separators = [...value.matchAll(/\s*\/\s+/g)];
     for (const match of separators) {
       const left = value.slice(0, match.index);
       const right = value.slice(match.index + match[0].length);
@@ -39,7 +39,7 @@
   function labelBlocks(root) {
     const elements = root.nodeType === Node.ELEMENT_NODE ? [root, ...root.querySelectorAll('*')] : [];
     for (const element of elements) {
-      if (element.matches('h1 > small, h2 > small') && !/\p{Script=Han}/u.test(element.textContent)) {
+      if (element.matches('h1 > small, h2 > small, h3 > small') && !/\p{Script=Han}/u.test(element.textContent)) {
         forcedLanguage.set(element, 'en');
         const parent = element.parentElement;
         for (const sibling of parent.childNodes) {
