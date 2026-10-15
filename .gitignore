@@ -1,0 +1,7 @@
+analysis/.pydeps/
+analysis/.cache/
+analysis/.tmp/
+analysis/.venv-argo/
+analysis/data/
+__pycache__/
+*.pyc
