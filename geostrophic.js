@@ -20,7 +20,7 @@
   const velocity = $('#velocity-vector');
   const playButton = $('#play-formation');
   let playing = false;
-  let raf = 0;
+  let timer = 0;
   let lastTime = 0;
 
   function latitudeText(value) {
@@ -97,19 +97,20 @@
 
   function stop() {
     playing=false;
-    cancelAnimationFrame(raf);
+    clearInterval(timer);
+    timer=0;
     playButton.textContent='▶ 播放 / Play';
     playButton.setAttribute('aria-label','播放地转流形成动画 / Play geostrophic-flow formation animation');
   }
 
-  function tick(time) {
+  function tick() {
     if(!playing) return;
+    const time=performance.now();
     if(!lastTime) lastTime=time;
     const next=Number(progress.value)+(time-lastTime)/115;
     lastTime=time;
     progress.value=String(next>100?0:next);
     render(Number(progress.value));
-    raf=requestAnimationFrame(tick);
   }
 
   playButton.addEventListener('click',()=>{
@@ -118,7 +119,8 @@
     playing=true;lastTime=0;
     playButton.textContent='Ⅱ 暂停 / Pause';
     playButton.setAttribute('aria-label','暂停地转流形成动画 / Pause geostrophic-flow formation animation');
-    raf=requestAnimationFrame(tick);
+    tick();
+    timer=setInterval(tick,40);
   });
   progress.addEventListener('input',()=>{stop();render(Number(progress.value))});
   $$('[data-stage]').forEach(button=>button.addEventListener('click',()=>{stop();progress.value=String([0,30,56,84][Number(button.dataset.stage)]);render(Number(progress.value))}));
