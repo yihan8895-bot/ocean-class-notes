@@ -1,11 +1,12 @@
 # 海洋课堂笔记 / Ocean Classroom Notes
 
-公开的中英文对照物理海洋学资料库，含课堂问答、南海海洋热浪分析、EOF 图表与动画，以及地转流专题。This public bilingual physical-oceanography library contains classroom answers, South China Sea marine-heatwave analysis, EOF figures and animation, and a geostrophic-flow atlas.
+可切换中文或英文的物理海洋学资料库，含课堂问答、南海海洋热浪分析、EOF 图表与动画，以及地转流专题。This public Chinese/English switchable physical-oceanography library contains classroom answers, South China Sea marine-heatwave analysis, EOF figures and animation, and a geostrophic-flow atlas.
 
 - 网站 / Website: https://yihan8895-bot.github.io/ocean-class-notes/
 - 资料 / Articles: `content.json` and `content/additions.json`
 - 图片与动画 / Images and animation: `assets/`
 - 地转流数据分析 / Geostrophic data analysis: `analysis/geostrophic_scs_2016_2025.m`
+- Argo 温盐密分析 / Argo analysis: `analysis/argo_scs_2016_2025.py` (0.25° × 0.25° spatial grid; at least three profiles per cell)
 
 地转流专题使用本地 NOAA OISST v2.1 南海子集生成 2016–2025 年温度锋面图。脚本只把 SST 梯度作为温度锋面指标，不把它当作海面高度梯度或绝对地转流。The geostrophic atlas uses a local NOAA OISST v2.1 South China Sea subset to generate 2016–2025 thermal-front figures. The script treats SST gradients as a thermal-front metric, not as sea-surface-height gradients or absolute geostrophic currents.
 

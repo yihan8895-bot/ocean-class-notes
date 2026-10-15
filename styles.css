@@ -23,3 +23,34 @@
   .site-header nav a{white-space:nowrap;line-height:1.4}
   .site-header .admin-link{padding:7px 10px}
 }
+/* Site-wide single-language navigation. */
+html [hidden] { display: none !important; }
+.site-header .language-switch {
+  appearance: none;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1;
+  padding: .65rem .9rem;
+  white-space: nowrap;
+}
+.site-header .language-switch:hover,
+.site-header .language-switch:focus-visible {
+  background: rgba(25, 147, 153, .13);
+  outline-offset: 3px;
+}
+html[data-language="en"] :is(h1, h2) > small:is(.hero-english, .heading-en) {
+  display: block;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}

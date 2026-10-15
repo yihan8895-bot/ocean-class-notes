@@ -39,7 +39,7 @@
       ctx.fillText(`${tick}°N`, x0 - 12, py + 4);
     }
     ctx.textAlign = 'left';ctx.font = 'bold 13px sans-serif';ctx.fillStyle = '#345967';
-    ctx.fillText(`色标 / Scale: −${limit} to +${limit} 天 / days`, x0, 27);
+    ctx.fillText(siteI18n.language === 'zh' ? `色标：−${limit} 至 +${limit} 天` : `Scale: −${limit} to +${limit} days`, x0, 27);
   }
   function svgElement(name, attrs = {}) {
     const el = document.createElementNS(NS, name);
@@ -52,14 +52,14 @@
     const cap = Math.max(1, Math.ceil(Math.max(...values.map(Math.abs)) * 2) / 2);
     const x = i => x0 + i / (values.length - 1) * (x1 - x0);
     const y = v => y0 + (cap - v) / (2 * cap) * (y1 - y0);
-    const svg = svgElement('svg', {viewBox:`0 0 ${w} ${h}`,role:'img','aria-label':`EOF ${index + 1} 的 1996 至 2025 年标准化时间系数 / standardized principal component, 1996–2025`});
+    const svg = svgElement('svg', {viewBox:`0 0 ${w} ${h}`,role:'img','aria-label':siteI18n.language === 'zh' ? `EOF ${index + 1} 的 1996 至 2025 年标准化时间系数` : `EOF ${index + 1} standardized principal component, 1996–2025`});
     svg.append(svgElement('line',{x1:x0,y1:y(0),x2:x1,y2:y(0),class:'pc-zero'}));
     svg.append(svgElement('line',{x1:x0,y1:y0,x2:x0,y2:y1,class:'pc-axis'}));
     const path = values.map((v,i) => `${i ? 'L' : 'M'} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
     svg.append(svgElement('path',{d:path,class:'pc-line'}));
     values.forEach((v,i) => {
       const c = svgElement('circle',{cx:x(i),cy:y(v),r:2.9,class:'pc-dot'});
-      const title = svgElement('title'); title.textContent = `${data.years[i]} 年 / year：${v > 0 ? '+' : ''}${v.toFixed(2)} 标准差 / SD`;
+      const title = svgElement('title'); title.textContent = siteI18n.language === 'zh' ? `${data.years[i]} 年：${v > 0 ? '+' : ''}${v.toFixed(2)} 标准差` : `${data.years[i]}: ${v > 0 ? '+' : ''}${v.toFixed(2)} SD`;
       c.append(title);
       svg.append(c);
     });
@@ -67,7 +67,7 @@
       const t = svgElement('text',{x:x(year - 1996),y:154,'text-anchor':year===1996?'start':year===2025?'end':'middle',class:'pc-label'});
       t.textContent = year; svg.append(t);
     }
-    const lab = svgElement('text',{x:x0+3,y:12,class:'pc-label'});lab.textContent='PC（标准差 / SD）';svg.append(lab);
+    const lab = svgElement('text',{x:x0+3,y:12,class:'pc-label'});lab.textContent=siteI18n.language === 'zh' ? 'PC（标准差）' : 'PC (SD)';svg.append(lab);
     container.replaceChildren(svg);
   }
   function main(data) {
@@ -92,7 +92,9 @@
       yearLabel.textContent = String(data.years[i]);
       const fmt = v => `${v >= 0 ? '+' : ''}${v.toFixed(2)}`;
       pcLabel.textContent = `PC1 ${fmt(pc1)} · PC2 ${fmt(pc2)}`;
-      caption.textContent = `${data.years[i]} 年 / year: 前两 EOF 模态的重建年热浪天数距平（天）。红色为高于该格点 30 年均值，蓝色为低于均值；该图不是逐日观测。 / Annual heatwave-day anomaly reconstructed from the first two EOF modes. Red is above and blue below each cell's 30-year mean. This is not daily observation.`;
+      caption.textContent = siteI18n.language === 'zh'
+        ? `${data.years[i]} 年：前两 EOF 模态的重建年热浪天数距平（天）。红色为高于该格点 30 年均值，蓝色为低于均值；该图不是逐日观测。`
+        : `${data.years[i]}: Annual heatwave-day anomaly reconstructed from the first two EOF modes. Red is above and blue below each cell's 30-year mean. This is not daily observation.`;
     }
     slider.addEventListener('input',() => {stop();renderYear(Number(slider.value));});
     button.addEventListener('click',() => {
@@ -101,6 +103,15 @@
       timer=setInterval(() => renderYear((Number(slider.value)+1)%data.years.length),800);
     });
     document.addEventListener('visibilitychange',() => {if(document.hidden)stop();});
+    window.addEventListener('site-language-change', () => {
+      for (let k=0;k<2;k++) {
+        const vals = data.patterns[k].filter(Number.isFinite);
+        const limit = Math.ceil(Math.max(...vals.map(Math.abs)) / 5) * 5;
+        plotMap(byId(`mode-map-${k+1}`), data, data.patterns[k], limit);
+        plotPC(byId(`pc-plot-${k+1}`), data, k);
+      }
+      renderYear(Number(slider.value));
+    });
     renderYear(0);
   }
   fetch('assets/eof-analysis.json').then(response => {if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json();}).then(main).catch(error => {

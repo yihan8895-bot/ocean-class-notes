@@ -107,7 +107,7 @@ function renderArticle(entry) {
       sources.append(link);
     }
   }
-  document.title = `${entry.title} · 海洋课堂笔记 / Ocean Classroom Notes`;
+  document.title = `${siteI18n.text(entry.title)} · ${siteI18n.text('海洋课堂笔记 / Ocean Classroom Notes')}`;
   window.scrollTo(0, 0);
 }
 
@@ -120,7 +120,7 @@ function route() {
   }
   $("#home").hidden = false;
   $("#article-page").hidden = true;
-  document.title = "海洋课堂笔记 / Ocean Classroom Notes · 物理海洋学 / Physical Oceanography";
+  document.title = `${siteI18n.text('海洋课堂笔记 / Ocean Classroom Notes')} · ${siteI18n.text('物理海洋学 / Physical Oceanography')}`;
   if (hash === "library") requestAnimationFrame(() => $("#library").scrollIntoView());
 }
 
@@ -144,4 +144,12 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "/" && $("#article-page").hidden && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) { event.preventDefault(); $("#search").focus(); }
 });
 window.addEventListener("hashchange", route);
+window.addEventListener("site-language-change", () => {
+  let hash;
+  try { hash = decodeURIComponent(location.hash.slice(1)); } catch { hash = ''; }
+  const entry = hash.startsWith('note/') ? entries.find(item => item.id === hash.slice(5)) : null;
+  document.title = entry
+    ? `${siteI18n.text(entry.title)} · ${siteI18n.text('海洋课堂笔记 / Ocean Classroom Notes')}`
+    : `${siteI18n.text('海洋课堂笔记 / Ocean Classroom Notes')} · ${siteI18n.text('物理海洋学 / Physical Oceanography')}`;
+});
 load().catch((error) => { $("#load-note").textContent = error.message; });

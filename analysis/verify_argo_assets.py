@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     html = (ROOT / "geostrophic.html").read_text(encoding="utf-8")
-    refs = set(re.findall(r'(?:src|href)="((?:assets|analysis)/[^"?#]+)', html))
+    refs = set(re.findall(r'\s(?:src|href)="((?:assets|analysis)/[^"?#]+)', html))
     missing = sorted(ref for ref in refs if not (ROOT / ref).exists())
     if missing:
         raise FileNotFoundError(f"Missing local references: {missing}")
@@ -25,6 +25,10 @@ def main() -> None:
     )
     if summary["profiles"] != 4175 or summary["gdac_index_profiles"] != 4320:
         raise ValueError("Published summary counts do not match the validated analysis")
+    if summary.get("spatial_grid_resolution_degrees") != [0.25, 0.25]:
+        raise ValueError("Argo maps and animation must use a 0.25° × 0.25° grid")
+    if summary.get("minimum_profiles_per_cell") != 3:
+        raise ValueError("Argo grid cells must retain the three-profile minimum")
 
     section = summary["density_isobar_section"]
     if section["date_range"] != "2017-03-13/2017-03-16" or len(section["stations"]) != 6:
@@ -45,6 +49,13 @@ def main() -> None:
         loop = animation.info.get("loop")
     if frames != 10 or loop != 0 or duration != 1150:
         raise ValueError("Animation must contain ten 1.15-second yearly frames and loop continuously")
+    for original in (ROOT / "assets/argo").glob("*.png"):
+        localized = original.with_name(f"{original.stem}-en.png")
+        if not original.stem.endswith("-en") and not localized.exists():
+            raise FileNotFoundError(f"Missing English figure: {localized}")
+    with Image.open(ROOT / "assets/argo/argo_scs_100dbar_temperature_anomaly-en.gif") as animation:
+        if animation.n_frames != 10:
+            raise ValueError("English animation must contain ten annual frames")
 
     print(
         json.dumps(
@@ -53,6 +64,7 @@ def main() -> None:
                 "missing_references": missing,
                 "valid_profiles": summary["profiles"],
                 "gdac_index_profiles": summary["gdac_index_profiles"],
+                "grid_resolution_degrees": summary["spatial_grid_resolution_degrees"],
                 "gif_frames": frames,
                 "gif_duration_ms": duration,
                 "gif_loop": loop,

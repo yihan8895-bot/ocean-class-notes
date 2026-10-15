@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import re
 import sys
 import time
 import warnings
@@ -37,6 +38,7 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 from matplotlib.colors import TwoSlopeNorm
+from matplotlib.text import Text
 from PIL import Image
 from scipy.interpolate import griddata
 from scipy.stats import linregress
@@ -57,6 +59,9 @@ class Config:
     p_max: float = 2000.0
     start_year: int = 2016
     end_year: int = 2025
+    grid_step_degrees: float = 0.25
+    minimum_profiles_per_cell: int = 3
+    minimum_annual_cells: int = 8
     pressure_levels: tuple[float, ...] = (
         0, 10, 20, 30, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1500, 2000
     )
@@ -98,6 +103,46 @@ def setup_style() -> None:
         "grid.color": "#cbdedb",
         "grid.alpha": 0.55,
     })
+
+
+ENGLISH_ONLY_LABELS = {
+    "时间和位置 QC=1–2\n剔除缺测与非物理值": "Time/position QC=1–2\nRemove invalid values",
+    "SP,t,p → SA,CT\n→ sigma0 与 rho": "SP,t,p → SA,CT\n→ sigma0 and rho",
+    "15 个压力层\n只在观测范围内插值": "15 pressure levels\nNo extrapolation",
+    "0.25°网格、季节与年平均\n样本阈值和面积权重": "0.25° grid and seasons\nArea-weighted means",
+    "覆盖图、剖面、T–S 图\n异常、PNG 与 GIF": "Maps, profiles and T–S\nAnomalies and GIF",
+}
+
+
+def localized_plot_label(source: str, language: str) -> str:
+    if language == "en" and source in ENGLISH_ONLY_LABELS:
+        return ENGLISH_ONLY_LABELS[source]
+    lines = source.split("\n")
+    if (len(lines) == 2 and " / " not in lines[0] and re.search(r"[\u4e00-\u9fff]", lines[0])
+            and not re.search(r"[\u4e00-\u9fff]", lines[1]) and re.search(r"[A-Za-z]", lines[1])):
+        return lines[0] if language == "zh" else lines[1]
+    translated = []
+    for line in lines:
+        result = line
+        for match in re.finditer(r"\s/\s", line):
+            left, right = line[:match.start()], line[match.end():]
+            if re.search(r"[\u4e00-\u9fff]", left) and re.search(r"[A-Za-z]", right):
+                if language == "zh":
+                    result = left
+                else:
+                    prefix = re.match(r"(\s*(?:\([a-z]\)|\d{4}\s*·)\s*)", left)
+                    result = (prefix.group(1) if prefix else "") + right
+                break
+        translated.append(result)
+    return "\n".join(translated)
+
+
+def save_bilingual_figure(fig: plt.Figure, path: Path) -> None:
+    labels = [(item, item.get_text()) for item in fig.findobj(match=Text)]
+    for language, target in (("zh", path), ("en", path.with_name(f"{path.stem}-en{path.suffix}"))):
+        for item, source in labels:
+            item.set_text(localized_plot_label(source, language))
+        fig.savefig(target, bbox_inches="tight")
 
 
 def clean_qc(values: pd.Series) -> pd.Series:
@@ -246,6 +291,12 @@ def process_year(year: int) -> Path:
     if target.exists():
         print(f"reuse {target.name}", flush=True)
         return target
+    previous_path = ASSET_DIR / "argo_scs_2016_2025_summary.json"
+    if previous_path.exists():
+        previous = json.loads(previous_path.read_text(encoding="utf-8"))
+        indexed = previous.get("gdac_index_profiles_by_year", {})
+        if str(year) in indexed and int(indexed[str(year)]) == 0:
+            raise RuntimeError(f"No valid profiles for {year}")
     chunks: list[xr.Dataset] = []
     # One-month requests stay well below common API response limits and avoid
     # silently truncated quarter-sized responses.
@@ -328,7 +379,7 @@ def map_base(ax: plt.Axes, title: str) -> None:
     ax.grid(True, linewidth=0.6)
 
 
-def grid_profile_values(ds: xr.Dataset, variable: str, pressure: float, year: int | None = None, step: float = 2.0):
+def grid_profile_values(ds: xr.Dataset, variable: str, pressure: float, year: int | None = None):
     p_index = int(np.argmin(np.abs(ds.pressure.values - pressure)))
     values = ds[variable].isel(pressure=p_index).values
     lon = ds.longitude.values
@@ -338,21 +389,21 @@ def grid_profile_values(ds: xr.Dataset, variable: str, pressure: float, year: in
     if year is not None:
         mask &= time_values.year == year
     lon, lat, values = lon[mask], lat[mask], values[mask]
+    step = CFG.grid_step_degrees
     lon_edges = np.arange(CFG.lon_min, CFG.lon_max + step, step)
     lat_edges = np.arange(CFG.lat_min, CFG.lat_max + step, step)
     lon_centers = (lon_edges[:-1] + lon_edges[1:]) / 2
     lat_centers = (lat_edges[:-1] + lat_edges[1:]) / 2
-    grid = np.full((len(lat_centers), len(lon_centers)), np.nan)
-    count = np.zeros_like(grid)
     ix = np.digitize(lon, lon_edges) - 1
     iy = np.digitize(lat, lat_edges) - 1
-    for row in range(len(lat_centers)):
-        for col in range(len(lon_centers)):
-            subset = values[(iy == row) & (ix == col)]
-            subset = subset[np.isfinite(subset)]
-            count[row, col] = subset.size
-            if subset.size >= 3:
-                grid[row, col] = np.nanmean(subset)
+    shape = (len(lat_centers), len(lon_centers))
+    inside = (ix >= 0) & (ix < shape[1]) & (iy >= 0) & (iy < shape[0])
+    flat_index = iy[inside] * shape[1] + ix[inside]
+    count = np.bincount(flat_index, minlength=shape[0] * shape[1]).reshape(shape)
+    total = np.bincount(flat_index, weights=values[inside], minlength=shape[0] * shape[1]).reshape(shape)
+    grid = np.full(shape, np.nan)
+    valid = count >= CFG.minimum_profiles_per_cell
+    grid[valid] = total[valid] / count[valid]
     return lon_centers, lat_centers, grid, count
 
 
@@ -492,7 +543,7 @@ def plot_density_isobar_section(ds: xr.Dataset) -> dict:
 
     fig.suptitle("南海准同步 Argo 密度断面：2017年3月13–16日 / Quasi-Synoptic Argo Density Section, 13–16 March 2017",
                  fontsize=18, fontweight="bold", color="#082f3d")
-    fig.savefig(ASSET_DIR / "argo_scs_density_isobar_section.png", bbox_inches="tight")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_density_isobar_section.png")
     plt.close(fig)
 
     rows: list[dict] = []
@@ -551,8 +602,8 @@ def plot_coverage(ds: xr.Dataset) -> None:
     mode_text = " · ".join(f"{key}: {value:,}" for key, value in modes.items())
     ax.text(0.98, 0.97, f"数据模式 / DATA_MODE\n{mode_text}", transform=ax.transAxes, va="top", ha="right", fontsize=9,
             bbox=dict(boxstyle="round,pad=.5", facecolor="#e7f4f1", edgecolor="#9ac9c1"))
-    fig.suptitle("2016–2025 南海 Argo 观测覆盖 / South China Sea Argo Coverage", fontsize=17, fontweight="bold", color="#082f3d")
-    fig.savefig(ASSET_DIR / "argo_scs_coverage_2016_2025.png", bbox_inches="tight")
+    fig.suptitle("2016–2025 南海 Argo 观测覆盖 / 2016–2025 South China Sea Argo Coverage", fontsize=17, fontweight="bold", color="#082f3d")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_coverage_2016_2025.png")
     plt.close(fig)
 
 
@@ -593,7 +644,7 @@ def plot_vertical_climatology(ds: xr.Dataset) -> None:
     fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 0.012))
     fig.suptitle("南海十年温盐密垂向气候态 / 2016–2025 Vertical T–S–Density Climatology", fontsize=17, fontweight="bold", color="#082f3d")
     fig.tight_layout(rect=[0, .12, 1, .94])
-    fig.savefig(ASSET_DIR / "argo_scs_vertical_climatology.png", bbox_inches="tight")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_vertical_climatology.png")
     plt.close(fig)
 
 
@@ -628,28 +679,28 @@ def plot_ts_diagram(ds: xr.Dataset) -> None:
     ax.grid(True)
     ax.text(.02, .02, "等密度线由 TEOS-10 在 112°E、15°N、0 dbar 计算\nIsopycnals use TEOS-10 at 112°E, 15°N and 0 dbar",
             transform=ax.transAxes, fontsize=8, color="#527078")
-    fig.savefig(ASSET_DIR / "argo_scs_ts_diagram.png", bbox_inches="tight")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_ts_diagram.png")
     plt.close(fig)
 
 
 def plot_climatology_maps(ds: xr.Dataset) -> None:
     specs = [
-        ("temperature", 10, "10 dbar 温度 / Temperature", "turbo"),
-        ("practical_salinity", 100, "100 dbar 盐度 / Salinity", "viridis"),
-        ("sigma0", 500, r"500 dbar $\sigma_0$ / Density anomaly", "cividis"),
+        ("temperature", 10, "10 dbar 温度 / 10 dbar temperature", "turbo"),
+        ("practical_salinity", 100, "100 dbar 盐度 / 100 dbar salinity", "viridis"),
+        ("sigma0", 500, r"500 dbar 位势密度异常 $\sigma_0$ / 500 dbar density anomaly $\sigma_0$", "cividis"),
     ]
     fig, axes = plt.subplots(1, 3, figsize=(15, 5.4), constrained_layout=True)
     for ax, (var, pressure, title, cmap) in zip(axes, specs):
-        lon, lat, grid, count = grid_profile_values(ds, var, pressure, step=2)
+        lon, lat, grid, count = grid_profile_values(ds, var, pressure)
         mesh = ax.pcolormesh(lon, lat, grid, shading="nearest", cmap=cmap)
         map_base(ax, title)
         cb = fig.colorbar(mesh, ax=ax, shrink=.8, pad=.02)
         cb.ax.tick_params(labelsize=8)
         valid_cells = int(np.isfinite(grid).sum())
-        ax.text(.02, .03, f"有效网格 / valid cells: {valid_cells}", transform=ax.transAxes, fontsize=8,
+        ax.text(.02, .03, f"有效网格：{valid_cells} / valid cells: {valid_cells}", transform=ax.transAxes, fontsize=8,
                 bbox=dict(facecolor="white", alpha=.78, edgecolor="none"))
-    fig.suptitle("标准压力层气候态 / Standard-Pressure Climatology (minimum 3 profiles per 2° cell)", fontsize=16, fontweight="bold", color="#082f3d")
-    fig.savefig(ASSET_DIR / "argo_scs_climatology_maps.png", bbox_inches="tight")
+    fig.suptitle("标准压力层气候态 / Standard-Pressure Climatology (minimum 3 profiles per 0.25° cell)", fontsize=16, fontweight="bold", color="#082f3d")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_climatology_maps.png")
     plt.close(fig)
 
 
@@ -658,26 +709,26 @@ def area_balanced_annual_mean(ds: xr.Dataset, variable: str, pressure: float) ->
     results = np.full(years.shape, np.nan, dtype=float)
     cells = np.zeros(years.shape, dtype=int)
     for i, year in enumerate(years):
-        _, lat, grid, count = grid_profile_values(ds, variable, pressure, year=year, step=2)
+        _, lat, grid, count = grid_profile_values(ds, variable, pressure, year=year)
         weights = np.cos(np.deg2rad(lat))[:, None] * np.ones_like(grid)
         valid = np.isfinite(grid)
         cells[i] = int(valid.sum())
-        if valid.sum() >= 8:
+        if valid.sum() >= CFG.minimum_annual_cells:
             results[i] = np.average(grid[valid], weights=weights[valid])
     return years, results, cells
 
 
 def plot_annual_anomalies(ds: xr.Dataset) -> dict:
     specs = [
-        ("temperature", 10, "10 dbar 温度异常 / Temperature anomaly", "°C", "#db6c36"),
-        ("practical_salinity", 100, "100 dbar 盐度异常 / Salinity anomaly", "", "#297aa1"),
-        ("sigma0", 500, r"500 dbar $\sigma_0$ 异常 / Density anomaly", r"kg m$^{-3}$", "#148878"),
+        ("temperature", 10, "10 dbar 温度异常 / 10 dbar temperature anomaly", "°C", "#db6c36"),
+        ("practical_salinity", 100, "100 dbar 盐度异常 / 100 dbar salinity anomaly", "", "#297aa1"),
+        ("sigma0", 500, r"500 dbar $\sigma_0$ 异常 / 500 dbar $\sigma_0$ anomaly", r"kg m$^{-3}$", "#148878"),
     ]
     fig, axes = plt.subplots(3, 1, figsize=(11.5, 9), sharex=True, constrained_layout=True)
     metrics: dict[str, dict] = {}
     for ax, (var, pressure, title, unit, color) in zip(axes, specs):
         years, mean_values, cells = area_balanced_annual_mean(ds, var, pressure)
-        anomaly = mean_values - np.nanmean(mean_values)
+        anomaly = mean_values - np.nanmean(mean_values) if np.isfinite(mean_values).any() else mean_values.copy()
         valid = np.isfinite(anomaly)
         slope = np.nan
         pvalue = np.nan
@@ -692,8 +743,10 @@ def plot_annual_anomalies(ds: xr.Dataset) -> dict:
         ax.set_ylabel(unit or "psu")
         ax.set_title(title, loc="left", fontsize=11, fontweight="bold", color="#123d4a")
         ax.grid(axis="y")
-        ax.text(.99, .88, f"趋势 / trend: {slope:+.3g} {unit or 'psu'} per decade · p={pvalue:.3f}",
-                transform=ax.transAxes, ha="right", fontsize=8, color="#496970")
+        trend_label = (f"趋势：{slope:+.3g} {unit or 'psu'} 每10年；p={pvalue:.3f} / "
+                       f"trend: {slope:+.3g} {unit or 'psu'} per decade · p={pvalue:.3f}"
+                       if np.isfinite(pvalue) else "有效年份不足，未估计趋势 / Too few valid years for a trend")
+        ax.text(.99, .88, trend_label, transform=ax.transAxes, ha="right", fontsize=8, color="#496970")
         metrics[f"{var}_{pressure}dbar"] = {
             "years": years.tolist(),
             "area_balanced_mean": np.round(mean_values, 5).tolist(),
@@ -704,19 +757,19 @@ def plot_annual_anomalies(ds: xr.Dataset) -> dict:
         }
     axes[-1].set_xticks(np.arange(CFG.start_year, CFG.end_year + 1))
     fig.suptitle("面积平衡年平均异常 / Area-balanced Annual Anomalies", fontsize=16, fontweight="bold", color="#082f3d")
-    fig.text(.5, -.01, "每年先计算 2° 网格平均，再按 cos(latitude) 加权；结果仍受 Argo 采样覆盖影响。\nEach year is averaged on a 2° grid then weighted by cos(latitude); sampling coverage still affects the result.", ha="center", fontsize=8, color="#56747a")
-    fig.savefig(ASSET_DIR / "argo_scs_annual_anomalies.png", bbox_inches="tight")
+    fig.text(.5, -.01, "每年先计算 0.25° 网格平均，再按 cos(latitude) 加权；样本不足的网格与年份留白。\nEach year is averaged on a 0.25° grid then weighted by cos(latitude); undersampled cells and years are blank.", ha="center", fontsize=8, color="#56747a")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_scs_annual_anomalies.png")
     plt.close(fig)
     return metrics
 
 
 def plot_workflow() -> None:
     steps = [
-        ("01", "检索 / Retrieve", "Argovis API\n2016–2025 · 99–122°E · 0–25°N"),
+        ("01", "检索 / Retrieve", "Argovis API\n2016–2025 · 99–122°E\n0–25°N"),
         ("02", "质量控制 / QC", "时间和位置 QC=1–2\n剔除缺测与非物理值"),
         ("03", "TEOS-10", "SP,t,p → SA,CT\n→ sigma0 与 rho"),
         ("04", "标准层 / Standardize", "15 个压力层\n只在观测范围内插值"),
-        ("05", "统计 / Aggregate", "2°网格、季节与年平均\n样本阈值和面积权重"),
+        ("05", "统计 / Aggregate", "0.25°网格、季节与年平均\n样本阈值和面积权重"),
         ("06", "验证与呈现 / Report", "覆盖图、剖面、T–S 图\n异常、PNG 与 GIF"),
     ]
     fig, ax = plt.subplots(figsize=(15, 4.2))
@@ -727,47 +780,51 @@ def plot_workflow() -> None:
         ax.add_patch(plt.Rectangle((x, .23), .135, .57, transform=ax.transAxes, facecolor="white", edgecolor=colors[i], linewidth=2))
         ax.text(x + .012, .72, num, transform=ax.transAxes, fontsize=11, fontweight="bold", color=colors[i])
         ax.text(x + .012, .58, title, transform=ax.transAxes, fontsize=11, fontweight="bold", color="#123d4a")
-        ax.text(x + .012, .43, desc, transform=ax.transAxes, fontsize=8.5, color="#56737a", va="top", linespacing=1.5)
+        ax.text(x + .012, .43, desc, transform=ax.transAxes, fontsize=7.5, color="#56737a", va="top", linespacing=1.5)
         if i < len(steps) - 1:
             ax.annotate("", xy=(x + .157, .51), xytext=(x + .138, .51), xycoords=ax.transAxes,
                         arrowprops=dict(arrowstyle="->", color="#7f9b9e", lw=1.5))
     ax.text(.03, .92, "关键处理链 / Reproducible Processing Chain", transform=ax.transAxes, fontsize=18, fontweight="bold", color="#082f3d")
     ax.text(.03, .1, "压力是观测坐标；密度为 TEOS-10 推导量。禁止越过剖面最大/最小压力外推。 / Pressure is observed; density is TEOS-10-derived. No extrapolation beyond observed limits.", transform=ax.transAxes, fontsize=9, color="#47676e")
-    fig.savefig(ASSET_DIR / "argo_processing_workflow.png", bbox_inches="tight")
+    save_bilingual_figure(fig, ASSET_DIR / "argo_processing_workflow.png")
     plt.close(fig)
 
 
 def make_animation(ds: xr.Dataset) -> None:
-    lon, lat, clim, _ = grid_profile_values(ds, "temperature", 100, step=2)
+    lon, lat, clim, _ = grid_profile_values(ds, "temperature", 100)
     frames: list[Path] = []
     anomalies = []
     for year in range(CFG.start_year, CFG.end_year + 1):
-        _, _, grid, _ = grid_profile_values(ds, "temperature", 100, year=year, step=2)
+        _, _, grid, _ = grid_profile_values(ds, "temperature", 100, year=year)
         anomalies.append(grid - clim)
-    finite = np.concatenate([a[np.isfinite(a)] for a in anomalies if np.isfinite(a).any()])
+    finite_arrays = [a[np.isfinite(a)] for a in anomalies if np.isfinite(a).any()]
+    finite = np.concatenate(finite_arrays) if finite_arrays else np.array([])
     limit = max(.3, float(np.nanpercentile(np.abs(finite), 95))) if finite.size else 1.0
     norm = TwoSlopeNorm(vmin=-limit, vcenter=0, vmax=limit)
     for year, anomaly in zip(range(CFG.start_year, CFG.end_year + 1), anomalies):
         fig, ax = plt.subplots(figsize=(8.4, 7), constrained_layout=True)
         mesh = ax.pcolormesh(lon, lat, anomaly, shading="nearest", cmap="RdBu_r", norm=norm)
-        map_base(ax, f"{year} · 100 dbar 温度异常 / Temperature anomaly")
+        map_base(ax, f"{year} · 100 dbar 温度异常 / 100 dbar temperature anomaly")
         cb = fig.colorbar(mesh, ax=ax, shrink=.78)
         cb.set_label("相对 2016–2025 气候态 / Relative to climatology (°C)")
-        ax.text(.02, .03, "2°网格 · 每格至少3个剖面\n2° grid · ≥3 profiles per cell", transform=ax.transAxes,
+        ax.text(.02, .03, "0.25°网格 · 每格至少3个剖面\n0.25° grid · ≥3 profiles per cell", transform=ax.transAxes,
                 fontsize=8, bbox=dict(facecolor="white", alpha=.82, edgecolor="none"))
         frame = FRAME_DIR / f"temp100_{year}.png"
-        fig.savefig(frame, bbox_inches="tight")
+        save_bilingual_figure(fig, frame)
         plt.close(fig)
         frames.append(frame)
-    images = [Image.open(path).convert("RGB") for path in frames]
-    images[0].save(
-        ASSET_DIR / "argo_scs_100dbar_temperature_anomaly.gif",
-        save_all=True,
-        append_images=images[1:],
-        duration=1150,
-        loop=0,
-        disposal=2,
-    )
+    for language, output in (
+        ("zh", ASSET_DIR / "argo_scs_100dbar_temperature_anomaly.gif"),
+        ("en", ASSET_DIR / "argo_scs_100dbar_temperature_anomaly-en.gif"),
+    ):
+        paths = frames if language == "zh" else [
+            path.with_name(f"{path.stem}-en{path.suffix}") for path in frames
+        ]
+        images = [Image.open(path).convert("RGB") for path in paths]
+        images[0].save(output, save_all=True, append_images=images[1:],
+                       duration=1150, loop=0, disposal=2)
+        for image in images:
+            image.close()
 
 
 def build_summary(ds: xr.Dataset, metrics: dict, density_section: dict) -> dict:
@@ -780,6 +837,14 @@ def build_summary(ds: xr.Dataset, metrics: dict, density_section: dict) -> dict:
         index_years = pd.to_datetime(gdac_index["date"].astype(str).str[:8], format="%Y%m%d", errors="coerce").dt.year
         counted = index_years.value_counts()
         gdac_counts = {str(y): int(counted.get(y, 0)) for y in range(CFG.start_year, CFG.end_year + 1)}
+    else:
+        # The published index cross-check is retained when only the Argovis
+        # profile cache is available for a figure-only grid recalculation.
+        previous_path = ASSET_DIR / "argo_scs_2016_2025_summary.json"
+        if previous_path.exists():
+            previous = json.loads(previous_path.read_text(encoding="utf-8"))
+            gdac_counts = {str(y): int(previous.get("gdac_index_profiles_by_year", {}).get(str(y), 0))
+                           for y in range(CFG.start_year, CFG.end_year + 1)}
     summary = {
         "dataset": "Argo physical profiles accessed from Argovis via argopy",
         "argo_doi": "10.17882/42182",
@@ -792,6 +857,9 @@ def build_summary(ds: xr.Dataset, metrics: dict, density_section: dict) -> dict:
         "profiles_by_year": {str(y): int(np.sum(years == y)) for y in range(CFG.start_year, CFG.end_year + 1)},
         "data_mode_counts": {str(k): int(v) for k, v in mode_counts.items()},
         "standard_pressure_levels_dbar": list(CFG.pressure_levels),
+        "spatial_grid_resolution_degrees": [CFG.grid_step_degrees, CFG.grid_step_degrees],
+        "minimum_profiles_per_cell": CFG.minimum_profiles_per_cell,
+        "minimum_valid_cells_for_annual_mean": CFG.minimum_annual_cells,
         "qc": [
             "Argovis-curated physical profiles",
             "POSITION_QC and TIME_QC retained for flags 1-2",
