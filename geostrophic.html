@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071f34">
+  <meta name="description" content="地转流独立专题：用交互动画理解压强梯度力、科氏力、地转平衡和观测方法。 / An interactive guide to geostrophic flow, pressure-gradient force, Coriolis force, balance and observations.">
+  <link rel="canonical" href="https://yihan8895-bot.github.io/ocean-class-notes/geostrophic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="地转流：形成机制与交互动画 / Geostrophic Flow: Formation and Interactive Animation">
+  <meta property="og:description" content="从海面高度差到沿等压线流动，分阶段理解地转流。 / Follow the formation of geostrophic flow from sea-level slope to motion along pressure contours.">
+  <meta property="og:url" content="https://yihan8895-bot.github.io/ocean-class-notes/geostrophic.html">
+  <meta property="og:image" content="https://yihan8895-bot.github.io/ocean-class-notes/social-preview-bilingual.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>地转流 / Geostrophic Flow｜形成机制、动画与观测 / Formation, Animation and Observation</title>
+  <link rel="stylesheet" href="styles.css?v=20261009-bilingual">
+  <link rel="stylesheet" href="geostrophic.css?v=20261015">
+  <script src="geostrophic.js?v=20261015" defer></script>
+</head>
+<body class="geo-page">
+  <header class="site-header"><a class="identity" href="./"><span class="logo">≈</span><span>海洋课堂笔记 / Ocean Classroom Notes<small>物理海洋学 / PHYSICAL OCEANOGRAPHY</small></span></a><nav><a href="./">资料库 / Library</a><a href="eof.html">EOF 专题 / EOF Atlas</a><a href="heatwaves.html">热浪专题 / Heatwaves</a><a class="topic-link" href="#lab">交互实验 / Interactive Lab</a></nav></header>
+
+  <main>
+    <section class="geo-hero" aria-labelledby="geo-title">
+      <div class="geo-hero-copy">
+        <span class="geo-overline">动力海洋学专题 / DYNAMICAL OCEANOGRAPHY ATLAS 03</span>
+        <h1 id="geo-title">水为何不直接<br>从高处流向<span>低处？</span><small class="hero-english" lang="en">Why Does Water Turn Instead of Flowing Straight Downhill?</small></h1>
+        <p>海面高度或海水密度的水平差异产生压强梯度力；海水开始运动后，地球自转带来的科氏力逐渐改变流向。在大尺度、缓慢变化且摩擦较弱的海洋内部，两者近似平衡，流动便沿等压线前进。 / Horizontal differences in sea level or density create a pressure-gradient force. Once water moves, Earth's rotation produces a Coriolis force that turns the flow. In the large-scale, slowly varying and weakly frictional ocean interior, the two forces nearly balance and the current follows pressure contours.</p>
+        <div class="geo-hero-actions"><a class="geo-primary" href="#lab">观看形成动画 / Watch the Formation <span>▶</span></a><a class="geo-ghost" href="#equations">查看方程 / See the Equations <span>↓</span></a></div>
+        <span class="geo-hero-note">双语概念模型 · 可调纬度与海面坡度 / Bilingual conceptual model · Adjustable latitude and sea-surface slope</span>
+      </div>
+      <div class="geo-hero-visual" aria-hidden="true">
+        <div class="height-field"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hero-current"><b></b><b></b><b></b><b></b></div>
+        <span class="hero-high">高海面 / HIGH</span><span class="hero-low">低海面 / LOW</span>
+        <div class="hero-force hero-pgf"><i></i><span>压强梯度力 / PGF</span></div>
+        <div class="hero-force hero-cor"><i></i><span>科氏力 / CORIOLIS</span></div>
+        <div class="hero-balance">F<sub>p</sub> + F<sub>c</sub> ≈ 0<small>地转平衡 / GEOSTROPHIC BALANCE</small></div>
+      </div>
+    </section>
+
+    <div class="geo-stat-strip"><div><strong>2 Ω sinφ</strong><span>科氏参数 f / Coriolis parameter</span></div><div><strong>Ro ≪ 1</strong><span>旋转效应占主导 / Rotation dominates</span></div><div><strong>u<sub>g</sub> ∥ 等压线</strong><span>流速平行于等压线 / Flow follows pressure contours</span></div><div><strong>|u<sub>g</sub>| ∝ 坡度 / slope</strong><span>坡度越大，地转流越快 / Steeper slope, faster flow</span></div></div>
+
+    <nav class="geo-section-nav" aria-label="专题目录 / Atlas contents"><a href="#idea">01 核心概念 / Core Idea</a><a href="#lab">02 形成动画 / Formation Animation</a><a href="#equations">03 方程与方向 / Equations and Direction</a><a href="#eddies">04 海面与涡旋 / Sea Level and Eddies</a><a href="#observe">05 如何观测 / How We Observe</a><a href="#limits">06 适用边界 / Limits</a></nav>
+
+    <section class="geo-section idea-section" id="idea">
+      <div class="geo-heading"><span>01 / 核心概念 / CORE IDEA</span><h2>地转流是两种水平力的<br>近似平衡。<small class="heading-en" lang="en">Geostrophic Flow Is an Approximate Balance of Two Horizontal Forces</small></h2><p>“地转”描述的是一种动力平衡，不是一种固定海流名称。它常用于解释远离海岸和海底边界层的大尺度海流与中尺度涡旋。 / “Geostrophic” describes a dynamical balance, not the name of one particular current. It commonly explains large-scale currents and mesoscale eddies away from coastal and bottom boundary layers.</p></div>
+      <div class="force-cards">
+        <article><span>01</span><i class="force-icon pressure-icon">→</i><h3>压强梯度力 / Pressure-Gradient Force</h3><p>由水平压强差驱动，指向低压一侧。海表附近，海面高度差可以代表这种压力差。 / Driven by horizontal pressure differences and directed toward lower pressure. Near the surface, a sea-level difference can represent this pressure contrast.</p></article>
+        <article><span>02</span><i class="force-icon coriolis-icon">↷</i><h3>科氏力 / Coriolis Force</h3><p>只在水已运动时出现，并始终垂直于瞬时速度：北半球偏向运动方向右侧，南半球偏向左侧。 / It appears only after the water moves and is always perpendicular to instantaneous velocity: to the right of motion in the Northern Hemisphere and to the left in the Southern Hemisphere.</p></article>
+        <article><span>03</span><i class="force-icon balance-icon">⇄</i><h3>近地转平衡 / Near-Geostrophic Balance</h3><p>两力大小接近、方向相反时，跨等压线加速度很小，水流主要沿等压线或等海面高度线前进。 / When the forces are nearly equal and opposite, acceleration across pressure contours is small and the current runs mainly along isobars or sea-surface-height contours.</p></article>
+      </div>
+    </section>
+
+    <section class="geo-section lab-section" id="lab">
+      <div class="geo-heading light"><span>02 / 交互实验 / INTERACTIVE LAB</span><h2>把四个瞬间连起来，<br>看见地转流形成。<small class="heading-en" lang="en">Connect Four Moments and Watch Geostrophic Flow Form</small></h2><p>下图设定西侧海面高、东侧海面低，因此压强梯度力指向东。改变纬度和坡度，观察流向、科氏参数和估算地转流速。 / The sea surface is higher in the west and lower in the east, so the pressure-gradient force points east. Change latitude and slope to see the flow direction, Coriolis parameter and estimated geostrophic speed.</p></div>
+
+      <div class="geo-lab-grid">
+        <div class="geo-animation-card">
+          <div class="animation-top"><div><span id="stage-number">阶段 1 / Stage 1</span><strong id="stage-title">建立水平压强梯度 / A Horizontal Pressure Gradient Forms</strong></div><button id="play-formation" type="button" aria-label="播放地转流形成动画 / Play geostrophic-flow formation animation">▶ 播放 / Play</button></div>
+          <svg id="geo-animation" viewBox="0 0 760 450" role="img" aria-labelledby="animation-title animation-desc">
+            <title id="animation-title">地转流形成过程动画 / Animation of geostrophic-flow formation</title>
+            <desc id="animation-desc">西侧高海面向东侧低海面倾斜。水团先向东加速，随后在科氏力作用下转向，最后近似沿等海面高度线流动。 / Sea level slopes down from west to east. A parcel accelerates eastward, turns under the Coriolis force and finally moves approximately along sea-surface-height contours.</desc>
+            <defs>
+              <linearGradient id="ocean-gradient" x1="0" x2="1"><stop offset="0" stop-color="#126f8a"/><stop offset=".55" stop-color="#0d506d"/><stop offset="1" stop-color="#092f4b"/></linearGradient>
+              <marker id="arrow-amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ffb36b"/></marker>
+              <marker id="arrow-mint" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7ce0c7"/></marker>
+              <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#74b9ff"/></marker>
+              <filter id="parcel-glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="760" height="450" rx="20" fill="url(#ocean-gradient)"/>
+            <g class="contours" aria-hidden="true"><path d="M120 35 C90 140 135 285 100 420"/><path d="M225 20 C190 135 245 295 205 435"/><path d="M335 15 C300 145 355 290 315 440"/><path d="M445 12 C410 145 465 300 425 442"/><path d="M555 18 C520 150 575 295 535 435"/><path d="M660 32 C630 150 680 285 650 420"/></g>
+            <g class="height-labels"><text x="43" y="54">高海面 / HIGH</text><text x="606" y="54">低海面 / LOW</text><text x="282" y="425">等海面高度线 / SEA-SURFACE-HEIGHT CONTOURS</text></g>
+            <polyline id="parcel-trail" points="" fill="none" stroke="#b9fff1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+            <g id="pressure-vector" class="vector"><line x1="0" y1="0" x2="92" y2="0" marker-end="url(#arrow-amber)"/><text x="8" y="-12">压强梯度力 / PGF</text></g>
+            <g id="coriolis-vector" class="vector"><line x1="0" y1="0" x2="-82" y2="0" marker-end="url(#arrow-blue)"/><text x="-126" y="-12">科氏力 / CORIOLIS</text></g>
+            <g id="velocity-vector" class="vector"><line x1="0" y1="0" x2="0" y2="88" marker-end="url(#arrow-mint)"/><text x="15" y="62">流速 / CURRENT</text></g>
+            <circle id="water-parcel" cx="300" cy="220" r="12" fill="#ecfff9" stroke="#7ce0c7" stroke-width="5" filter="url(#parcel-glow)"/>
+            <text id="parcel-label" x="318" y="208">水团 / WATER PARCEL</text>
+            <g class="compass" transform="translate(687 360)"><circle r="42"/><line x1="0" y1="24" x2="0" y2="-27" marker-end="url(#arrow-mint)"/><text x="0" y="-48">北 / N</text><text x="0" y="62">南 / S</text><text x="-55" y="5">西 / W</text><text x="47" y="5">东 / E</text></g>
+          </svg>
+          <div class="timeline"><input id="formation-progress" type="range" min="0" max="100" value="0" aria-label="动画进度 / Animation progress"><div><button type="button" data-stage="0">1 压力差 / Pressure</button><button type="button" data-stage="1">2 开始加速 / Acceleration</button><button type="button" data-stage="2">3 发生偏转 / Turning</button><button type="button" data-stage="3">4 接近平衡 / Balance</button></div></div>
+          <p id="stage-explanation" class="stage-explanation">海面高度差产生水平压强差；静止水团尚无科氏力。 / A sea-level difference creates a horizontal pressure contrast; a stationary parcel has no Coriolis force yet.</p>
+        </div>
+
+        <aside class="geo-controls" aria-label="动画参数 / Animation controls">
+          <span class="control-kicker">参数实验 / PARAMETER LAB</span>
+          <label for="latitude">纬度 / Latitude <output id="latitude-output">30°N</output></label>
+          <input id="latitude" type="range" min="-60" max="60" step="5" value="30">
+          <div class="range-ends"><span>60°S</span><span>赤道 / Equator</span><span>60°N</span></div>
+          <label for="slope">海面高度差 / Sea-level difference <output id="slope-output">5 cm / 100 km</output></label>
+          <input id="slope" type="range" min="1" max="15" step="1" value="5">
+          <div class="range-ends"><span>1 cm</span><span>8 cm</span><span>15 cm</span></div>
+          <div class="readouts"><div><small>科氏参数 / Coriolis parameter</small><strong id="f-readout">7.29 × 10⁻⁵ s⁻¹</strong></div><div><small>估算地转流速 / Estimated geostrophic speed</small><strong id="speed-readout">0.067 m s⁻¹</strong></div><div><small>平衡流向 / Balanced-flow direction</small><strong id="direction-readout">向南 / Southward</strong></div></div>
+          <p id="equator-warning" class="equator-warning" hidden>赤道处 f = 0，传统地转公式会发散，不能用这个模型计算。 / At the equator f = 0, so the conventional geostrophic formula is singular and this model does not apply.</p>
+          <button id="reset-lab" class="reset-button" type="button">↺ 恢复默认参数 / Reset Parameters</button>
+        </aside>
+      </div>
+      <p class="model-note"><strong>动画说明 / Model note：</strong>为了清楚显示“建立平衡”的过程，动画把波动和弱耗散合并为平滑过渡。严格无摩擦、恒定压强梯度下，从静止释放的水团会围绕地转速度产生惯性振荡；真实海洋可通过重力波调整、摩擦和混合接近地转状态。 / To show the approach to balance clearly, the animation combines wave adjustment and weak damping into a smooth transition. In a strictly inviscid fluid under a constant pressure gradient, a parcel released from rest undergoes inertial oscillations around the geostrophic velocity; gravity-wave adjustment, friction and mixing help the real ocean approach a near-geostrophic state.</p>
+    </section>
+
+    <section class="geo-section equation-section" id="equations">
+      <div class="geo-heading"><span>03 / 方程与方向 / EQUATIONS AND DIRECTION</span><h2>一条向量方程，<br>读出速度方向和大小。<small class="heading-en" lang="en">One Vector Equation Gives Both Direction and Speed</small></h2><p>忽略局地加速度、平流加速度和摩擦后，水平动量方程留下压强梯度力与科氏力。 / Neglecting local acceleration, advective acceleration and friction leaves the pressure-gradient and Coriolis terms in the horizontal momentum equation.</p></div>
+      <div class="equation-board">
+        <div class="main-equation"><small>地转平衡 / Geostrophic balance</small><strong>f k̂ × u<sub>g</sub> = − (1/ρ) ∇<sub>h</sub>p</strong><span>科氏项 / Coriolis term   =   水平压强梯度项 / Horizontal pressure-gradient term</span></div>
+        <div class="surface-equations"><div><small>东西向速度 / Zonal velocity</small><strong>u<sub>g</sub> = − g/f · ∂η/∂y</strong></div><div><small>南北向速度 / Meridional velocity</small><strong>v<sub>g</sub> =   g/f · ∂η/∂x</strong></div></div>
+        <p>其中 f = 2Ωsinφ，η 为海面高度。海面坡度越大，压强梯度越强；在相同坡度下，|f| 越小，公式给出的地转速度越大，但接近赤道时该近似失效。 / Here f = 2Ωsinφ and η is sea-surface height. A steeper surface means a stronger pressure gradient. For the same slope, smaller |f| gives a larger geostrophic speed, but the approximation fails near the equator.</p>
+      </div>
+      <div class="direction-guide"><article><span>北半球 / NORTHERN HEMISPHERE</span><h3>高压在流向右侧 / High pressure lies to the right of the flow</h3><p>面向水流下游，较高海面或较高压力位于右手侧。 / Looking downstream, higher sea level or pressure is on your right.</p></article><article><span>南半球 / SOUTHERN HEMISPHERE</span><h3>高压在流向左侧 / High pressure lies to the left of the flow</h3><p>科氏偏转方向反转，因此同一海面坡度会给出相反的沿等高线流向。 / The Coriolis deflection reverses, so the same sea-level slope produces the opposite along-contour flow.</p></article></div>
+    </section>
+
+    <section class="geo-section eddy-section" id="eddies">
+      <div class="geo-heading"><span>04 / 海面高度与涡旋 / SEA LEVEL AND EDDIES</span><h2>从卫星海面高度，<br>推断表层地转流。<small class="heading-en" lang="en">Infer Surface Geostrophic Flow From Satellite Sea Level</small></h2><p>卫星高度计测量海面高度异常，海面高度梯度可用于计算地转流分量。下面以北半球为例；南半球的旋转方向相反。 / Satellite altimeters measure sea-level anomalies, whose horizontal gradients can be used to calculate geostrophic-current components. The examples below are for the Northern Hemisphere; rotation reverses in the Southern Hemisphere.</p></div>
+      <div class="eddy-grid">
+        <article class="eddy-card"><div class="eddy-diagram high-eddy" aria-label="北半球高海面对应顺时针地转流 / In the Northern Hemisphere, a sea-level high corresponds to clockwise geostrophic flow"><i></i><b>H</b><span class="eddy-arrow a1">➜</span><span class="eddy-arrow a2">➜</span><span class="eddy-arrow a3">➜</span><span class="eddy-arrow a4">➜</span></div><h3>高海面：顺时针 / Sea-Level High: Clockwise</h3><p>压强梯度力由中心向外；科氏力指向中心，二者维持近似平衡。海面高常与暖性反气旋涡相关，但“高海面 = 暖涡”仍需结合密度结构判断。 / The pressure-gradient force points outward and the Coriolis force inward. A sea-level high is often associated with a warm anticyclonic eddy, although density structure is needed before equating every high with a warm eddy.</p></article>
+        <article class="eddy-card"><div class="eddy-diagram low-eddy" aria-label="北半球低海面对应逆时针地转流 / In the Northern Hemisphere, a sea-level low corresponds to counter-clockwise geostrophic flow"><i></i><b>L</b><span class="eddy-arrow a1">➜</span><span class="eddy-arrow a2">➜</span><span class="eddy-arrow a3">➜</span><span class="eddy-arrow a4">➜</span></div><h3>低海面：逆时针 / Sea-Level Low: Counter-Clockwise</h3><p>压强梯度力指向中心；要与之平衡，科氏力指向外侧，形成气旋式环流。 / The pressure-gradient force points inward; balancing it requires an outward Coriolis force, producing cyclonic circulation.</p></article>
+      </div>
+    </section>
+
+    <section class="geo-section observe-section" id="observe">
+      <div class="geo-heading"><span>05 / 如何观测 / HOW WE OBSERVE</span><h2>地转流通常不是直接“看见”，<br>而是由压力场推算并用流速观测检验。<small class="heading-en" lang="en">Geostrophic Flow Is Usually Inferred From Pressure and Checked Against Velocity Measurements</small></h2></div>
+      <div class="observe-flow">
+        <article><span>01</span><h3>卫星高度计 / Satellite Altimetry</h3><p>测量海面高度或海面高度异常，对水平梯度求导后估算表层地转流。全球产品在赤道附近常改用 β 平面等处理。 / Measure sea-surface height or anomaly and use its horizontal gradients to estimate surface geostrophic velocity. Global products use special treatments such as a beta-plane approximation near the equator.</p></article><b>→</b><article><span>02</span><h3>温盐剖面 / Temperature–Salinity Profiles</h3><p>CTD、Argo 等给出密度随深度的结构，通过动力高度或热成风关系求相对地转流；通常需要一个参考速度或参考层。 / CTD and Argo profiles provide density structure. Dynamic height or thermal-wind relations yield relative geostrophic velocity, usually requiring a reference velocity or level.</p></article><b>→</b><article><span>03</span><h3>独立验证 / Independent Checks</h3><p>ADCP、漂流浮标和锚系直接或准直接测流，可检验推算结果；实测流还包含潮流、惯性流、Ekman 流等非地转成分。 / ADCPs, drifters and moorings measure currents directly or nearly directly. Their velocity includes tides, inertial motion, Ekman flow and other ageostrophic components as well.</p></article>
+      </div>
+    </section>
+
+    <section class="geo-section limits-section" id="limits">
+      <div class="geo-heading light"><span>06 / 适用边界 / LIMITS</span><h2>什么时候可以用，<br>什么时候要谨慎？<small class="heading-en" lang="en">When Is Geostrophic Balance Useful, and When Should We Be Cautious?</small></h2></div>
+      <div class="limits-grid"><article><strong>适用较好 / Works Well</strong><ul><li>尺度大于局地旋转控制尺度、变化相对缓慢 / Large spatial scales and relatively slow evolution</li><li>远离赤道，|f| 不太小 / Away from the equator, where |f| is not too small</li><li>海洋内部摩擦较弱 / Weak friction in the ocean interior</li><li>Rossby 数 Ro = U/(fL) ≪ 1 / Small Rossby number, Ro = U/(fL) ≪ 1</li></ul></article><article><strong>需要修正 / Needs More Physics</strong><ul><li>赤道附近 f → 0 / Near the equator, where f → 0</li><li>海表和海底摩擦边界层 / Surface and bottom frictional boundary layers</li><li>海岸、急流锋面、强弯曲流与很小尺度过程 / Coasts, fronts, strongly curved jets and very small scales</li><li>快速加速、强风暴、潮汐和惯性振荡 / Rapid acceleration, strong storms, tides and inertial oscillations</li></ul></article></div>
+      <div class="check-card"><div><span>快速自测 / QUICK CHECK</span><h3 id="quiz-question">北半球中，海面西高东低时，近地转流主要指向哪里？ / In the Northern Hemisphere, sea level is higher in the west and lower in the east. Which way does the near-geostrophic current flow?</h3></div><div class="quiz-options"><button type="button" data-answer="wrong">向东 / East</button><button type="button" data-answer="correct">向南 / South</button><button type="button" data-answer="wrong">向北 / North</button></div><p id="quiz-feedback" role="status">先判断压强梯度力向东，再让科氏力与它反向平衡。 / First identify the eastward pressure-gradient force, then find the current direction that gives an opposing Coriolis force.</p></div>
+    </section>
+
+    <section class="geo-sources"><div><span>资料来源 / SOURCES</span><h2>核验依据 / Evidence Base</h2><p>页面的方向判断、公式和观测方法依据 NOAA 产品说明与公开课程资料整理。 / Directions, equations and observation methods were checked against NOAA product descriptions and open course materials.</p></div><ul><li><a href="https://coastwatch.noaa.gov/cwn/products/sea-level-anomaly-and-geostrophic-currents-multi-mission-global-optimal-interpolation.html" target="_blank" rel="noopener noreferrer">NOAA CoastWatch：海面高度异常与地转流产品 / Sea-Level Anomaly and Geostrophic Currents</a><span>卫星高度计、SLA 与地转流产品说明 / Altimetry, SLA and geostrophic-current product description</span></li><li><a href="https://www.aoml.noaa.gov/phod/dhos/altimetry.php" target="_blank" rel="noopener noreferrer">NOAA AOML：高度计推算海流 / Altimetry-Derived Ocean Currents</a><span>海面高度图、地转流和漂流浮标验证 / Sea-height fields, geostrophic currents and drifter checks</span></li><li><a href="https://ocw.mit.edu/courses/2-011-introduction-to-ocean-science-and-engineering-spring-2006/resources/geostrophic/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare：Geostrophic Currents</a><span>地转方程与物理背景 / Geostrophic equations and physical background</span></li><li><a href="https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html" target="_blank" rel="noopener noreferrer">NOAA Ocean Service：科氏效应 / The Coriolis Effect</a><span>南北半球偏转方向 / Deflection directions in both hemispheres</span></li></ul></section>
+  </main>
+  <footer><span>≈   海洋课堂笔记 / Ocean Classroom Notes</span><span>地转流专题 · 物理海洋学 / Geostrophic Flow Atlas · Physical Oceanography</span><a href="./">返回资料库 / Back to Library</a></footer>
+</body>
+</html>

@@ -1,5 +1,20 @@
 [
   {
+    "id": "geostrophic-flow-atlas",
+    "category": "专题分析",
+    "title": "地转流：形成机制、交互动画与观测 / Geostrophic Flow: Formation, Interactive Animation and Observation",
+    "summary": "用四阶段动画理解压强梯度力、科氏力和地转平衡，并调节纬度与海面坡度计算流速。\nA four-stage animation explains pressure-gradient force, Coriolis force and geostrophic balance, with adjustable latitude and sea-surface slope.",
+    "tags": [
+      "地转流",
+      "地转平衡",
+      "科氏力",
+      "压强梯度力",
+      "海面高度",
+      "卫星高度计"
+    ],
+    "href": "geostrophic.html"
+  },
+  {
     "id": "scs-eof-data-atlas",
     "category": "专题分析",
     "title": "南海海洋热浪 × EOF：观测、空间模态与动画 / South China Sea Marine Heatwaves × EOF: Observations, Spatial Modes and Animation",
