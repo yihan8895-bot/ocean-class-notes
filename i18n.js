@@ -137,7 +137,8 @@
       const base = img.dataset.i18nSrc;
       const extension = img.dataset.i18nExt || 'svg';
       const suffix = language === 'zh' ? (img.dataset.i18nZhSuffix ?? '-zh') : '-en';
-      const src = `${base}${suffix}.${extension}?v=20261015-i18n`;
+      const version = base.startsWith('assets/argo/') ? '20261016-quarter-degree' : '20261015-i18n';
+      const src = `${base}${suffix}.${extension}?v=${version}`;
       if (img.getAttribute('src') !== src) img.setAttribute('src', src);
       const imageLink = img.closest('a');
       if (imageLink && imageLink.getAttribute('href') !== src) imageLink.setAttribute('href', src);
