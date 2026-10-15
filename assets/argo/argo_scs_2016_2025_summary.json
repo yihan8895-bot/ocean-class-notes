@@ -77,6 +77,60 @@
     "sigma0": "gsw.sigma0(SA,CT)",
     "in_situ_density": "gsw.rho(SA,CT,p)"
   },
+  "density_isobar_section": {
+    "selection": "One deep profile per platform nearest 2017-03-15 within 110-116E and 13.5-16.5N",
+    "date_range": "2017-03-13/2017-03-16",
+    "stations": [
+      {
+        "station": "A",
+        "distance_km": 0.0,
+        "longitude_east": 110.201,
+        "latitude_north": 14.081,
+        "date_utc": "2017-03-15T03:28:23",
+        "wmo_platform": "5904747"
+      },
+      {
+        "station": "B",
+        "distance_km": 281.324,
+        "longitude_east": 112.8,
+        "latitude_north": 14.31,
+        "date_utc": "2017-03-13T09:33:59.999000",
+        "wmo_platform": "2902698"
+      },
+      {
+        "station": "C",
+        "distance_km": 360.783,
+        "longitude_east": 113.465,
+        "latitude_north": 14.002,
+        "date_utc": "2017-03-14T18:28:59.999000",
+        "wmo_platform": "2902697"
+      },
+      {
+        "station": "D",
+        "distance_km": 565.356,
+        "longitude_east": 114.506,
+        "latitude_north": 15.542,
+        "date_utc": "2017-03-16T15:16:00",
+        "wmo_platform": "2902695"
+      },
+      {
+        "station": "E",
+        "distance_km": 649.729,
+        "longitude_east": 115.246,
+        "latitude_north": 15.803,
+        "date_utc": "2017-03-14T18:50:00",
+        "wmo_platform": "2902694"
+      },
+      {
+        "station": "F",
+        "distance_km": 687.885,
+        "longitude_east": 115.601,
+        "latitude_north": 15.836,
+        "date_utc": "2017-03-14T01:57:17",
+        "wmo_platform": "2901481"
+      }
+    ]
+  },
   "annual_metrics": {
     "temperature_10dbar": {
       "years": [

@@ -356,6 +356,181 @@ def grid_profile_values(ds: xr.Dataset, variable: str, pressure: float, year: in
     return lon_centers, lat_centers, grid, count
 
 
+def haversine_km(lon1: float, lat1: float, lon2: float, lat2: float) -> float:
+    """Great-circle distance between two positions in kilometres."""
+    radius_km = 6371.0
+    phi1, phi2 = np.deg2rad([lat1, lat2])
+    dphi = phi2 - phi1
+    dlambda = np.deg2rad(lon2 - lon1)
+    a = np.sin(dphi / 2) ** 2 + np.cos(phi1) * np.cos(phi2) * np.sin(dlambda / 2) ** 2
+    return float(2 * radius_km * np.arctan2(np.sqrt(a), np.sqrt(1 - a)))
+
+
+def select_density_section(ds: xr.Dataset) -> np.ndarray:
+    """Choose one deep profile per platform near 15 March 2017 for a quasi-synoptic section."""
+    times = pd.DatetimeIndex(ds.time.values)
+    pressure = ds.pressure.values
+    deep_index = int(np.argmin(np.abs(pressure - 1000)))
+    mask = (
+        (times >= pd.Timestamp("2017-03-01"))
+        & (times < pd.Timestamp("2017-04-01"))
+        & (ds.longitude.values >= 110)
+        & (ds.longitude.values <= 116)
+        & (ds.latitude.values >= 13.5)
+        & (ds.latitude.values <= 16.5)
+        & np.isfinite(ds.density.values[:, deep_index])
+    )
+    candidates = np.where(mask)[0]
+    target = pd.Timestamp("2017-03-15")
+    chosen: list[int] = []
+    for platform in np.unique(ds.platform.values[candidates].astype(str)):
+        platform_indices = candidates[ds.platform.values[candidates].astype(str) == platform]
+        offsets = np.abs(times[platform_indices] - target)
+        chosen.append(int(platform_indices[np.argmin(offsets)]))
+    chosen = sorted(chosen, key=lambda index: float(ds.longitude.values[index]))
+    if len(chosen) != 6:
+        raise ValueError(f"Expected six quasi-synoptic section stations, found {len(chosen)}")
+    return np.asarray(chosen, dtype=int)
+
+
+def plot_density_isobar_section(ds: xr.Dataset) -> dict:
+    """Plot sample density values and pressure contours along a real Argo section."""
+    indices = select_density_section(ds)
+    station_names = [chr(ord("A") + i) for i in range(indices.size)]
+    lon = ds.longitude.values[indices]
+    lat = ds.latitude.values[indices]
+    time_values = pd.DatetimeIndex(ds.time.values[indices])
+    platforms = ds.platform.values[indices].astype(str)
+    pressure = ds.pressure.values.astype(float)
+    density = ds.density.values[indices].T
+    depths = np.column_stack([-gsw.z_from_p(pressure, station_lat) for station_lat in lat])
+
+    distance = np.zeros(indices.size, dtype=float)
+    for i in range(1, indices.size):
+        distance[i] = distance[i - 1] + haversine_km(lon[i - 1], lat[i - 1], lon[i], lat[i])
+
+    section_x = np.linspace(distance.min(), distance.max(), 320)
+    section_z = np.linspace(10, 1000, 300)
+    xx, zz = np.meshgrid(section_x, section_z)
+    sample_x = np.broadcast_to(distance, density.shape)
+    valid = np.isfinite(density) & (depths <= 1000)
+    section_density = griddata(
+        np.column_stack((sample_x[valid], depths[valid])), density[valid], (xx, zz), method="linear"
+    )
+    vmin = float(np.nanpercentile(density[valid], 1))
+    vmax = float(np.nanpercentile(density[valid], 99))
+    color_levels = np.linspace(vmin, vmax, 22)
+
+    fig = plt.figure(figsize=(17, 8.8), constrained_layout=True)
+    grid_spec = fig.add_gridspec(2, 2, width_ratios=[3.75, 1.15], height_ratios=[1.18, 0.82])
+    ax = fig.add_subplot(grid_spec[:, 0])
+    filled = ax.contourf(xx, zz, section_density, levels=color_levels, cmap="turbo", extend="both")
+    ax.scatter(sample_x[valid], depths[valid], c=density[valid], cmap="turbo", vmin=vmin, vmax=vmax,
+               s=18, edgecolor="white", linewidth=.45, zorder=5)
+
+    label_pressures = [100, 200, 500, 1000]
+    for station_i, station_x in enumerate(distance):
+        ax.axvline(station_x, color="#0c3d4c", linewidth=.7, alpha=.25, zorder=2)
+        for p_value in label_pressures:
+            level_i = int(np.argmin(np.abs(pressure - p_value)))
+            value = density[level_i, station_i]
+            if np.isfinite(value):
+                ax.text(station_x, depths[level_i, station_i], f"{value:.1f}", ha="center", va="center",
+                        fontsize=7.2, fontweight="bold", color="white", zorder=7,
+                        bbox=dict(boxstyle="round,pad=.15", facecolor="#082f3d", edgecolor="white", alpha=.78, linewidth=.45))
+
+    isobars = [100, 200, 300, 500, 750, 1000]
+    for p_value in isobars:
+        level_i = int(np.argmin(np.abs(pressure - p_value)))
+        ax.plot(distance, depths[level_i], color="#142f39", linewidth=1.35, linestyle="--", zorder=6)
+        ax.text(distance[-1] + 12, depths[level_i, -1], f"{p_value} dbar", va="center", fontsize=8,
+                color="#142f39", fontweight="bold")
+
+    ax.set_xlim(distance.min() - 18, distance.max() + 88)
+    ax.set_ylim(1000, 0)
+    ax.set_xlabel("沿断面距离 / Distance along section (km)")
+    ax.set_ylabel("深度 / Depth (m)")
+    ax.set_title("(a) 样本密度断面与等压线 / Sample Density Section With Isobars", loc="left", pad=38,
+                 fontsize=15, fontweight="bold", color="#082f3d")
+    station_axis = ax.secondary_xaxis("top")
+    station_axis.set_xticks(distance, labels=station_names)
+    station_axis.tick_params(length=0, pad=5, labelsize=10)
+    station_axis.set_xlabel("样本点 / Sample stations", labelpad=7, fontsize=9, color="#45656d")
+    ax.grid(alpha=.18)
+    colorbar = fig.colorbar(filled, ax=ax, pad=.015, shrink=.92)
+    colorbar.set_label(r"原位海水密度 / In-situ seawater density (kg m$^{-3}$)")
+    ax.text(.012, .982,
+            "彩色与数字 = 原位密度 · 圆点 = Argo 标准层样本 · 黑色虚线 = 等压线\n"
+            "Color & numbers = density · circles = samples · dashed lines = isobars",
+            transform=ax.transAxes, va="top", fontsize=8.2, color="#123d4a",
+            bbox=dict(boxstyle="round,pad=.35", facecolor="white", edgecolor="#9ebfc0", alpha=.88))
+
+    map_ax = fig.add_subplot(grid_spec[0, 1])
+    map_base(map_ax, "(b) 样本位置 / Stations")
+    map_ax.set_xlim(109.7, 116.1)
+    map_ax.set_ylim(13.2, 16.2)
+    map_ax.plot(lon, lat, color="#d66536", linewidth=1.8, zorder=5)
+    map_ax.scatter(lon, lat, s=55, color="#0d8b82", edgecolor="white", linewidth=1.1, zorder=6)
+    for name, station_lon, station_lat in zip(station_names, lon, lat):
+        map_ax.text(station_lon, station_lat + .12, name, ha="center", fontsize=9, fontweight="bold", zorder=7)
+
+    table_ax = fig.add_subplot(grid_spec[1, 1])
+    table_ax.set_axis_off()
+    table_ax.text(0, .98, "样本点 / SAMPLE POINTS", transform=table_ax.transAxes, va="top",
+                  fontsize=11, fontweight="bold", color="#0b5267")
+    lines = []
+    for name, station_lon, station_lat, date, platform, station_distance in zip(
+        station_names, lon, lat, time_values, platforms, distance
+    ):
+        lines.append(
+            f"{name}  {station_distance:5.0f} km\n"
+            f"   {station_lon:.2f}°E, {station_lat:.2f}°N · {date:%Y-%m-%d}\n"
+            f"   WMO {platform}"
+        )
+    table_ax.text(0, .88, "\n\n".join(lines), transform=table_ax.transAxes, va="top", fontsize=8.2,
+                  linespacing=1.35, color="#45656d")
+
+    fig.suptitle("南海准同步 Argo 密度断面：2017年3月13–16日 / Quasi-Synoptic Argo Density Section, 13–16 March 2017",
+                 fontsize=18, fontweight="bold", color="#082f3d")
+    fig.savefig(ASSET_DIR / "argo_scs_density_isobar_section.png", bbox_inches="tight")
+    plt.close(fig)
+
+    rows: list[dict] = []
+    for station_i, profile_i in enumerate(indices):
+        for level_i, p_value in enumerate(pressure):
+            if not np.isfinite(density[level_i, station_i]):
+                continue
+            rows.append({
+                "station": station_names[station_i],
+                "distance_km": round(float(distance[station_i]), 3),
+                "longitude_east": round(float(lon[station_i]), 4),
+                "latitude_north": round(float(lat[station_i]), 4),
+                "date_utc": time_values[station_i].isoformat(),
+                "wmo_platform": platforms[station_i],
+                "pressure_dbar": float(p_value),
+                "depth_m": round(float(depths[level_i, station_i]), 3),
+                "in_situ_density_kg_m3": round(float(density[level_i, station_i]), 5),
+            })
+    pd.DataFrame(rows).to_csv(ASSET_DIR / "argo_scs_density_section_samples.csv", index=False, encoding="utf-8-sig")
+    return {
+        "selection": "One deep profile per platform nearest 2017-03-15 within 110-116E and 13.5-16.5N",
+        "date_range": f"{time_values.min():%Y-%m-%d}/{time_values.max():%Y-%m-%d}",
+        "stations": [
+            {
+                "station": name,
+                "distance_km": round(float(station_distance), 3),
+                "longitude_east": round(float(station_lon), 4),
+                "latitude_north": round(float(station_lat), 4),
+                "date_utc": date.isoformat(),
+                "wmo_platform": platform,
+            }
+            for name, station_distance, station_lon, station_lat, date, platform in zip(
+                station_names, distance, lon, lat, time_values, platforms
+            )
+        ],
+    }
+
+
 def plot_coverage(ds: xr.Dataset) -> None:
     years = pd.DatetimeIndex(ds.time.values).year
     counts = pd.Series(years).value_counts().sort_index().reindex(range(CFG.start_year, CFG.end_year + 1), fill_value=0)
@@ -595,7 +770,7 @@ def make_animation(ds: xr.Dataset) -> None:
     )
 
 
-def build_summary(ds: xr.Dataset, metrics: dict) -> dict:
+def build_summary(ds: xr.Dataset, metrics: dict, density_section: dict) -> dict:
     years = pd.DatetimeIndex(ds.time.values).year
     mode_counts = pd.Series(ds.data_mode.values.astype(str)).value_counts().to_dict()
     gdac_index_path = DATA_DIR / "gdac_index_scs_2016_2025.csv"
@@ -630,6 +805,7 @@ def build_summary(ds: xr.Dataset, metrics: dict) -> dict:
             "sigma0": "gsw.sigma0(SA,CT)",
             "in_situ_density": "gsw.rho(SA,CT,p)",
         },
+        "density_isobar_section": density_section,
         "annual_metrics": metrics,
         "limitations": [
             "Argo sampling is uneven in space, season and depth, especially over shallow shelves.",
@@ -684,13 +860,14 @@ def main() -> None:
     ds = load_all_years(paths)
     print(f"combined profiles: {ds.sizes['profile']:,}", flush=True)
     plot_workflow()
+    density_section = plot_density_isobar_section(ds)
     plot_coverage(ds)
     plot_vertical_climatology(ds)
     plot_ts_diagram(ds)
     plot_climatology_maps(ds)
     metrics = plot_annual_anomalies(ds)
     make_animation(ds)
-    summary = build_summary(ds, metrics)
+    summary = build_summary(ds, metrics, density_section)
     print(json.dumps({k: summary[k] for k in ("period", "profiles", "platforms", "profiles_by_year", "data_mode_counts")}, ensure_ascii=False, indent=2), flush=True)
 
 
