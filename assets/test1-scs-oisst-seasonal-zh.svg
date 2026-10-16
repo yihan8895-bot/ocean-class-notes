@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">1982至2020年南海北部月平均海表温度气候态</title>
+  <desc id="desc">面积加权海表温度在2月最低，为22.48摄氏度；7月最高，为28.92摄氏度。阴影表示逐日数值的正负一个标准差。</desc>
+  <rect width="1200" height="650" fill="#fff"/>
+  <text x="70" y="58" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="28" font-weight="700" fill="#17394d">南海北部海表温度季节循环</text>
+  <text x="70" y="87" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="14" fill="#6d828c">NOAA OISST · 面积加权月气候态 · 1982—2020</text>
+  <rect x="130" y="120" width="960" height="440" fill="#f8fbfb" stroke="#dce7e7"/>
+  <g stroke="#dfe8e8" stroke-width="1" font-family="Arial,sans-serif" font-size="12" fill="#687f88">
+    <path d="M130 520H1090M130 440H1090M130 360H1090M130 280H1090M130 200H1090M130 120H1090"/>
+    <text x="112" y="524" text-anchor="end">21</text><text x="112" y="444" text-anchor="end">23</text><text x="112" y="364" text-anchor="end">25</text><text x="112" y="284" text-anchor="end">27</text><text x="112" y="204" text-anchor="end">29</text><text x="112" y="124" text-anchor="end">31</text>
+  </g>
+  <path d="M130 426L217 432L305 379L392 299L479 219L566 186L654 175L741 180L828 191L915 238L1003 300L1090 370L1090 435L1003 363L915 298L828 247L741 228L654 232L566 248L479 294L392 386L305 456L217 490L130 481Z" fill="#65cdb7" fill-opacity=".28"/>
+  <path d="M130 454L217 461L305 418L392 342L479 256L566 217L654 203L741 204L828 219L915 268L1003 332L1090 402" fill="none" stroke="#0c7f83" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" stroke="#0c7f83" stroke-width="4"><circle cx="130" cy="454" r="6"/><circle cx="217" cy="461" r="6"/><circle cx="305" cy="418" r="6"/><circle cx="392" cy="342" r="6"/><circle cx="479" cy="256" r="6"/><circle cx="566" cy="217" r="6"/><circle cx="654" cy="203" r="6"/><circle cx="741" cy="204" r="6"/><circle cx="828" cy="219" r="6"/><circle cx="915" cy="268" r="6"/><circle cx="1003" cy="332" r="6"/><circle cx="1090" cy="402" r="6"/></g>
+  <g font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" fill="#607984" text-anchor="middle"><text x="130" y="584">1月</text><text x="217" y="584">2月</text><text x="305" y="584">3月</text><text x="392" y="584">4月</text><text x="479" y="584">5月</text><text x="566" y="584">6月</text><text x="654" y="584">7月</text><text x="741" y="584">8月</text><text x="828" y="584">9月</text><text x="915" y="584">10月</text><text x="1003" y="584">11月</text><text x="1090" y="584">12月</text></g>
+  <text x="36" y="355" transform="rotate(-90 36 355)" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#385b69">海表温度（°C）</text>
+  <rect x="782" y="137" width="274" height="83" rx="9" fill="#fff" stroke="#d8e5e5"/><path d="M801 163H844" stroke="#0c7f83" stroke-width="5"/><text x="856" y="168" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" fill="#506d78">月平均海表温度</text><rect x="801" y="185" width="43" height="14" fill="#65cdb7" fill-opacity=".35"/><text x="856" y="197" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" fill="#506d78">逐日值的 ±1 个标准差</text>
+  <path d="M217 461L255 492" stroke="#718b94"/><rect x="255" y="477" width="142" height="36" rx="6" fill="#fff" stroke="#dae5e5"/><text x="326" y="500" text-anchor="middle" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#315969">最低：22.48 °C</text>
+  <path d="M654 203L690 241" stroke="#718b94"/><rect x="690" y="226" width="144" height="36" rx="6" fill="#fff" stroke="#dae5e5"/><text x="762" y="249" text-anchor="middle" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#315969">最高：28.92 °C</text>
+  <text x="70" y="624" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="12" fill="#6b818a">范围：18.125–22.125°N、112.125–118.125°E · 阴影表示各日历月内的逐日变率。</text>
+</svg>

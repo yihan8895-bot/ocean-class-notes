@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Upper-ocean stratification and vertical convection</title>
+  <desc id="desc">Stable light water over dense water is compared with cooling or salinification that makes surface water dense enough to sink and convect.</desc>
+  <defs>
+    <linearGradient id="stable" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7ed9df"/><stop offset=".28" stop-color="#48aabe"/><stop offset=".62" stop-color="#246f9f"/><stop offset="1" stop-color="#143e72"/></linearGradient>
+    <linearGradient id="conv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#65ccd3"/><stop offset="1" stop-color="#1b568a"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#173d52" flood-opacity=".12"/></filter>
+    <marker id="whiteArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M1 1L11 6 1 11Z" fill="#fff"/></marker>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M1 1L11 6 1 11Z" fill="#174f6b"/></marker>
+  </defs>
+  <rect width="1200" height="720" fill="#f4f8f8"/>
+  <text x="54" y="58" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#15384c">Upper-Ocean Stratification and Vertical Convection</text>
+  <text x="54" y="88" font-family="Arial,sans-serif" font-size="15" fill="#617c87">Temperature and salinity change density; density determines static stability.</text>
+
+  <g filter="url(#shadow)"><rect x="44" y="122" width="532" height="425" rx="20" fill="#fff"/><rect x="624" y="122" width="532" height="425" rx="20" fill="#fff"/></g>
+  <circle cx="79" cy="160" r="16" fill="#dcf3ee"/><text x="79" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#117f76">1</text>
+  <text x="108" y="168" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#173e53">Stable stratification</text>
+  <text x="108" y="194" font-family="Arial,sans-serif" font-size="13" fill="#6c828b">Typical low- to mid-latitude upper ocean</text>
+  <rect x="70" y="220" width="480" height="286" rx="8" fill="url(#stable)"/>
+  <path d="M70 220Q90 210 110 220T150 220T190 220T230 220T270 220T310 220T350 220T390 220T430 220T470 220T510 220T550 220" fill="none" stroke="#fff" stroke-width="4"/>
+  <rect x="88" y="244" width="444" height="68" rx="11" fill="#f1fcfc" fill-opacity=".94"/>
+  <text x="107" y="272" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#17445d">Surface mixed layer</text><text x="107" y="296" font-family="Arial,sans-serif" font-size="13" fill="#416575">Nearly uniform T and S · relatively low ρ</text>
+  <rect x="88" y="333" width="444" height="86" rx="11" fill="#eff9fa" fill-opacity=".93"/>
+  <text x="107" y="362" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#17445d">Thermocline / pycnocline</text><text x="107" y="385" font-family="Arial,sans-serif" font-size="13" fill="#416575">T usually falls rapidly; S may rise or fall</text><text x="107" y="405" font-family="Arial,sans-serif" font-size="13" fill="#416575">Combined effect: ρ usually increases downward</text>
+  <rect x="88" y="440" width="444" height="49" rx="11" fill="#eff9fa" fill-opacity=".92"/><text x="107" y="469" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#17445d">Light above dense → gravitationally stable</text>
+
+  <circle cx="659" cy="160" r="16" fill="#dceff5"/><text x="659" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#176f86">2</text>
+  <text x="688" y="168" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#173e53">Surface density increases</text>
+  <text x="688" y="194" font-family="Arial,sans-serif" font-size="13" fill="#6c828b">Cooling or salinification can reverse the density gradient</text>
+  <rect x="650" y="220" width="480" height="286" rx="8" fill="url(#conv)"/>
+  <path d="M650 220Q670 210 690 220T730 220T770 220T810 220T850 220T890 220T930 220T970 220T1010 220T1050 220T1090 220T1130 220" fill="none" stroke="#fff" stroke-width="4"/>
+  <rect x="670" y="238" width="440" height="62" rx="10" fill="#fff" fill-opacity=".94"/><text x="690" y="263" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#17445d">Cooling: T ↓　|　Evaporation or brine rejection: S ↑</text><text x="690" y="285" font-family="Arial,sans-serif" font-size="14" fill="#315d70">Surface ρ ↑; if ρsurface &gt; ρbelow, stratification is unstable</text>
+  <path d="M808 320C792 370 796 420 812 470" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" marker-end="url(#whiteArrow)"/>
+  <path d="M1022 470C1043 425 1043 375 1024 330" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" marker-end="url(#whiteArrow)"/>
+  <path d="M974 474C930 493 880 494 838 475" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" marker-end="url(#whiteArrow)"/>
+  <rect x="881" y="354" width="178" height="70" rx="10" fill="#f1fbfb" fill-opacity=".94"/><text x="970" y="383" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#17445d">Dense water sinks</text><text x="970" y="406" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#416575">lighter water rises</text>
+
+  <rect x="44" y="578" width="1112" height="94" rx="18" fill="#dfeeed"/>
+  <text x="68" y="612" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#17445d">CORE MECHANISM</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle"><rect x="222" y="596" width="178" height="58" rx="10" fill="#fff"/><text x="311" y="622" font-size="18" font-weight="700" fill="#17627a">T ↓ or S ↑</text><text x="311" y="643" font-size="12" fill="#647d86">surface forcing</text><path d="M414 625H459" stroke="#174f6b" stroke-width="4" marker-end="url(#blueArrow)"/><rect x="476" y="596" width="178" height="58" rx="10" fill="#fff"/><text x="565" y="622" font-size="18" font-weight="700" fill="#17627a">surface ρ ↑</text><text x="565" y="643" font-size="12" fill="#647d86">water becomes heavier</text><path d="M668 625H713" stroke="#174f6b" stroke-width="4" marker-end="url(#blueArrow)"/><rect x="730" y="596" width="178" height="58" rx="10" fill="#fff"/><text x="819" y="622" font-size="18" font-weight="700" fill="#17627a">instability</text><text x="819" y="643" font-size="12" fill="#647d86">density inversion</text><path d="M922 625H967" stroke="#174f6b" stroke-width="4" marker-end="url(#blueArrow)"/><rect x="984" y="596" width="148" height="58" rx="10" fill="#fff"/><text x="1058" y="622" font-size="18" font-weight="700" fill="#17627a">convection</text><text x="1058" y="643" font-size="12" fill="#647d86">overturn and mix</text></g>
+  <text x="54" y="701" font-family="Arial,sans-serif" font-size="12" fill="#6a818a">Conceptual diagram; layer thicknesses and arrows are not to scale. T: temperature · S: salinity · ρ: density.</text>
+</svg>
