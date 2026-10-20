@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071f34">
+  <meta name="description" content="A layered answer on instruments for measuring ocean temperature, salinity and currents, and on inferring geostrophic currents from density or sea-surface-height observations.">
+  <link rel="canonical" href="https://yihan8895-bot.github.io/ocean-class-notes/test2.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="test2 | Ocean Measurements and Geostrophic Currents">
+  <meta property="og:description" content="Measurement methods, advantages and limitations, geostrophic equations, observational conditions, a worked example and South China Sea data evidence.">
+  <meta property="og:url" content="https://yihan8895-bot.github.io/ocean-class-notes/test2.html">
+  <meta property="og:image" content="https://yihan8895-bot.github.io/ocean-class-notes/assets/geostrophic/scs_oisst_mean_fronts_2016_2025.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>test2 | Ocean Measurements and Geostrophic Currents</title>
+  <link rel="stylesheet" href="styles.css?v=20261015-i18n">
+  <link rel="stylesheet" href="test2.css?v=20261020">
+</head>
+<body class="test2-page">
+  <header class="site-header">
+    <a class="identity" href="./"><span class="logo">≈</span><span>海洋课堂笔记 / Ocean Classroom Notes<small>物理海洋学 / PHYSICAL OCEANOGRAPHY</small></span></a>
+    <nav><a href="./">Library</a><a href="geostrophic.html">Geostrophy</a><a href="eof.html">EOF</a><a href="heatwaves.html">MHW</a><a href="test1.html">test1</a><a class="topic-link" href="test2.html" aria-current="page">test2</a><a class="admin-link" href="editor.html">Add Content ↗</a></nav>
+  </header>
+
+  <main>
+    <section class="t2-hero">
+      <div class="t2-hero-copy">
+        <span class="t2-kicker">TEST 2 · PHYSICAL OCEANOGRAPHY</span>
+        <h1>Measuring the Ocean<br><span>and Reading Its Currents</span></h1>
+        <p class="t2-lead">A complete, layered answer covering instruments, observing methods, geostrophic balance, inference requirements, a numerical check and evidence from South China Sea data.</p>
+        <div class="t2-actions"><a href="#brief">Start with the brief answer ↓</a><a href="#evidence" class="secondary">See the data evidence</a></div>
+      </div>
+      <aside class="question-card" aria-label="Assignment question">
+        <span>THE QUESTION</span>
+        <p>Briefly describe the instruments and methods commonly used to measure ocean temperature, salinity, and currents, and discuss their advantages and limitations. Using the concept of geostrophic balance, explain how horizontal variations in seawater density or sea surface height are related to ocean currents. Discuss the conditions under which geostrophic currents can be inferred from observational data.</p>
+      </aside>
+    </section>
+
+    <div class="t2-layout">
+      <aside class="t2-toc" aria-label="Page contents">
+        <strong>CONTENTS</strong>
+        <a href="#brief"><b>01</b> Brief answer</a>
+        <a href="#measure"><b>02</b> Instruments</a>
+        <a href="#theory"><b>03</b> Geostrophic theory</a>
+        <a href="#inference"><b>04</b> Inference workflows</a>
+        <a href="#evidence"><b>05</b> Data evidence</a>
+        <a href="#conditions"><b>06</b> Conditions</a>
+        <a href="#model-answer"><b>07</b> Model answer</a>
+        <a href="#check"><b>08</b> Self-check</a>
+      </aside>
+
+      <article class="t2-article">
+        <section id="brief" class="answer-card accent-card">
+          <div class="section-label">LEVEL 1 · BRIEF ANSWER</div>
+          <h2>The answer in one minute</h2>
+          <p>Ocean temperature and salinity are commonly measured with a <strong>CTD</strong>: a thermistor measures temperature, a conductivity cell provides salinity after conversion using temperature and pressure, and a pressure sensor gives depth. Shipboard CTD rosettes provide accurate, high-resolution profiles and water samples but are costly and sparse. Argo floats, moorings and gliders extend coverage and duration, with less control over sampling and sensor recovery. Satellites offer broad, repeated maps of sea-surface temperature and salinity but observe only a shallow surface layer and require calibration. Currents are measured directly with current meters, <strong>ADCPs</strong>, drifters, floats and coastal HF radar; their trade-offs include limited depth, range, duration, spatial coverage and sensitivity to waves, tides or platform motion.</p>
+          <p>For large-scale, slowly varying flow with weak friction, the horizontal pressure-gradient force approximately balances the Coriolis force. A sea-surface-height slope therefore implies a surface geostrophic current parallel to height contours. Horizontal density differences create pressure differences that change with depth, so they determine the <strong>vertical shear</strong> of the geostrophic current through thermal-wind balance. Altimetry can estimate surface geostrophic velocity from sea-surface-height gradients; hydrographic temperature-salinity profiles can estimate relative geostrophic velocity from dynamic-height differences. Reliable inference requires observations with adequate spatial resolution and near-synoptic timing, accurate positioning and corrections, distance from the equator, a small Rossby number, weak friction, and a reference level or independent velocity for hydrographic estimates.</p>
+        </section>
+
+        <section id="measure">
+          <div class="section-label">LEVEL 2 · MEASUREMENT TOOLKIT</div>
+          <h2>What is measured, and how?</h2>
+          <p class="section-intro">Every method samples a different combination of depth, area and time. A strong answer identifies both the physical principle and the sampling trade-off.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Variable</th><th>Instrument or method</th><th>What it measures</th><th>Main advantages</th><th>Main limitations</th></tr></thead>
+              <tbody>
+                <tr><th rowspan="4">Temperature</th><td><strong>Ship CTD / thermistor</strong></td><td>In situ temperature versus pressure; often lowered on a rosette.</td><td>High vertical resolution and accuracy; paired T–S observations; bottles allow laboratory checks.</td><td>Ship time is expensive; sections are spatially sparse and not instantaneous.</td></tr>
+                <tr><td><strong>XBT</strong></td><td>Temperature from a falling probe; depth is estimated from fall rate.</td><td>Fast and relatively inexpensive underway profiling.</td><td>No salinity; expendable; fall-rate and depth biases require correction.</td></tr>
+                <tr><td><strong>Argo, gliders, moorings</strong></td><td>Repeated autonomous profiles or fixed time series.</td><td>Long duration, broad or sustained subsurface sampling; works in poor weather.</td><td>Sampling paths/depths are constrained; gaps, drift and delayed calibration can occur.</td></tr>
+                <tr><td><strong>Satellite radiometers</strong></td><td>Infrared or microwave brightness related to skin/subskin SST.</td><td>Frequent, nearly global maps.</td><td>Surface only; infrared is blocked by cloud; retrievals need atmospheric correction and in situ validation.</td></tr>
+
+                <tr><th rowspan="3">Salinity</th><td><strong>CTD conductivity cell</strong></td><td>Conductivity plus temperature and pressure, converted to Practical Salinity.</td><td>Accurate, co-located profiles suitable for density calculation.</td><td>Biofouling and sensor drift matter; conductivity is an indirect salinity measurement.</td></tr>
+                <tr><td><strong>Niskin bottle + salinometer</strong></td><td>Discrete water sample analyzed in the laboratory.</td><td>High-quality reference and calibration samples; other properties can be measured.</td><td>Few depths and stations; sample handling takes time.</td></tr>
+                <tr><td><strong>Argo / satellite L-band</strong></td><td>Autonomous profiles or microwave sea-surface salinity.</td><td>Argo resolves the water column; satellites provide basin-scale surface maps.</td><td>Argo is irregular in space/time; satellite signals are noisy near land, rain, ice and cold water and represent only the surface.</td></tr>
+
+                <tr><th rowspan="5">Currents</th><td><strong>Current meter</strong></td><td>Velocity at one depth using rotors, acoustics or electromagnetic sensing.</td><td>Long, high-frequency Eulerian time series.</td><td>Only one or a few points; mooring motion and biofouling can affect data.</td></tr>
+                <tr><td><strong>ADCP</strong></td><td>Doppler shift of sound scattered by particles, yielding velocity in depth bins.</td><td>Profiles several depths at once; can be shipboard, moored or lowered.</td><td>Range/resolution trade-off; needs scatterers and careful correction for platform motion, heading and sidelobes.</td></tr>
+                <tr><td><strong>Drifters and floats</strong></td><td>Trajectory displacement over time: a Lagrangian velocity.</td><td>Follows water parcels over large distances.</td><td>Sparse and depth-specific; windage, Stokes drift and imperfect depth following can bias interpretation.</td></tr>
+                <tr><td><strong>HF radar</strong></td><td>Radio backscatter used to map coastal surface velocity.</td><td>Repeated two-dimensional coastal maps in near real time.</td><td>Coastal range only; geometry, interference and low signal can create gaps.</td></tr>
+                <tr><td><strong>Satellite altimetry</strong></td><td>Sea-surface height; geostrophic current is inferred from its horizontal slope.</td><td>Repeated, broad-scale coverage with consistent sampling.</td><td>Indirect; along-track sampling and mapping smooth small scales; tides, atmosphere, geoid and ageostrophic motions require treatment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="memory-grid">
+            <div><span>CTD</span><p><strong>C</strong>onductivity → salinity<br><strong>T</strong>emperature → heat state<br><strong>D</strong>epth → from pressure</p></div>
+            <div><span>ADCP</span><p>Acoustic Doppler shift → a vertical profile of horizontal velocity.</p></div>
+            <div><span>Satellite</span><p>Excellent horizontal coverage; limited direct information below the surface.</p></div>
+          </div>
+        </section>
+
+        <section id="theory" class="dark-section">
+          <div class="section-label">LEVEL 2 · PHYSICAL LINK</div>
+          <h2>From pressure gradients to currents</h2>
+          <div class="equation-card">
+            <p class="equation"><i>f</i> <b>k</b> × <b>u</b><sub>g</sub> = −(1/ρ<sub>0</sub>) ∇<sub>h</sub><i>p</i></p>
+            <p>In geostrophic balance, the Coriolis acceleration and horizontal pressure-gradient force are equal and opposite. The current runs along pressure contours rather than directly from high pressure to low pressure.</p>
+          </div>
+          <div class="theory-grid">
+            <article>
+              <span>SEA-SURFACE HEIGHT</span>
+              <p class="equation small"><i>u</i><sub>g</sub> = −<i>g</i>/<i>f</i> · ∂η/∂<i>y</i><br><i>v</i><sub>g</sub> = &nbsp;<i>g</i>/<i>f</i> · ∂η/∂<i>x</i></p>
+              <p>A tilted sea surface creates a horizontal pressure gradient through the entire water column. In the Northern Hemisphere, higher sea level lies to the right of the geostrophic flow; the direction reverses in the Southern Hemisphere.</p>
+            </article>
+            <article>
+              <span>DENSITY AND THERMAL WIND</span>
+              <p class="equation small">∂<i>u</i><sub>g</sub>/∂<i>z</i> = <i>g</i>/(<i>f</i>ρ<sub>0</sub>) · ∂ρ/∂<i>y</i><br>∂<i>v</i><sub>g</sub>/∂<i>z</i> = −<i>g</i>/(<i>f</i>ρ<sub>0</sub>) · ∂ρ/∂<i>x</i></p>
+              <p>Because pressure is the weight of the water above, horizontal density contrasts make pressure gradients vary with depth. Sloping isopycnals therefore imply vertical shear, not an absolute velocity by themselves.</p>
+            </article>
+          </div>
+          <div class="direction-note"><strong>Direction check:</strong> if sea level rises eastward (∂η/∂x &gt; 0) at 30°N, then <i>v</i><sub>g</sub> &gt; 0: the current points north.</div>
+        </section>
+
+        <section id="inference">
+          <div class="section-label">LEVEL 3 · OBSERVATIONAL INFERENCE</div>
+          <h2>Two routes from observations to geostrophic velocity</h2>
+          <div class="workflow-grid">
+            <article class="workflow-card">
+              <span class="workflow-no">A</span><h3>Altimetric route: surface velocity</h3>
+              <ol><li>Measure satellite-to-surface range and orbit.</li><li>Correct for tides, atmosphere and instrumental effects.</li><li>Form sea-surface height relative to the geoid, or combine sea-level anomaly with mean dynamic topography.</li><li>Map the field, calculate horizontal gradients, and apply the surface equations above.</li></ol>
+              <p class="result"><strong>Output:</strong> an estimate of absolute surface geostrophic velocity when absolute dynamic topography is available.</p>
+            </article>
+            <article class="workflow-card">
+              <span class="workflow-no">B</span><h3>Hydrographic route: relative velocity</h3>
+              <ol><li>Measure temperature, salinity and pressure at neighboring stations.</li><li>Apply quality control and convert to Absolute Salinity, Conservative Temperature and density using TEOS-10.</li><li>Integrate specific-volume anomaly to obtain dynamic height.</li><li>Use horizontal dynamic-height differences to calculate geostrophic shear or velocity relative to a chosen pressure.</li></ol>
+              <p class="result"><strong>Output:</strong> relative geostrophic velocity; an assumed level of no motion or an independent reference velocity is needed for an absolute current.</p>
+            </article>
+          </div>
+
+          <aside class="worked-example">
+            <div><span>WORKED EXAMPLE</span><h3>A 20 cm height change across 100 km at 30°N</h3></div>
+            <div class="calculation"><p>∂η/∂x = 0.20 m / 100,000 m = 2.0 × 10<sup>−6</sup></p><p><i>f</i> = 2Ω sin 30° = 7.292 × 10<sup>−5</sup> s<sup>−1</sup></p><p><i>v</i><sub>g</sub> = (<i>g</i>/<i>f</i>)∂η/∂x = <strong>0.269 m s<sup>−1</sup> northward</strong></p></div>
+          </aside>
+        </section>
+
+        <section id="evidence">
+          <div class="section-label">LEVEL 3 · SOUTH CHINA SEA EVIDENCE</div>
+          <h2>What the available data can—and cannot—show</h2>
+          <figure class="data-figure">
+            <img src="assets/geostrophic/scs_oisst_mean_fronts_2016_2025.png" alt="Maps of 2016–2025 mean sea-surface temperature and mean daily SST-front strength in the South China Sea">
+            <figcaption><strong>Figure 1.</strong> NOAA OISST data already stored on the E: drive, 2016–2025 (3,653 daily fields, 0.25° grid). The area-weighted mean SST is 28.412 °C and the mean front strength is 0.585 °C per 100 km. SST fronts identify locations where surface density may change sharply, but SST alone omits salinity, subsurface density and sea-surface height. It therefore cannot determine an absolute geostrophic current.</figcaption>
+          </figure>
+          <figure class="data-figure">
+            <img src="assets/argo/argo_scs_density_isobar_section-en.png" alt="Six-station South China Sea Argo in-situ density section from March 2017">
+            <figcaption><strong>Figure 2.</strong> A quality-controlled, quasi-synoptic Argo section across six South China Sea stations, 13–16 March 2017. At 100 dbar, the station density range is 1.804 kg m<sup>−3</sup>, confirming a horizontal density contrast. The full vertical density field can constrain geostrophic shear, but the irregular path and multi-day sampling require care, and an independent reference is still needed for absolute velocity.</figcaption>
+          </figure>
+          <div class="evidence-cards">
+            <article><strong>Useful evidence</strong><p>OISST locates persistent thermal fronts. Argo supplies subsurface temperature, salinity, pressure and density. Together they improve physical interpretation.</p></article>
+            <article><strong>Missing for a unique current</strong><p>The E: drive files inspected contain no collocated SSH or direct velocity field. Temperature alone cannot separate salinity compensation or ageostrophic flow.</p></article>
+            <article><strong>Best next observation</strong><p>Add mapped absolute dynamic topography for surface flow, or pair the hydrographic section with an ADCP/reference velocity for an absolute section.</p></article>
+          </div>
+        </section>
+
+        <section id="conditions" class="conditions-section">
+          <div class="section-label">LEVEL 3 · WHEN THE INFERENCE IS VALID</div>
+          <h2>Conditions for inferring geostrophic currents</h2>
+          <div class="check-grid">
+            <div><b>01</b><p><strong>Rotation dominates.</strong> The Rossby number <i>Ro</i> = <i>U</i>/(|<i>f</i>|<i>L</i>) should be much smaller than one.</p></div>
+            <div><b>02</b><p><strong>Away from the equator.</strong> Because <i>f</i> approaches zero, ordinary geostrophic formulas become singular and equatorial dynamics must be used.</p></div>
+            <div><b>03</b><p><strong>Weak friction.</strong> The estimate is most appropriate in the ocean interior, outside the surface Ekman layer, bottom boundary layer and strongly frictional coastal zones.</p></div>
+            <div><b>04</b><p><strong>Slow evolution.</strong> Horizontal acceleration should be small relative to pressure-gradient and Coriolis terms; tides, inertial oscillations, fronts and wind-driven events may violate this.</p></div>
+            <div><b>05</b><p><strong>Hydrostatic structure.</strong> Pressure should be well represented by the weight of the overlying water, as is typical for large-scale ocean flow.</p></div>
+            <div><b>06</b><p><strong>Adequate sampling.</strong> Stations or satellite maps must resolve the horizontal gradient and be sufficiently simultaneous that temporal change is not mistaken for spatial structure.</p></div>
+            <div><b>07</b><p><strong>Corrected observations.</strong> Altimetry needs orbit, geoid, tide and atmospheric corrections; hydrography needs calibrated T–S–p sensors, quality control and TEOS-10 calculations.</p></div>
+            <div><b>08</b><p><strong>A velocity reference.</strong> Density sections yield shear or relative current. Use a credible reference level, ADCP, float displacement or another independent constraint for absolute velocity.</p></div>
+          </div>
+        </section>
+
+        <section id="model-answer" class="answer-card model-answer">
+          <div class="section-label">SUBMISSION-READY MODEL ANSWER</div>
+          <h2>Integrated response</h2>
+          <p>Ocean temperature is measured in situ by thermistors on CTDs, XBTs, Argo floats, gliders and moorings, and remotely by infrared or microwave satellite radiometers. In situ sensors resolve the vertical structure accurately but provide limited spatial or temporal coverage, whereas satellites repeatedly map large areas but observe only the skin or near-surface ocean and require atmospheric correction and calibration. Salinity is usually derived from conductivity, temperature and pressure measured by a CTD. Bottle samples analyzed with a salinometer provide high-quality checks, and Argo extends T–S profiling over the open ocean. Satellite L-band radiometry maps surface salinity globally, but its resolution and accuracy decline near coasts, rain, ice and cold water. Currents are measured directly by current meters, ADCPs, surface drifters, subsurface floats and coastal HF radar. These methods provide either time series, vertical profiles, trajectories or surface maps, but none samples all depths and scales; platform motion, acoustic range, windage and geographic coverage are common limitations.</p>
+          <p>For large-scale, slowly varying motion away from strong friction, the horizontal pressure-gradient force approximately balances the Coriolis force: <i>f</i><b>k</b> × <b>u</b><sub>g</sub> = −ρ<sub>0</sub><sup>−1</sup>∇<sub>h</sub><i>p</i>. At the sea surface, a height slope gives <i>u</i><sub>g</sub> = −(<i>g</i>/<i>f</i>)∂η/∂<i>y</i> and <i>v</i><sub>g</sub> = (<i>g</i>/<i>f</i>)∂η/∂<i>x</i>. Thus the current is parallel to sea-surface-height contours, with higher sea level on its right in the Northern Hemisphere. Horizontal temperature and salinity differences change density; under hydrostatic balance, these density contrasts make the horizontal pressure gradient vary with depth. Thermal-wind balance therefore relates horizontal density gradients to vertical geostrophic shear.</p>
+          <p>Satellite altimetry can infer surface geostrophic velocity from gradients of absolute dynamic topography. CTD or Argo sections can infer dynamic-height differences and geostrophic velocity relative to a reference pressure. The latter becomes absolute only when a level of no motion or an independent velocity measurement is supplied. Both approaches require accurate corrections, sufficient spatial resolution and near-synoptic sampling. They work best when the Rossby number is small, the flow is away from the equator and strong boundary friction, hydrostatic balance is appropriate, and tides, inertial motion, Ekman flow and other ageostrophic components have been filtered or treated separately.</p>
+        </section>
+
+        <section id="check" class="self-check">
+          <div class="section-label">QUALITY CONTROL</div>
+          <h2>Self-check and scope</h2>
+          <ul>
+            <li><strong>Physics:</strong> the vector and component equations use a positive Coriolis parameter in the Northern Hemisphere; the stated direction follows their signs.</li>
+            <li><strong>Numerics:</strong> 0.20 m over 100 km at 30°N gives 0.269 m s<sup>−1</sup>; the calculation was independently evaluated in MATLAB.</li>
+            <li><strong>Density evidence:</strong> six actual Argo station samples at 100 dbar give 1023.522–1025.325 kg m<sup>−3</sup>, a range of 1.804 kg m<sup>−3</sup>.</li>
+            <li><strong>Interpretation:</strong> SST is treated as a tracer and partial density control, never as a complete substitute for T–S density, SSH or velocity.</li>
+            <li><strong>Inference:</strong> density data are described as providing shear/relative velocity unless a reference is supplied; altimetry requires absolute dynamic topography for absolute surface current.</li>
+          </ul>
+        </section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <div class="section-label">SOURCES AND DATA</div>
+          <h2 id="sources-title">References</h2>
+          <div class="source-list">
+            <a href="https://oceanexplorer.noaa.gov/okeanos/edu/collection/media/hdwe-WCCTD56.pdf"><span>01</span><div><strong>NOAA Ocean Exploration</strong><small>What is a CTD? Conductivity, temperature, depth and salinity conversion.</small></div></a>
+            <a href="https://www.fisheries.noaa.gov/science-blog/measuring-ocean-currents-acoustic-doppler-current-profile"><span>02</span><div><strong>NOAA Fisheries</strong><small>Measuring ocean currents with an Acoustic Doppler Current Profiler.</small></div></a>
+            <a href="https://argo.ucsd.edu/data/data-from-gdacs/"><span>03</span><div><strong>Argo Program</strong><small>Global Data Assembly Centres and profile data access.</small></div></a>
+            <a href="https://www.teos-10.org/software.htm"><span>04</span><div><strong>TEOS-10</strong><small>GSW software for seawater thermodynamic calculations.</small></div></a>
+            <a href="https://podaac.jpl.nasa.gov/dataset/NEUROST_SSH-SST_L4_V2024.0"><span>05</span><div><strong>NASA JPL PO.DAAC</strong><small>Sea-surface height and surface geostrophic current variables.</small></div></a>
+            <a href="https://ioos.noaa.gov/project/hf-radar/"><span>06</span><div><strong>U.S. IOOS</strong><small>High-frequency radar surface-current observing network.</small></div></a>
+            <a href="https://doi.org/10.25921/RE9P-PT57"><span>07</span><div><strong>NOAA OISST v2.1</strong><small>Daily 0.25° sea-surface-temperature analysis used for Figure 1.</small></div></a>
+            <a href="https://doi.org/10.17882/42182"><span>08</span><div><strong>Argo GDAC</strong><small>Argo profile dataset used for Figure 2.</small></div></a>
+          </div>
+          <p class="data-note">Local data provenance: OISST files were read from <code>E:\研究生课题\data\OISST_ERA5_1996_2025\OISST</code>. The accompanying Argo figures and summaries are retained in this site’s reproducible asset collection. Values are rounded only for presentation.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer><span>≈ &nbsp; Ocean Classroom Notes</span><span>test2 · Measurements and Geostrophic Currents</span><a href="./">Back to Library</a></footer>
+</body>
+</html>
