@@ -176,6 +176,7 @@
       'heatwaves.html': ['南海海洋热浪｜识别与时空特征', 'South China Sea Marine Heatwaves | Detection and Patterns'],
       'eof.html': ['南海海洋热浪 × EOF｜观测、分析与动画', 'South China Sea Heatwaves × EOF | Observations and Animation'],
       'test1.html': ['test1｜物理海洋学、上层海洋层结与对流混合', 'test1 | Physical Oceanography, Upper-Ocean Stratification and Convective Mixing'],
+      'test2.html': ['test2｜海洋观测与地转流反演', 'test2 | Ocean Measurements and Geostrophic Currents'],
       'editor.html': ['添加内容 · 海洋课堂笔记', 'Add Content · Ocean Classroom Notes'],
     };
     if (titles[name]) document.title = titles[name][language === 'zh' ? 0 : 1];
