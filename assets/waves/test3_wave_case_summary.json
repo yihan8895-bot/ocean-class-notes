@@ -1,0 +1,40 @@
+{
+  "surface_case": {
+    "station": "NOAA NDBC 44088 - New York Harbor Entrance",
+    "year": 2024,
+    "valid_records": 17197,
+    "median_Hs_m": 1.31,
+    "p95_Hs_m": 2.86,
+    "maximum_Hs_m": 7.16,
+    "median_dominant_period_s": 8.0
+  },
+  "internal_case": {
+    "argo_file": "D2902695_039.nc",
+    "longitude_E": 114.506,
+    "latitude_N": 15.542,
+    "time": "2017-03-16T15:16:00.000003072",
+    "stable_fraction": 0.98989898989899,
+    "maximum_N2_s-2": 0.00089807466755536,
+    "minimum_buoyancy_period_min": 3.4943982152550395
+  },
+  "worked_example": {
+    "surface_period_s": 10,
+    "surface_phase_speed_m_s": 15.613099917314935,
+    "surface_wavelength_m": 156.13099917314932,
+    "h1_m": 50,
+    "h2_m": 150,
+    "density_difference_kg_m3": 2,
+    "rho0_kg_m3": 1025,
+    "reduced_gravity_m_s2": 0.019141463414634147,
+    "internal_longwave_speed_m_s": 0.8472336620134852
+  },
+  "sources": {
+    "ndbc": "https://www.ndbc.noaa.gov/data/historical/stdmet/44088h2024.txt.gz",
+    "argo_gdac": "https://data-argo.ifremer.fr/dac/csio/2902695/profiles/D2902695_039.nc",
+    "teos10": "https://www.teos-10.org/pubs/gsw/html/gsw_Nsquared.html"
+  },
+  "sha256": {
+    "ndbc": "c9b510e55bae8639bf3edffb42913391509334b98b8f3f5f7fdd4568c7a3498a",
+    "argo": "aea76db45dad98a10a3263911abef83d0d0afbfc1ad5d1de57750d8289a021ff"
+  }
+}

@@ -9,7 +9,7 @@
     ]]],
     ['.site-header nav a', [
       ['资料库', 'Library'], ['地转流', 'Geostrophy'], ['EOF', 'EOF'], ['海洋热浪', 'MHW'],
-      ['test1', 'test1'], ['test2', 'test2'], ['添加内容 ↗', 'Add Content ↗']
+      ['test1', 'test1'], ['test2', 'test2'], ['test3', 'test3'], ['添加内容 ↗', 'Add Content ↗']
     ]],
     ['.t2-kicker', [['测试 2 · 物理海洋学', 'TEST 2 · PHYSICAL OCEANOGRAPHY']]],
     ['.t2-hero h1', [[
