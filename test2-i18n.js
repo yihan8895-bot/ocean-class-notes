@@ -21,7 +21,8 @@
       'A complete, layered answer covering instruments, observing methods, geostrophic balance, inference requirements, a numerical check and evidence from South China Sea data.'
     ]]],
     ['.t2-actions a', [
-      ['从简要答案开始 ↓', 'Start with the brief answer ↓'], ['查看数据证据', 'See the data evidence']
+      ['从简要答案开始 ↓', 'Start with the brief answer ↓'], ['查看数据证据', 'See the data evidence'],
+      ['下载作业 PDF', 'Download assignment PDF']
     ]],
     ['.question-card > span', [['题目', 'THE QUESTION']]],
     ['.question-card p', [[
@@ -139,7 +140,16 @@
       [
         '<strong>图 2。</strong>经过质量控制的南海准同步 Argo 断面，包含六个站位，观测时间为 2017 年 3 月 13—16 日。100 dbar 处的站间密度范围为 1.804 kg m<sup>−3</sup>，说明存在水平密度差异。完整的垂向密度场可以约束地转切变，但不规则路径和多日采样需要谨慎处理，而且仍需独立参考才能得到绝对流速。',
         '<strong>Figure 2.</strong> A quality-controlled, quasi-synoptic Argo section across six South China Sea stations, 13–16 March 2017. At 100 dbar, the station density range is 1.804 kg m<sup>−3</sup>, confirming a horizontal density contrast. The full vertical density field can constrain geostrophic shear, but the irregular path and multi-day sampling require care, and an independent reference is still needed for absolute velocity.'
+      ],
+      [
+        '<strong>图 3。</strong>从 Argo 官方 GDAC 下载的剖面经过质量控制，按 TEOS-10 转换，并积分得到相对于 700 dbar 的动力高度。10 dbar 处五个分段的法向相对流速为 −0.492 至 +0.195 m s<sup>−1</sup>；正值指向局部 A–F 路径左侧。最大流速出现在距离较短的 E–F 段，受断面路径不规则和四天采样时间跨度影响，应谨慎解释。这些是斜压相对流速，并非绝对海流。',
+        '<strong>Figure 3.</strong> The downloaded official Argo GDAC profiles were quality controlled, converted with TEOS-10 and integrated to dynamic height relative to 700 dbar. At 10 dbar, the five segment-normal relative velocities range from −0.492 to +0.195 m s<sup>−1</sup>; positive points left of the local A–F path. The strongest magnitude occurs across the short E–F segment and should be interpreted cautiously because the path is irregular and the profiles span four days. These are relative baroclinic velocities, not absolute currents.'
       ]
+    ]],
+    ['.data-downloads a', [
+      ['<strong>作业 PDF</strong><span>英文题目、完整答案、图表与参考文献</span>', '<strong>Assignment PDF</strong><span>English question, answer, figures and references</span>'],
+      ['<strong>案例数据包</strong><span>六个 GDAC NetCDF 文件、处理表格与方法说明</span>', '<strong>Case data package</strong><span>Six GDAC NetCDF files, processed tables and method notes</span>'],
+      ['<strong>流速 CSV</strong><span>五个测站分段，10 dbar 垂向间隔</span>', '<strong>Velocity CSV</strong><span>Five station pairs at 10 dbar intervals</span>']
     ]],
     ['.evidence-cards', [[
       '<article><strong>有用的证据</strong><p>OISST 可定位持续存在的温度锋；Argo 提供次表层温度、盐度、压力和密度。两者结合可改善物理解释。</p></article><article><strong>唯一确定海流所缺少的资料</strong><p>已检查的 E 盘文件没有共位的海表高度或直接流速场。温度资料不能单独排除盐度补偿或非地转流动。</p></article><article><strong>下一步最佳观测</strong><p>加入绝对动力地形以获得表层流，或将水文断面与 ADCP/参考流速配合，以得到绝对流速断面。</p></article>',
@@ -161,11 +171,15 @@
       [
         '卫星测高可从绝对动力地形的梯度反演表层地转流速。CTD 或 Argo 断面能够计算动力高度差，以及相对于参考压力面的地转流速。只有给出无运动层或独立流速观测后，后者才能转化为绝对流速。两种方法都要求准确订正、足够空间分辨率和近同步采样。它们最适用于罗斯贝数较小、远离赤道和强边界摩擦、满足静力平衡的流动，同时需要滤除或单独处理潮汐、惯性运动、埃克曼流和其他非地转分量。',
         'Satellite altimetry can infer surface geostrophic velocity from gradients of absolute dynamic topography. CTD or Argo sections can infer dynamic-height differences and geostrophic velocity relative to a reference pressure. The latter becomes absolute only when a level of no motion or an independent velocity measurement is supplied. Both approaches require accurate corrections, sufficient spatial resolution and near-synoptic sampling. They work best when the Rossby number is small, the flow is away from the equator and strong boundary friction, hydrostatic balance is appropriate, and tides, inertial motion, Ekman flow and other ageostrophic components have been filtered or treated separately.'
+      ],
+      [
+        '作为观测案例，选取了 2017 年 3 月 13—16 日南海六个 Argo 官方 GDAC 剖面，并转换为 TEOS-10 绝对盐度和保守温度。相对于 700 dbar 的动力高度差给出 10 dbar 处 −0.492 至 +0.195 m s<sup>−1</sup> 的断面法向相对流速。该案例说明水平密度结构如何约束地转切变，也表明水文反演需要近同步采样和独立流速参考，才能解释为绝对海流。',
+        'As an observational example, six official Argo GDAC profiles across the South China Sea from 13–16 March 2017 were converted to TEOS-10 Absolute Salinity and Conservative Temperature. Dynamic-height differences relative to 700 dbar give 10 dbar section-normal relative velocities from −0.492 to +0.195 m s<sup>−1</sup>. This demonstrates how horizontal density structure constrains geostrophic shear, while also showing why hydrographic estimates require near-synoptic sampling and an independent velocity reference before they can be interpreted as absolute currents.'
       ]
     ]],
     ['#check ul', [[
-      '<li><strong>物理关系：</strong>矢量方程和分量方程在北半球采用正科氏参数，所述方向与公式符号一致。</li><li><strong>数值检验：</strong>30°N 处 100 km 范围内 0.20 m 的海面高度差对应 0.269 m s<sup>−1</sup>；该结果已在 MATLAB 中独立计算。</li><li><strong>密度证据：</strong>六个实际 Argo 站位在 100 dbar 处的密度为 1023.522–1025.325 kg m<sup>−3</sup>，范围为 1.804 kg m<sup>−3</sup>。</li><li><strong>解释边界：</strong>SST 被用作示踪量和密度的部分控制因素，没有把它当作完整温盐密度、海表高度或流速的替代物。</li><li><strong>反演范围：</strong>在没有参考流速时，密度资料只用于估算切变或相对流速；卫星测高若要得到绝对表层流，需要绝对动力地形。</li>',
-      '<li><strong>Physics:</strong> the vector and component equations use a positive Coriolis parameter in the Northern Hemisphere; the stated direction follows their signs.</li><li><strong>Numerics:</strong> 0.20 m over 100 km at 30°N gives 0.269 m s<sup>−1</sup>; the calculation was independently evaluated in MATLAB.</li><li><strong>Density evidence:</strong> six actual Argo station samples at 100 dbar give 1023.522–1025.325 kg m<sup>−3</sup>, a range of 1.804 kg m<sup>−3</sup>.</li><li><strong>Interpretation:</strong> SST is treated as a tracer and partial density control, never as a complete substitute for T–S density, SSH or velocity.</li><li><strong>Inference:</strong> density data are described as providing shear/relative velocity unless a reference is supplied; altimetry requires absolute dynamic topography for absolute surface current.</li>'
+      '<li><strong>物理关系：</strong>矢量方程和分量方程在北半球采用正科氏参数，所述方向与公式符号一致。</li><li><strong>数值检验：</strong>30°N 处 100 km 范围内 0.20 m 的海面高度差对应 0.269 m s<sup>−1</sup>；该结果已在 MATLAB 中独立计算。</li><li><strong>密度证据：</strong>六个实际 Argo 站位在 100 dbar 处的密度为 1023.522–1025.325 kg m<sup>−3</sup>，范围为 1.804 kg m<sup>−3</sup>。</li><li><strong>相对流速复核：</strong>MATLAB 用 Δ（动力高度）/(<i>f</i>Δ<i>s</i>) 独立重算全部导出流速，最大差值为 5.55 × 10<sup>−16</sup> m s<sup>−1</sup>。</li><li><strong>解释边界：</strong>SST 被用作示踪量和密度的部分控制因素，没有把它当作完整温盐密度、海表高度或流速的替代物。</li><li><strong>反演范围：</strong>在没有参考流速时，密度资料只用于估算切变或相对流速；卫星测高若要得到绝对表层流，需要绝对动力地形。</li>',
+      '<li><strong>Physics:</strong> the vector and component equations use a positive Coriolis parameter in the Northern Hemisphere; the stated direction follows their signs.</li><li><strong>Numerics:</strong> 0.20 m over 100 km at 30°N gives 0.269 m s<sup>−1</sup>; the calculation was independently evaluated in MATLAB.</li><li><strong>Density evidence:</strong> six actual Argo station samples at 100 dbar give 1023.522–1025.325 kg m<sup>−3</sup>, a range of 1.804 kg m<sup>−3</sup>.</li><li><strong>Relative-current verification:</strong> MATLAB independently reproduced every exported velocity from Δ(dynamic height)/(<i>f</i>Δ<i>s</i>); the maximum difference was 5.55 × 10<sup>−16</sup> m s<sup>−1</sup>.</li><li><strong>Interpretation:</strong> SST is treated as a tracer and partial density control, never as a complete substitute for T–S density, SSH or velocity.</li><li><strong>Inference:</strong> density data are described as providing shear/relative velocity unless a reference is supplied; altimetry requires absolute dynamic topography for absolute surface current.</li>'
     ]]],
     ['.source-list small', [
       ['CTD 原理：电导率、温度、深度与盐度换算。', 'What is a CTD? Conductivity, temperature, depth and salinity conversion.'],
@@ -175,11 +189,12 @@
       ['海表高度和表层地转流变量。', 'Sea-surface height and surface geostrophic current variables.'],
       ['高频雷达表层流观测网。', 'High-frequency radar surface-current observing network.'],
       ['图 1 使用的逐日 0.25° 海表温度分析。', 'Daily 0.25° sea-surface-temperature analysis used for Figure 1.'],
-      ['图 2 使用的 Argo 剖面数据集。', 'Argo profile dataset used for Figure 2.']
+      ['图 2 使用的 Argo 剖面数据集。', 'Argo profile dataset used for Figure 2.'],
+      ['图 3 使用的动力高度与地转流速计算。', 'Dynamic-height and geostrophic-velocity calculation used for Figure 3.']
     ]],
     ['.data-note', [[
-      '本地数据来源：OISST 文件读取自 <code>E:\\研究生课题\\data\\OISST_ERA5_1996_2025\\OISST</code>。相关 Argo 图件和摘要保存在本站可复现的资料集合中。数值仅在展示时进行了四舍五入。',
-      'Local data provenance: OISST files were read from <code>E:\\研究生课题\\data\\OISST_ERA5_1996_2025\\OISST</code>. The accompanying Argo figures and summaries are retained in this site’s reproducible asset collection. Values are rounded only for presentation.'
+      '数据来源：OISST 文件读取自 <code>E:\\研究生课题\\data\\OISST_ERA5_1996_2025\\OISST</code>。图 3 的六个剖面于 2026 年 10 月 20 日从 Argo 官方 Coriolis GDAC 镜像下载；文件路径和 SHA-256 哈希值记录在可下载数据包中。数值仅在展示时进行了四舍五入。',
+      'Data provenance: OISST files were read from <code>E:\\研究生课题\\data\\OISST_ERA5_1996_2025\\OISST</code>. The six Figure 3 profiles were downloaded from the official Coriolis Argo GDAC mirror on 20 October 2026; file paths and SHA-256 hashes are recorded in the downloadable package. Values are rounded only for presentation.'
     ]]],
     ['footer span', [
       ['≈ &nbsp; 海洋课堂笔记', '≈ &nbsp; Ocean Classroom Notes'],

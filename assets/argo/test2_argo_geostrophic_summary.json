@@ -1,0 +1,146 @@
+{
+  "title": "Test 2 South China Sea Argo geostrophic case study",
+  "source": "Argo GDAC (Coriolis mirror)",
+  "source_root": "https://data-argo.ifremer.fr/dac/",
+  "argo_doi": "10.17882/42182",
+  "retrieved_utc_date": "2026-10-20",
+  "method": {
+    "qc": "Adjusted PRES/TEMP/PSAL with QC 1 or 2 where available; raw QC 1 or 2 as fallback",
+    "interpolation": "Linear interpolation to 10 dbar levels from 10 to 700 dbar; no extrapolation",
+    "thermodynamics": "TEOS-10 GSW: SA_from_SP, CT_from_t, sigma0",
+    "dynamic_height": "gsw.geo_strf_dyn_height with p_ref=700 dbar and max_dp=1 dbar",
+    "velocity": "gsw.geostrophic_velocity between successive stations",
+    "sign": "Positive velocity points left of the local A-to-F station path"
+  },
+  "stations": [
+    {
+      "station": "A",
+      "file": "R5904747_081.nc",
+      "relative_path": "aoml/5904747/profiles/R5904747_081.nc",
+      "wmo": "5904747",
+      "time": "2017-03-15T03:28:23.000362496",
+      "longitude": 110.201,
+      "latitude": 14.081,
+      "data_mode": "A",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 5.5,
+      "observed_p_max": 1100.4000244140625,
+      "sha256": "a883b90634500d1147f722a43ca540468d74f19e33d3d9f0578c3a5b7206f989"
+    },
+    {
+      "station": "B",
+      "file": "D2902698_028.nc",
+      "relative_path": "csio/2902698/profiles/D2902698_028.nc",
+      "wmo": "2902698",
+      "time": "2017-03-13T09:33:59.999999232",
+      "longitude": 112.8,
+      "latitude": 14.31,
+      "data_mode": "D",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 4.200000286102295,
+      "observed_p_max": 1900.5,
+      "sha256": "69bdd3d2d555852dae69b8d80d95b3a464f976fc18cccaaacd703f73ca65e08c"
+    },
+    {
+      "station": "C",
+      "file": "D2902697_025.nc",
+      "relative_path": "csio/2902697/profiles/D2902697_025.nc",
+      "wmo": "2902697",
+      "time": "2017-03-14T18:28:59.999996928",
+      "longitude": 113.465,
+      "latitude": 14.002,
+      "data_mode": "D",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 3.5,
+      "observed_p_max": 1898.2000732421875,
+      "sha256": "13856141dbb552daaf002b154c1a99b918a3fbf5319188a6308d88e32285dc12"
+    },
+    {
+      "station": "D",
+      "file": "D2902695_039.nc",
+      "relative_path": "csio/2902695/profiles/D2902695_039.nc",
+      "wmo": "2902695",
+      "time": "2017-03-16T15:16:00.000003072",
+      "longitude": 114.506,
+      "latitude": 15.542,
+      "data_mode": "D",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 0.5,
+      "observed_p_max": 1901.800048828125,
+      "sha256": "aea76db45dad98a10a3263911abef83d0d0afbfc1ad5d1de57750d8289a021ff"
+    },
+    {
+      "station": "E",
+      "file": "D2902694_038.nc",
+      "relative_path": "csio/2902694/profiles/D2902694_038.nc",
+      "wmo": "2902694",
+      "time": "2017-03-14T18:50:00.000002304",
+      "longitude": 115.246,
+      "latitude": 15.803,
+      "data_mode": "D",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 0.800000011920929,
+      "observed_p_max": 1902.199951171875,
+      "sha256": "7b083744cc759e40a79970a15351d7cd969e5e146b5846d27a2849ae32c6f468"
+    },
+    {
+      "station": "F",
+      "file": "R2901481_081.nc",
+      "relative_path": "aoml/2901481/profiles/R2901481_081.nc",
+      "wmo": "2901481",
+      "time": "2017-03-14T01:57:17.000189952",
+      "longitude": 115.601,
+      "latitude": 15.836,
+      "data_mode": "A",
+      "parameter_source": "P:adjusted; raw fallback; T:adjusted; raw fallback; S:adjusted; raw fallback",
+      "observed_p_min": 4.5,
+      "observed_p_max": 1100.60009765625,
+      "sha256": "1e48ea928ead5f7cfd2989573d2ad45099550a69d50c312f4b3818a79c5f2f5d"
+    }
+  ],
+  "section": {
+    "cumulative_distance_km": [
+      0.0,
+      281.32412625840215,
+      360.7828116427311,
+      565.3559090000226,
+      649.7292269728146,
+      687.8851993560097
+    ],
+    "segment_distance_km": [
+      281.32412625840215,
+      79.45868538432893,
+      204.57309735729154,
+      84.37331797279194,
+      38.15597238319515
+    ],
+    "station_pairs": [
+      "A-B",
+      "B-C",
+      "C-D",
+      "D-E",
+      "E-F"
+    ],
+    "reference_pressure_dbar": 700.0,
+    "near_surface_10dbar_velocity_m_s": [
+      0.19472017518332116,
+      0.13101184879465483,
+      -0.015678037433150264,
+      -0.10590520837886885,
+      -0.49223094581040683
+    ],
+    "near_surface_range_m_s": [
+      -0.49223094581040683,
+      0.19472017518332116
+    ],
+    "max_abs_velocity_10_500dbar_m_s": 0.49223094581040683,
+    "max_abs_velocity_pair": "E-F",
+    "max_abs_velocity_pressure_dbar": 10.0
+  },
+  "limitations": [
+    "Profiles span approximately four days and the path is irregular, so temporal evolution can alias spatial gradients.",
+    "Velocity is normal to each local station segment and referenced to 700 dbar.",
+    "An independent velocity or validated level of no motion is required for absolute current.",
+    "Argo spacing cannot resolve narrow fronts, tides, inertial currents, Ekman flow, or other ageostrophic motions."
+  ]
+}

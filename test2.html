@@ -14,9 +14,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>test2 | Ocean Measurements and Geostrophic Currents</title>
   <link rel="stylesheet" href="styles.css?v=20261015-i18n">
-  <link rel="stylesheet" href="test2.css?v=20261020-i18n">
+  <link rel="stylesheet" href="test2.css?v=20261020-case">
   <script src="i18n.js?v=20261020-test2" defer></script>
-  <script src="test2-i18n.js?v=20261020" defer></script>
+  <script src="test2-i18n.js?v=20261020-case" defer></script>
 </head>
 <body class="test2-page">
   <header class="site-header">
@@ -30,7 +30,7 @@
         <span class="t2-kicker">TEST 2 · PHYSICAL OCEANOGRAPHY</span>
         <h1>Measuring the Ocean<br><span>and Reading Its Currents</span></h1>
         <p class="t2-lead">A complete, layered answer covering instruments, observing methods, geostrophic balance, inference requirements, a numerical check and evidence from South China Sea data.</p>
-        <div class="t2-actions"><a href="#brief">Start with the brief answer ↓</a><a href="#evidence" class="secondary">See the data evidence</a></div>
+        <div class="t2-actions"><a href="#brief">Start with the brief answer ↓</a><a href="#evidence" class="secondary">See the data evidence</a><a href="output/pdf/test2-ocean-measurements-and-geostrophic-currents.pdf" class="secondary" download>Download assignment PDF</a></div>
       </div>
       <aside class="question-card" aria-label="Assignment question">
         <span>THE QUESTION</span>
@@ -146,6 +146,15 @@
             <img src="assets/argo/argo_scs_density_isobar_section.png?v=20261020" data-i18n-src="assets/argo/argo_scs_density_isobar_section" data-i18n-ext="png" data-i18n-zh-suffix="" alt="2017年3月南海六站Argo原位密度断面 / Six-station South China Sea Argo in-situ density section from March 2017">
             <figcaption><strong>Figure 2.</strong> A quality-controlled, quasi-synoptic Argo section across six South China Sea stations, 13–16 March 2017. At 100 dbar, the station density range is 1.804 kg m<sup>−3</sup>, confirming a horizontal density contrast. The full vertical density field can constrain geostrophic shear, but the irregular path and multi-day sampling require care, and an independent reference is still needed for absolute velocity.</figcaption>
           </figure>
+          <figure class="data-figure">
+            <img src="assets/argo/test2_scs_relative_geostrophic_velocity.png?v=20261020" data-i18n-src="assets/argo/test2_scs_relative_geostrophic_velocity" data-i18n-ext="png" data-i18n-zh-suffix="" alt="南海六个Argo剖面动力高度与相对地转流速 / Dynamic height and relative geostrophic velocity from six South China Sea Argo profiles">
+            <figcaption><strong>Figure 3.</strong> The downloaded official Argo GDAC profiles were quality controlled, converted with TEOS-10 and integrated to dynamic height relative to 700 dbar. At 10 dbar, the five segment-normal relative velocities range from −0.492 to +0.195 m s<sup>−1</sup>; positive points left of the local A–F path. The strongest magnitude occurs across the short E–F segment and should be interpreted cautiously because the path is irregular and the profiles span four days. These are relative baroclinic velocities, not absolute currents.</figcaption>
+          </figure>
+          <div class="data-downloads" aria-label="Case study downloads">
+            <a href="output/pdf/test2-ocean-measurements-and-geostrophic-currents.pdf" download><strong>Assignment PDF</strong><span>English question, answer, figures and references</span></a>
+            <a href="output/data/test2-argo-case-data.zip" download><strong>Case data package</strong><span>Six GDAC NetCDF files, processed tables and method notes</span></a>
+            <a href="assets/argo/test2_argo_relative_geostrophic_velocity.csv" download><strong>Velocity CSV</strong><span>Five station pairs at 10 dbar intervals</span></a>
+          </div>
           <div class="evidence-cards">
             <article><strong>Useful evidence</strong><p>OISST locates persistent thermal fronts. Argo supplies subsurface temperature, salinity, pressure and density. Together they improve physical interpretation.</p></article>
             <article><strong>Missing for a unique current</strong><p>The E: drive files inspected contain no collocated SSH or direct velocity field. Temperature alone cannot separate salinity compensation or ageostrophic flow.</p></article>
@@ -174,6 +183,7 @@
           <p>Ocean temperature is measured in situ by thermistors on CTDs, XBTs, Argo floats, gliders and moorings, and remotely by infrared or microwave satellite radiometers. In situ sensors resolve the vertical structure accurately but provide limited spatial or temporal coverage, whereas satellites repeatedly map large areas but observe only the skin or near-surface ocean and require atmospheric correction and calibration. Salinity is usually derived from conductivity, temperature and pressure measured by a CTD. Bottle samples analyzed with a salinometer provide high-quality checks, and Argo extends T–S profiling over the open ocean. Satellite L-band radiometry maps surface salinity globally, but its resolution and accuracy decline near coasts, rain, ice and cold water. Currents are measured directly by current meters, ADCPs, surface drifters, subsurface floats and coastal HF radar. These methods provide either time series, vertical profiles, trajectories or surface maps, but none samples all depths and scales; platform motion, acoustic range, windage and geographic coverage are common limitations.</p>
           <p>For large-scale, slowly varying motion away from strong friction, the horizontal pressure-gradient force approximately balances the Coriolis force: <i>f</i><b>k</b> × <b>u</b><sub>g</sub> = −ρ<sub>0</sub><sup>−1</sup>∇<sub>h</sub><i>p</i>. At the sea surface, a height slope gives <i>u</i><sub>g</sub> = −(<i>g</i>/<i>f</i>)∂η/∂<i>y</i> and <i>v</i><sub>g</sub> = (<i>g</i>/<i>f</i>)∂η/∂<i>x</i>. Thus the current is parallel to sea-surface-height contours, with higher sea level on its right in the Northern Hemisphere. Horizontal temperature and salinity differences change density; under hydrostatic balance, these density contrasts make the horizontal pressure gradient vary with depth. Thermal-wind balance therefore relates horizontal density gradients to vertical geostrophic shear.</p>
           <p>Satellite altimetry can infer surface geostrophic velocity from gradients of absolute dynamic topography. CTD or Argo sections can infer dynamic-height differences and geostrophic velocity relative to a reference pressure. The latter becomes absolute only when a level of no motion or an independent velocity measurement is supplied. Both approaches require accurate corrections, sufficient spatial resolution and near-synoptic sampling. They work best when the Rossby number is small, the flow is away from the equator and strong boundary friction, hydrostatic balance is appropriate, and tides, inertial motion, Ekman flow and other ageostrophic components have been filtered or treated separately.</p>
+          <p>As an observational example, six official Argo GDAC profiles across the South China Sea from 13–16 March 2017 were converted to TEOS-10 Absolute Salinity and Conservative Temperature. Dynamic-height differences relative to 700 dbar give 10 dbar section-normal relative velocities from −0.492 to +0.195 m s<sup>−1</sup>. This demonstrates how horizontal density structure constrains geostrophic shear, while also showing why hydrographic estimates require near-synoptic sampling and an independent velocity reference before they can be interpreted as absolute currents.</p>
         </section>
 
         <section id="check" class="self-check">
@@ -183,6 +193,7 @@
             <li><strong>Physics:</strong> the vector and component equations use a positive Coriolis parameter in the Northern Hemisphere; the stated direction follows their signs.</li>
             <li><strong>Numerics:</strong> 0.20 m over 100 km at 30°N gives 0.269 m s<sup>−1</sup>; the calculation was independently evaluated in MATLAB.</li>
             <li><strong>Density evidence:</strong> six actual Argo station samples at 100 dbar give 1023.522–1025.325 kg m<sup>−3</sup>, a range of 1.804 kg m<sup>−3</sup>.</li>
+            <li><strong>Relative-current verification:</strong> MATLAB independently reproduced every exported velocity from Δ(dynamic height)/(<i>f</i>Δ<i>s</i>); the maximum difference was 5.55 × 10<sup>−16</sup> m s<sup>−1</sup>.</li>
             <li><strong>Interpretation:</strong> SST is treated as a tracer and partial density control, never as a complete substitute for T–S density, SSH or velocity.</li>
             <li><strong>Inference:</strong> density data are described as providing shear/relative velocity unless a reference is supplied; altimetry requires absolute dynamic topography for absolute surface current.</li>
           </ul>
@@ -200,8 +211,9 @@
             <a href="https://ioos.noaa.gov/project/hf-radar/"><span>06</span><div><strong>U.S. IOOS</strong><small>High-frequency radar surface-current observing network.</small></div></a>
             <a href="https://doi.org/10.25921/RE9P-PT57"><span>07</span><div><strong>NOAA OISST v2.1</strong><small>Daily 0.25° sea-surface-temperature analysis used for Figure 1.</small></div></a>
             <a href="https://doi.org/10.17882/42182"><span>08</span><div><strong>Argo GDAC</strong><small>Argo profile dataset used for Figure 2.</small></div></a>
+            <a href="https://www.teos-10.org/pubs/gsw/html/gsw_geostrophic_velocity.html"><span>09</span><div><strong>TEOS-10 GSW</strong><small>Dynamic-height and geostrophic-velocity calculation used for Figure 3.</small></div></a>
           </div>
-          <p class="data-note">Local data provenance: OISST files were read from <code>E:\研究生课题\data\OISST_ERA5_1996_2025\OISST</code>. The accompanying Argo figures and summaries are retained in this site’s reproducible asset collection. Values are rounded only for presentation.</p>
+          <p class="data-note">Data provenance: OISST files were read from <code>E:\研究生课题\data\OISST_ERA5_1996_2025\OISST</code>. The six Figure 3 profiles were downloaded from the official Coriolis Argo GDAC mirror on 20 October 2026; file paths and SHA-256 hashes are recorded in the downloadable package. Values are rounded only for presentation.</p>
         </section>
       </article>
     </div>

@@ -5,3 +5,6 @@ analysis/.venv-argo/
 analysis/data/
 __pycache__/
 *.pyc
+# Large, frequently updated Argo index used only to locate the six case profiles.
+data/test2_argo_case/ar_index_global_prof.txt.gz
+.mplcache/
