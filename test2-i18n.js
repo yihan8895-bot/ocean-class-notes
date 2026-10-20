@@ -147,7 +147,7 @@
       ]
     ]],
     ['.data-downloads a', [
-      ['<strong>作业 PDF</strong><span>英文题目、完整答案、图表与参考文献</span>', '<strong>Assignment PDF</strong><span>English question, answer, figures and references</span>'],
+      ['<strong>作业 PDF</strong><span>英文摘要、题目、完整答案、图表与参考文献</span>', '<strong>Assignment PDF</strong><span>English abstract, question, answer, figures and references</span>'],
       ['<strong>案例数据包</strong><span>六个 GDAC NetCDF 文件、处理表格与方法说明</span>', '<strong>Case data package</strong><span>Six GDAC NetCDF files, processed tables and method notes</span>'],
       ['<strong>流速 CSV</strong><span>五个测站分段，10 dbar 垂向间隔</span>', '<strong>Velocity CSV</strong><span>Five station pairs at 10 dbar intervals</span>']
     ]],
