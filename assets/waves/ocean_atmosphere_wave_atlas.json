@@ -1,0 +1,1153 @@
+{
+  "version": 1,
+  "symbols": {
+    "zh": "ω 角频率；k,l 水平波数；K 水平总波数；m 垂向波数；H 水深；f 科氏参数；β=df/dy；N 浮力频率；Rd 变形半径；c 相速或模态长波速度。",
+    "en": "ω angular frequency; k,l horizontal wavenumbers; K total horizontal wavenumber; m vertical wavenumber; H depth; f Coriolis parameter; β=df/dy; N buoyancy frequency; Rd deformation radius; c phase or modal long-wave speed."
+  },
+  "fields": [
+    "group",
+    "name",
+    "medium",
+    "restoring",
+    "assumptions",
+    "dispersion",
+    "dispersive",
+    "period",
+    "scale",
+    "propagation",
+    "source",
+    "observation"
+  ],
+  "headers": {
+    "zh": [
+      "类别",
+      "波动名称",
+      "介质/位置",
+      "恢复力或主导平衡",
+      "主要近似/垂向结构",
+      "频散关系（K²=k²+l²）",
+      "色散性/频率界限",
+      "典型周期",
+      "波长/水平尺度",
+      "传播方向与速度特征",
+      "典型激发源",
+      "主要观测与意义"
+    ],
+    "en": [
+      "Family",
+      "Wave",
+      "Medium / location",
+      "Restoring mechanism / balance",
+      "Main approximation / vertical structure",
+      "Dispersion relation (K²=k²+l²)",
+      "Dispersion / frequency bounds",
+      "Typical period",
+      "Wavelength / horizontal scale",
+      "Propagation and speed",
+      "Typical source",
+      "Main observations / relevance"
+    ]
+  },
+  "rows": [
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "毛细波\nCapillary wave",
+        "en": "Capillary wave"
+      },
+      "medium": {
+        "zh": "空气—海水界面",
+        "en": "Air–sea interface"
+      },
+      "restoring": {
+        "zh": "表面张力 σ",
+        "en": "Surface tension σ"
+      },
+      "assumptions": {
+        "zh": "短波；深水极限常用",
+        "en": "Short waves; often deep-water"
+      },
+      "dispersion": {
+        "zh": "ω²=(gk+σk³/ρ)tanh(kH)；毛细极限 ω²≈σk³/ρ",
+        "en": "ω²=(gk+σk³/ρ)tanh(kH); capillary limit ω²≈σk³/ρ"
+      },
+      "dispersive": {
+        "zh": "强色散；深水 cᵍ=3cₚ/2",
+        "en": "Strong; deep water cᵍ=3cₚ/2"
+      },
+      "period": {
+        "zh": "<0.1 s",
+        "en": "<0.1 s"
+      },
+      "scale": {
+        "zh": "λ≲1.7 cm（水）",
+        "en": "λ≲1.7 cm in water"
+      },
+      "propagation": {
+        "zh": "短波传播更快；能量随群速",
+        "en": "Shorter waves faster; energy at group speed"
+      },
+      "source": {
+        "zh": "微风、雨滴、界面扰动",
+        "en": "Light wind, raindrops, interface disturbance"
+      },
+      "observation": {
+        "zh": "高频海面纹理、实验波槽",
+        "en": "High-frequency ripples, wave tanks"
+      }
+    },
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "表面重力波\nSurface gravity wave",
+        "en": "Surface gravity wave"
+      },
+      "medium": {
+        "zh": "自由海面；运动随深度衰减",
+        "en": "Free surface; motion decays with depth"
+      },
+      "restoring": {
+        "zh": "重力 g",
+        "en": "Gravity g"
+      },
+      "assumptions": {
+        "zh": "线性、小振幅；任意水深",
+        "en": "Linear, small amplitude; any depth"
+      },
+      "dispersion": {
+        "zh": "ω²=gk tanh(kH)；深水 ω²=gk",
+        "en": "ω²=gk tanh(kH); deep water ω²=gk"
+      },
+      "dispersive": {
+        "zh": "深水色散；深水 cᵍ=cₚ/2",
+        "en": "Deep water dispersive; cᵍ=cₚ/2"
+      },
+      "period": {
+        "zh": "约 1–30 s",
+        "en": "about 1–30 s"
+      },
+      "scale": {
+        "zh": "约 1 m–1 km",
+        "en": "about 1 m–1 km"
+      },
+      "propagation": {
+        "zh": "深水长波更快；近岸折射、浅化、破碎",
+        "en": "Longer deep-water waves faster; refract, shoal and break near shore"
+      },
+      "source": {
+        "zh": "局地风、远处风暴、船舶",
+        "en": "Local wind, distant storms, vessels"
+      },
+      "observation": {
+        "zh": "浮标波高/周期、雷达、卫星高度计",
+        "en": "Buoy height/period, radar, altimetry"
+      }
+    },
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "浅水长波／海啸\nShallow-water wave / tsunami",
+        "en": "Shallow-water wave / tsunami"
+      },
+      "medium": {
+        "zh": "全水深近同相运动",
+        "en": "Nearly depth-uniform motion"
+      },
+      "restoring": {
+        "zh": "重力；海面坡度",
+        "en": "Gravity; surface slope"
+      },
+      "assumptions": {
+        "zh": "kH≪1；静水压力",
+        "en": "kH≪1; hydrostatic"
+      },
+      "dispersion": {
+        "zh": "无旋转 ω²=gHK²；含旋转 ω²=f²+gHK²",
+        "en": "No rotation ω²=gHK²; rotating ω²=f²+gHK²"
+      },
+      "dispersive": {
+        "zh": "均匀水深近无色散；c=√(gH)",
+        "en": "Nearly non-dispersive at uniform depth; c=√(gH)"
+      },
+      "period": {
+        "zh": "约 5–120 min（海啸）",
+        "en": "about 5–120 min for tsunamis"
+      },
+      "scale": {
+        "zh": "约 10–500+ km",
+        "en": "about 10–500+ km"
+      },
+      "propagation": {
+        "zh": "深海快、近岸减速增高；可跨洋",
+        "en": "Fast in deep water, slows and grows near shore; basin crossing"
+      },
+      "source": {
+        "zh": "海底地震、滑坡、火山、撞击",
+        "en": "Seafloor earthquake, landslide, volcano, impact"
+      },
+      "observation": {
+        "zh": "DART 底压、验潮站、GNSS 浮标",
+        "en": "DART bottom pressure, tide gauges, GNSS buoys"
+      }
+    },
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "潮汐长波\nTidal wave",
+        "en": "Tidal long wave"
+      },
+      "medium": {
+        "zh": "全球海洋与陆架",
+        "en": "Global ocean and shelves"
+      },
+      "restoring": {
+        "zh": "重力；天体潮汐势周期强迫",
+        "en": "Gravity; periodic astronomical forcing"
+      },
+      "assumptions": {
+        "zh": "旋转浅水方程；盆地几何",
+        "en": "Rotating shallow-water equations; basin geometry"
+      },
+      "dispersion": {
+        "zh": "受迫频率固定；自由模局地近似 ω²=f²+gHK²",
+        "en": "Forced frequency fixed; free modes locally ω²=f²+gHK²"
+      },
+      "dispersive": {
+        "zh": "传播近无色散；共振与摩擦改变响应",
+        "en": "Nearly non-dispersive; resonance and friction shape response"
+      },
+      "period": {
+        "zh": "12.42 h、12 h、23.93 h、25.82 h 等",
+        "en": "12.42 h, 12 h, 23.93 h, 25.82 h, etc."
+      },
+      "scale": {
+        "zh": "陆架至全球尺度",
+        "en": "Shelf to global scale"
+      },
+      "propagation": {
+        "zh": "旋转盆地中的 Kelvin/Poincaré 型响应",
+        "en": "Kelvin/Poincaré-like response in rotating basins"
+      },
+      "source": {
+        "zh": "月、日引潮力",
+        "en": "Lunar and solar tidal potential"
+      },
+      "observation": {
+        "zh": "验潮站、卫星高度计、潮流仪",
+        "en": "Tide gauges, altimetry, current meters"
+      }
+    },
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "海湾静振\nSeiche",
+        "en": "Seiche"
+      },
+      "medium": {
+        "zh": "封闭或半封闭湖湾、港池",
+        "en": "Enclosed or semi-enclosed basins and harbours"
+      },
+      "restoring": {
+        "zh": "重力；边界反射形成驻波",
+        "en": "Gravity; standing wave from reflections"
+      },
+      "assumptions": {
+        "zh": "一维均匀浅水盆地近似",
+        "en": "1-D uniform shallow basin approximation"
+      },
+      "dispersion": {
+        "zh": "ωₙ≈nπ√(gH)/L；基模 T₁≈2L/√(gH)",
+        "en": "ωₙ≈nπ√(gH)/L; fundamental T₁≈2L/√(gH)"
+      },
+      "dispersive": {
+        "zh": "离散本征模；频率由几何决定",
+        "en": "Discrete eigenmodes set by geometry"
+      },
+      "period": {
+        "zh": "数分钟–数小时/天",
+        "en": "minutes to hours/days"
+      },
+      "scale": {
+        "zh": "港池至湖盆尺度",
+        "en": "Harbour to lake-basin scale"
+      },
+      "propagation": {
+        "zh": "节点与腹点固定；弱阻尼时持续",
+        "en": "Fixed nodes/antinodes; persists under weak damping"
+      },
+      "source": {
+        "zh": "风压突变、气压、海啸、船波",
+        "en": "Wind setup, pressure jumps, tsunamis, ship waves"
+      },
+      "observation": {
+        "zh": "验潮站、压力计；港湾共振风险",
+        "en": "Tide gauges, pressure sensors; harbour resonance risk"
+      }
+    },
+    {
+      "group": {
+        "zh": "海面与海岸",
+        "en": "Surface & coastal"
+      },
+      "name": {
+        "zh": "风暴潮\nStorm surge",
+        "en": "Storm surge"
+      },
+      "medium": {
+        "zh": "陆架、近岸与河口",
+        "en": "Shelf, coast and estuaries"
+      },
+      "restoring": {
+        "zh": "风应力与低气压强迫；重力调整",
+        "en": "Wind stress and low pressure forcing; gravity adjustment"
+      },
+      "assumptions": {
+        "zh": "受迫、耗散的旋转浅水响应",
+        "en": "Forced, dissipative rotating shallow-water response"
+      },
+      "dispersion": {
+        "zh": "无唯一自由频散式；自由部分近似 ω²=f²+gHK²",
+        "en": "No unique free dispersion; free part ≈f²+gHK²"
+      },
+      "dispersive": {
+        "zh": "受地形、摩擦、共振和移动风暴控制",
+        "en": "Controlled by topography, friction, resonance and storm motion"
+      },
+      "period": {
+        "zh": "数小时–数天",
+        "en": "hours to days"
+      },
+      "scale": {
+        "zh": "约 10–1000 km",
+        "en": "about 10–1000 km"
+      },
+      "propagation": {
+        "zh": "常与潮汐叠加；浅海和漏斗形海湾放大",
+        "en": "Adds to tides; amplified on shallow shelves and funnel bays"
+      },
+      "source": {
+        "zh": "热带/温带气旋、强持续风",
+        "en": "Tropical/extratropical cyclones, persistent wind"
+      },
+      "observation": {
+        "zh": "验潮站、浮标、气压、风场与数值预报",
+        "en": "Gauges, buoys, pressure/wind fields and forecasts"
+      }
+    },
+    {
+      "group": {
+        "zh": "海洋内部",
+        "en": "Ocean interior"
+      },
+      "name": {
+        "zh": "内重力波\nInternal gravity wave",
+        "en": "Internal gravity wave"
+      },
+      "medium": {
+        "zh": "稳定层结海洋内部",
+        "en": "Stably stratified ocean interior"
+      },
+      "restoring": {
+        "zh": "浮力；旋转提供低频界限",
+        "en": "Buoyancy; rotation sets lower-frequency bound"
+      },
+      "assumptions": {
+        "zh": "Boussinesq、线性、均匀 N 与 f",
+        "en": "Boussinesq, linear, uniform N and f"
+      },
+      "dispersion": {
+        "zh": "ω²=(N²K²+f²m²)/(K²+m²)",
+        "en": "ω²=(N²K²+f²m²)/(K²+m²)"
+      },
+      "dispersive": {
+        "zh": "强色散；自由传播通常 |f|<|ω|<N",
+        "en": "Strongly dispersive; usually |f|<|ω|<N"
+      },
+      "period": {
+        "zh": "数分钟–数十小时",
+        "en": "minutes to tens of hours"
+      },
+      "scale": {
+        "zh": "水平 0.1–100 km；垂向模态/波束",
+        "en": "0.1–100 km horizontal; modes/beams"
+      },
+      "propagation": {
+        "zh": "相位与能量方向可不同；能量沿波束",
+        "en": "Phase and energy directions differ; energy follows beams"
+      },
+      "source": {
+        "zh": "潮流越过地形、风、对流、流剪切",
+        "en": "Tides over topography, wind, convection, shear"
+      },
+      "observation": {
+        "zh": "温盐链、ADCP、Argo/滑翔机、SAR",
+        "en": "T/S chains, ADCP, Argo/gliders, SAR"
+      }
+    },
+    {
+      "group": {
+        "zh": "海洋内部",
+        "en": "Ocean interior"
+      },
+      "name": {
+        "zh": "内潮\nInternal tide",
+        "en": "Internal tide"
+      },
+      "medium": {
+        "zh": "层结内部；海岭与陆坡附近生成",
+        "en": "Stratified interior; generated near ridges/slopes"
+      },
+      "restoring": {
+        "zh": "浮力；潮汐周期强迫",
+        "en": "Buoyancy; tidal-frequency forcing"
+      },
+      "assumptions": {
+        "zh": "内波垂向模态；ω 固定为潮频",
+        "en": "Internal-wave modes; ω fixed at tidal frequency"
+      },
+      "dispersion": {
+        "zh": "ω=ω潮；水平波数由内波频散式与模态决定",
+        "en": "ω=ωtide; horizontal wavenumber set by internal-wave dispersion and mode"
+      },
+      "dispersive": {
+        "zh": "多模态、可相干跨盆地；非线性时转为孤立波",
+        "en": "Multimodal, coherently basin-spanning; may steepen into solitary waves"
+      },
+      "period": {
+        "zh": "主要 12.42 h 或 24 h 附近",
+        "en": "mainly near 12.42 h or 24 h"
+      },
+      "scale": {
+        "zh": "约 10–1000 km",
+        "en": "about 10–1000 km"
+      },
+      "propagation": {
+        "zh": "从生成地辐射；模态群速不同",
+        "en": "Radiates from generation sites; modal group speeds differ"
+      },
+      "source": {
+        "zh": "正压潮流跨越海脊、海峡、陆坡",
+        "en": "Barotropic tide over ridges, straits and slopes"
+      },
+      "observation": {
+        "zh": "卫星高度计/SAR、潜标、剖面与微结构",
+        "en": "Altimetry/SAR, moorings, profiles and microstructure"
+      }
+    },
+    {
+      "group": {
+        "zh": "海洋内部",
+        "en": "Ocean interior"
+      },
+      "name": {
+        "zh": "惯性振荡／惯性波\nInertial oscillation",
+        "en": "Inertial oscillation / wave"
+      },
+      "medium": {
+        "zh": "海洋混合层与旋转流体内部",
+        "en": "Ocean mixed layer and rotating-fluid interior"
+      },
+      "restoring": {
+        "zh": "科氏力",
+        "en": "Coriolis force"
+      },
+      "assumptions": {
+        "zh": "水平无压强梯度的自由惯性运动",
+        "en": "Free horizontal motion without pressure gradient"
+      },
+      "dispersion": {
+        "zh": "局地惯性振荡 ω=±f；三维惯性波 |ω|≤2Ω",
+        "en": "Local oscillation ω=±f; 3-D inertial waves |ω|≤2Ω"
+      },
+      "dispersive": {
+        "zh": "局地频率由纬度决定；赤道 f→0",
+        "en": "Local frequency set by latitude; f→0 at equator"
+      },
+      "period": {
+        "zh": "T=2π/|f|；约 12 h–数天",
+        "en": "T=2π/|f|; about 12 h to days"
+      },
+      "scale": {
+        "zh": "局地至数百 km",
+        "en": "local to hundreds of km"
+      },
+      "propagation": {
+        "zh": "北半球水平速度顺时针旋转",
+        "en": "Horizontal velocity rotates clockwise in NH"
+      },
+      "source": {
+        "zh": "风暴突然停止/改变、混合层调整",
+        "en": "Abrupt wind change, mixed-layer adjustment"
+      },
+      "observation": {
+        "zh": "漂流浮标、ADCP、流速时间序列",
+        "en": "Drifters, ADCP and current time series"
+      }
+    },
+    {
+      "group": {
+        "zh": "旋转波动",
+        "en": "Rotating waves"
+      },
+      "name": {
+        "zh": "Poincaré／惯性—重力波\nPoincaré / inertia–gravity",
+        "en": "Poincaré / inertia–gravity wave"
+      },
+      "medium": {
+        "zh": "旋转浅水层；海洋或大气等效层",
+        "en": "Rotating shallow-water layer in ocean or atmosphere"
+      },
+      "restoring": {
+        "zh": "重力/浮力 + 科氏力",
+        "en": "Gravity/buoyancy plus Coriolis"
+      },
+      "assumptions": {
+        "zh": "f 平面、线性浅水、波速 c",
+        "en": "f-plane, linear shallow water, speed c"
+      },
+      "dispersion": {
+        "zh": "ω²=f²+c²K²",
+        "en": "ω²=f²+c²K²"
+      },
+      "dispersive": {
+        "zh": "有截止频率 |f|；高波数趋近重力波",
+        "en": "Cutoff at |f|; approaches gravity wave at high wavenumber"
+      },
+      "period": {
+        "zh": "数十分钟–数天",
+        "en": "tens of minutes to days"
+      },
+      "scale": {
+        "zh": "约 10–1000+ km",
+        "en": "about 10–1000+ km"
+      },
+      "propagation": {
+        "zh": "可向各方向传播；相速与群速不同",
+        "en": "Propagates in any direction; phase and group speeds differ"
+      },
+      "source": {
+        "zh": "快速质量/动量扰动、地转调整",
+        "en": "Rapid mass/momentum disturbance, geostrophic adjustment"
+      },
+      "observation": {
+        "zh": "海平面/位势高度、风流场频谱",
+        "en": "Sea level/geopotential and velocity spectra"
+      }
+    },
+    {
+      "group": {
+        "zh": "旋转波动",
+        "en": "Rotating waves"
+      },
+      "name": {
+        "zh": "沿岸 Kelvin 波\nCoastal Kelvin wave",
+        "en": "Coastal Kelvin wave"
+      },
+      "medium": {
+        "zh": "海岸、陆坡或垂直边界附近",
+        "en": "Near a coast, slope or vertical boundary"
+      },
+      "restoring": {
+        "zh": "沿岸重力传播 + 横岸地转平衡",
+        "en": "Along-boundary gravity propagation + cross-shore geostrophy"
+      },
+      "assumptions": {
+        "zh": "线性浅水；边界法向流为零",
+        "en": "Linear shallow water; zero normal flow at boundary"
+      },
+      "dispersion": {
+        "zh": "ω=±ck；横岸振幅 ∝exp(−x/Rd)，Rd=c/|f|",
+        "en": "ω=±ck; cross-shore amplitude ∝exp(−x/Rd), Rd=c/|f|"
+      },
+      "dispersive": {
+        "zh": "理想情况下无色散；边界选择单向支",
+        "en": "Ideally non-dispersive; boundary selects one branch"
+      },
+      "period": {
+        "zh": "数小时–数月",
+        "en": "hours to months"
+      },
+      "scale": {
+        "zh": "沿岸 10–10000 km；横岸约 Rd",
+        "en": "10–10000 km alongshore; cross-shore ≈Rd"
+      },
+      "propagation": {
+        "zh": "北半球传播时海岸在右侧",
+        "en": "In NH the coast lies to the right of propagation"
+      },
+      "source": {
+        "zh": "风、潮汐、海啸、边界调整",
+        "en": "Wind, tides, tsunamis, boundary adjustment"
+      },
+      "observation": {
+        "zh": "沿岸验潮站相位、卫星高度计",
+        "en": "Coastal gauge phase and satellite altimetry"
+      }
+    },
+    {
+      "group": {
+        "zh": "旋转波动",
+        "en": "Rotating waves"
+      },
+      "name": {
+        "zh": "Rossby／行星波\nRossby / planetary wave",
+        "en": "Rossby / planetary wave"
+      },
+      "medium": {
+        "zh": "海洋与大气大尺度内部",
+        "en": "Large-scale ocean and atmosphere"
+      },
+      "restoring": {
+        "zh": "背景位涡梯度 β 与位涡守恒",
+        "en": "Background PV gradient β and PV conservation"
+      },
+      "assumptions": {
+        "zh": "β 平面、准地转、线性",
+        "en": "β-plane, quasigeostrophic, linear"
+      },
+      "dispersion": {
+        "zh": "ω=Uk−βk/(K²+Rd⁻²)",
+        "en": "ω=Uk−βk/(K²+Rd⁻²)"
+      },
+      "dispersive": {
+        "zh": "强色散；静止背景中波相通常向西",
+        "en": "Strongly dispersive; phase usually westward in resting medium"
+      },
+      "period": {
+        "zh": "数天–数十年",
+        "en": "days to decades"
+      },
+      "scale": {
+        "zh": "约 100–10000+ km",
+        "en": "about 100–10000+ km"
+      },
+      "propagation": {
+        "zh": "相速向西；群速可与相速不同甚至向东",
+        "en": "Westward phase; group velocity can differ or be eastward"
+      },
+      "source": {
+        "zh": "风应力、加热、地形、流不稳定",
+        "en": "Wind stress, heating, topography, flow instability"
+      },
+      "observation": {
+        "zh": "SSH/位势高度、OLR、再分析与 Hovmöller 图",
+        "en": "SSH/geopotential, OLR, reanalysis and Hovmöller diagrams"
+      }
+    },
+    {
+      "group": {
+        "zh": "旋转波动",
+        "en": "Rotating waves"
+      },
+      "name": {
+        "zh": "地形 Rossby／陆架波\nTopographic Rossby / shelf wave",
+        "en": "Topographic Rossby / shelf wave"
+      },
+      "medium": {
+        "zh": "陆架坡折、海山和等深线附近",
+        "en": "Shelf breaks, seamounts and isobaths"
+      },
+      "restoring": {
+        "zh": "水深变化产生的地形位涡梯度",
+        "en": "Topographic PV gradient from depth changes"
+      },
+      "assumptions": {
+        "zh": "准地转、弱坡度；沿等深线传播",
+        "en": "Quasigeostrophic, gentle slope; along isobaths"
+      },
+      "dispersion": {
+        "zh": "ω≈Uk−βtopo k/(K²+Rd⁻²)，βtopo≈f₀∂lnH/∂y",
+        "en": "ω≈Uk−βtopo k/(K²+Rd⁻²), βtopo≈f₀∂lnH/∂y"
+      },
+      "dispersive": {
+        "zh": "低频色散；公式符号依坐标/坡向",
+        "en": "Low-frequency dispersive; sign depends on coordinates/slope"
+      },
+      "period": {
+        "zh": "数小时–数月",
+        "en": "hours to months"
+      },
+      "scale": {
+        "zh": "约 10–1000 km",
+        "en": "about 10–1000 km"
+      },
+      "propagation": {
+        "zh": "沿等深线；北半球常使浅水位于右侧",
+        "en": "Along isobaths; often shallow water on right in NH"
+      },
+      "source": {
+        "zh": "沿坡流扰动、风、涡旋和潮汐",
+        "en": "Slope-current disturbances, wind, eddies and tides"
+      },
+      "observation": {
+        "zh": "陆架流速阵列、底压、海平面",
+        "en": "Shelf current arrays, bottom pressure and sea level"
+      }
+    },
+    {
+      "group": {
+        "zh": "赤道波导",
+        "en": "Equatorial waveguide"
+      },
+      "name": {
+        "zh": "赤道 Kelvin 波\nEquatorial Kelvin wave",
+        "en": "Equatorial Kelvin wave"
+      },
+      "medium": {
+        "zh": "赤道海洋/大气，赤道附近俘获",
+        "en": "Equatorial ocean/atmosphere, equatorially trapped"
+      },
+      "restoring": {
+        "zh": "重力 + β 效应；经向风/流 v=0",
+        "en": "Gravity plus β effect; meridional velocity v=0"
+      },
+      "assumptions": {
+        "zh": "赤道 β 平面、浅水等效深度 hₑ",
+        "en": "Equatorial β-plane, equivalent depth hₑ"
+      },
+      "dispersion": {
+        "zh": "ω=ck（仅东传）；c=√(ghₑ)，Le=√(c/β)",
+        "en": "ω=ck (eastward only); c=√(ghₑ), Le=√(c/β)"
+      },
+      "dispersive": {
+        "zh": "理想情况下无色散；高斯型经向俘获",
+        "en": "Ideally non-dispersive; Gaussian meridional trapping"
+      },
+      "period": {
+        "zh": "数天–数月",
+        "en": "days to months"
+      },
+      "scale": {
+        "zh": "东西 1000–40000 km；南北约 Le",
+        "en": "1000–40000 km zonal; meridional ≈Le"
+      },
+      "propagation": {
+        "zh": "东传；海洋第一斜压模常约 2–3 m s⁻¹",
+        "en": "Eastward; first oceanic baroclinic mode often 2–3 m s⁻¹"
+      },
+      "source": {
+        "zh": "风异常、MJO/对流、ENSO 调整",
+        "en": "Wind anomalies, MJO/convection, ENSO adjustment"
+      },
+      "observation": {
+        "zh": "赤道海平面、跃层深度、OLR 与风",
+        "en": "Equatorial SSH, thermocline depth, OLR and wind"
+      }
+    },
+    {
+      "group": {
+        "zh": "赤道波导",
+        "en": "Equatorial waveguide"
+      },
+      "name": {
+        "zh": "赤道 Rossby 波\nEquatorial Rossby wave",
+        "en": "Equatorial Rossby wave"
+      },
+      "medium": {
+        "zh": "赤道两侧对称/反对称模态",
+        "en": "Symmetric/antisymmetric modes about equator"
+      },
+      "restoring": {
+        "zh": "赤道 β 与位涡守恒",
+        "en": "Equatorial β and PV conservation"
+      },
+      "assumptions": {
+        "zh": "长波低频近似；模态序号 n≥1",
+        "en": "Long-wave, low-frequency approximation; n≥1"
+      },
+      "dispersion": {
+        "zh": "ω≈−βk/[k²+(2n+1)/Le²]",
+        "en": "ω≈−βk/[k²+(2n+1)/Le²]"
+      },
+      "dispersive": {
+        "zh": "色散；静止背景中西传",
+        "en": "Dispersive; westward in resting medium"
+      },
+      "period": {
+        "zh": "数天–数月/年",
+        "en": "days to months/years"
+      },
+      "scale": {
+        "zh": "约 1000–20000 km",
+        "en": "about 1000–20000 km"
+      },
+      "propagation": {
+        "zh": "西传；在赤道两侧出现涡旋对",
+        "en": "Westward; gyre pairs straddle equator"
+      },
+      "source": {
+        "zh": "热带加热、风应力和 Kelvin 波反射",
+        "en": "Tropical heating, wind stress and reflected Kelvin waves"
+      },
+      "observation": {
+        "zh": "OLR、风、SSH 与跃层异常",
+        "en": "OLR, winds, SSH and thermocline anomalies"
+      }
+    },
+    {
+      "group": {
+        "zh": "赤道波导",
+        "en": "Equatorial waveguide"
+      },
+      "name": {
+        "zh": "混合 Rossby—重力波／Yanai 波\nMixed Rossby–gravity wave",
+        "en": "Mixed Rossby–gravity / Yanai wave"
+      },
+      "medium": {
+        "zh": "赤道海洋与大气；n=0 模态",
+        "en": "Equatorial ocean/atmosphere; n=0 mode"
+      },
+      "restoring": {
+        "zh": "重力与位涡梯度共同作用",
+        "en": "Combined gravity and PV-gradient effects"
+      },
+      "assumptions": {
+        "zh": "赤道 β 平面浅水方程",
+        "en": "Equatorial β-plane shallow-water equations"
+      },
+      "dispersion": {
+        "zh": "ω²−c²k²−βc²k/ω=(2n+1)βc，取 n=0",
+        "en": "ω²−c²k²−βc²k/ω=(2n+1)βc, with n=0"
+      },
+      "dispersive": {
+        "zh": "西传长波似 Rossby；东传短波似重力波",
+        "en": "Westward long waves are Rossby-like; eastward short waves gravity-like"
+      },
+      "period": {
+        "zh": "约 3–30 d（大气常见）",
+        "en": "about 3–30 d, common in atmosphere"
+      },
+      "scale": {
+        "zh": "约 1000–10000 km",
+        "en": "about 1000–10000 km"
+      },
+      "propagation": {
+        "zh": "可东/西传；经向风跨赤道为反对称",
+        "en": "Eastward or westward; meridional wind antisymmetric"
+      },
+      "source": {
+        "zh": "热带对流、风和初始扰动",
+        "en": "Tropical convection, wind and initial disturbances"
+      },
+      "observation": {
+        "zh": "OLR—风谱、赤道流速/海平面",
+        "en": "OLR–wind spectra, equatorial currents/SSH"
+      }
+    },
+    {
+      "group": {
+        "zh": "赤道波导",
+        "en": "Equatorial waveguide"
+      },
+      "name": {
+        "zh": "赤道惯性—重力波\nEquatorial inertia–gravity wave",
+        "en": "Equatorial inertia–gravity wave"
+      },
+      "medium": {
+        "zh": "赤道波导；高频分支",
+        "en": "Equatorial waveguide; high-frequency branches"
+      },
+      "restoring": {
+        "zh": "重力/浮力 + β 效应",
+        "en": "Gravity/buoyancy plus β effect"
+      },
+      "assumptions": {
+        "zh": "赤道浅水方程；n≥0",
+        "en": "Equatorial shallow-water equations; n≥0"
+      },
+      "dispersion": {
+        "zh": "ω²−c²k²−βc²k/ω=(2n+1)βc",
+        "en": "ω²−c²k²−βc²k/ω=(2n+1)βc"
+      },
+      "dispersive": {
+        "zh": "东传和西传高频支；有赤道俘获",
+        "en": "Eastward and westward high-frequency branches; trapped"
+      },
+      "period": {
+        "zh": "约 1–10 d（大气）",
+        "en": "about 1–10 d in atmosphere"
+      },
+      "scale": {
+        "zh": "约 1000–10000 km",
+        "en": "about 1000–10000 km"
+      },
+      "propagation": {
+        "zh": "相速快于赤道 Rossby；能量可上下传播",
+        "en": "Faster phase than equatorial Rossby; energy may propagate vertically"
+      },
+      "source": {
+        "zh": "深对流、加热脉冲、地转调整",
+        "en": "Deep convection, heating pulses, geostrophic adjustment"
+      },
+      "observation": {
+        "zh": "OLR、风场、温度和位势高度谱",
+        "en": "OLR, winds, temperature and geopotential spectra"
+      }
+    },
+    {
+      "group": {
+        "zh": "大气波动",
+        "en": "Atmospheric waves"
+      },
+      "name": {
+        "zh": "大气重力波／山岳波\nAtmospheric gravity / mountain wave",
+        "en": "Atmospheric gravity / mountain wave"
+      },
+      "medium": {
+        "zh": "稳定层结对流层至中高层大气",
+        "en": "Stably stratified troposphere to upper atmosphere"
+      },
+      "restoring": {
+        "zh": "浮力；旋转修正低频",
+        "en": "Buoyancy; rotation modifies low frequencies"
+      },
+      "assumptions": {
+        "zh": "线性、Boussinesq/非弹性；本征频率 ω̂=ω−U·k",
+        "en": "Linear Boussinesq/anelastic; intrinsic frequency ω̂=ω−U·k"
+      },
+      "dispersion": {
+        "zh": "ω̂²=(N²K²+f²m²)/(K²+m²)",
+        "en": "ω̂²=(N²K²+f²m²)/(K²+m²)"
+      },
+      "dispersive": {
+        "zh": "强色散；山岳波在地面系常 ω≈0",
+        "en": "Strongly dispersive; mountain waves often ω≈0 in ground frame"
+      },
+      "period": {
+        "zh": "约 5 min–数小时",
+        "en": "about 5 min to hours"
+      },
+      "scale": {
+        "zh": "约 1–1000 km",
+        "en": "about 1–1000 km"
+      },
+      "propagation": {
+        "zh": "能量常向上传播；破碎后产生重力波拖曳",
+        "en": "Energy often upward; breaking produces gravity-wave drag"
+      },
+      "source": {
+        "zh": "地形、对流、急流/锋面、风切变",
+        "en": "Topography, convection, jets/fronts and shear"
+      },
+      "observation": {
+        "zh": "卫星亮温/气辉、雷达、探空、激光雷达",
+        "en": "Satellite brightness/airglow, radar, soundings, lidar"
+      }
+    },
+    {
+      "group": {
+        "zh": "大气波动",
+        "en": "Atmospheric waves"
+      },
+      "name": {
+        "zh": "声波\nAcoustic wave",
+        "en": "Acoustic wave"
+      },
+      "medium": {
+        "zh": "可压缩海水或大气；大气中最典型",
+        "en": "Compressible ocean or atmosphere; most familiar in air"
+      },
+      "restoring": {
+        "zh": "可压缩性产生的压力梯度",
+        "en": "Pressure gradient from compressibility"
+      },
+      "assumptions": {
+        "zh": "均匀无耗散介质；忽略重力/旋转",
+        "en": "Uniform, inviscid medium; neglect gravity/rotation"
+      },
+      "dispersion": {
+        "zh": "ω²=cₛ²(K²+m²)",
+        "en": "ω²=cₛ²(K²+m²)"
+      },
+      "dispersive": {
+        "zh": "理想均匀介质无色散；cₛ 为空气/海水声速",
+        "en": "Non-dispersive in ideal uniform medium; speed cₛ"
+      },
+      "period": {
+        "zh": "毫秒–数分钟",
+        "en": "milliseconds to minutes"
+      },
+      "scale": {
+        "zh": "厘米–数百 km",
+        "en": "centimetres to hundreds of km"
+      },
+      "propagation": {
+        "zh": "纵向压缩波；空气约 340 m s⁻¹，海水约 1500 m s⁻¹",
+        "en": "Longitudinal compression wave; ~340 m s⁻¹ in air, ~1500 m s⁻¹ in seawater"
+      },
+      "source": {
+        "zh": "爆炸、雷暴、火山、机械振动",
+        "en": "Explosions, thunderstorms, volcanoes, mechanical vibration"
+      },
+      "observation": {
+        "zh": "微气压计、水听器、声学遥感",
+        "en": "Microbarometers, hydrophones, acoustic remote sensing"
+      }
+    },
+    {
+      "group": {
+        "zh": "大气波动",
+        "en": "Atmospheric waves"
+      },
+      "name": {
+        "zh": "Lamb 波\nLamb wave",
+        "en": "Lamb wave"
+      },
+      "medium": {
+        "zh": "大气边界附近的水平压缩模态",
+        "en": "Horizontally propagating atmospheric compression mode"
+      },
+      "restoring": {
+        "zh": "可压缩性 + 重力维持的垂向结构",
+        "en": "Compressibility plus gravity-supported vertical structure"
+      },
+      "assumptions": {
+        "zh": "等温/静力大气；垂直速度近零、垂向衰减",
+        "en": "Isothermal/hydrostatic atmosphere; near-zero vertical velocity, evanescent"
+      },
+      "dispersion": {
+        "zh": "ω²≈cL²K²，cL≈√(γRT)",
+        "en": "ω²≈cL²K², cL≈√(γRT)"
+      },
+      "dispersive": {
+        "zh": "理想情况下近无色散；可绕地球传播多圈",
+        "en": "Nearly non-dispersive ideally; can circle the globe repeatedly"
+      },
+      "period": {
+        "zh": "数分钟–数小时",
+        "en": "minutes to hours"
+      },
+      "scale": {
+        "zh": "区域至全球尺度",
+        "en": "regional to global scale"
+      },
+      "propagation": {
+        "zh": "接近声速水平传播；地面气压信号突出",
+        "en": "Near-acoustic horizontal speed; strong surface-pressure signal"
+      },
+      "source": {
+        "zh": "大型火山喷发、爆炸、强对流",
+        "en": "Major eruptions, explosions and intense convection"
+      },
+      "observation": {
+        "zh": "全球微气压计与地面气压网",
+        "en": "Global infrasound and surface-pressure networks"
+      }
+    },
+    {
+      "group": {
+        "zh": "大气波动",
+        "en": "Atmospheric waves"
+      },
+      "name": {
+        "zh": "大气潮汐\nAtmospheric tide",
+        "en": "Atmospheric tide"
+      },
+      "medium": {
+        "zh": "全球大气；随高度振幅常增大",
+        "en": "Global atmosphere; amplitude often increases with height"
+      },
+      "restoring": {
+        "zh": "太阳加热/引潮势周期强迫；重力与旋转",
+        "en": "Periodic solar heating/tidal potential; gravity and rotation"
+      },
+      "assumptions": {
+        "zh": "Laplace 潮汐方程；Hough 水平模态",
+        "en": "Laplace tidal equations; Hough horizontal modes"
+      },
+      "dispersion": {
+        "zh": "受迫于 24 h、12 h 等频率；垂向波数由等效深度决定",
+        "en": "Forced at 24 h, 12 h, etc.; vertical wavenumber set by equivalent depth"
+      },
+      "dispersive": {
+        "zh": "多 Hough 模态；辐射、摩擦与背景风影响",
+        "en": "Multiple Hough modes; affected by radiation, friction and mean wind"
+      },
+      "period": {
+        "zh": "24 h、12 h、8 h 等",
+        "en": "24 h, 12 h, 8 h, etc."
+      },
+      "scale": {
+        "zh": "行星尺度",
+        "en": "planetary scale"
+      },
+      "propagation": {
+        "zh": "迁移潮随太阳向西；非迁移潮可东西传播",
+        "en": "Migrating tide follows the Sun westward; nonmigrating tides vary"
+      },
+      "source": {
+        "zh": "臭氧/水汽吸收太阳辐射、潜热与地形",
+        "en": "Solar absorption by ozone/water vapour, latent heating and topography"
+      },
+      "observation": {
+        "zh": "雷达、卫星温度/风、气压",
+        "en": "Radar, satellite temperature/winds and pressure"
+      }
+    },
+    {
+      "group": {
+        "zh": "大气波动",
+        "en": "Atmospheric waves"
+      },
+      "name": {
+        "zh": "天气尺度斜压 Rossby 波\nSynoptic baroclinic Rossby wave",
+        "en": "Synoptic baroclinic Rossby wave"
+      },
+      "medium": {
+        "zh": "中纬度对流层急流与锋区",
+        "en": "Midlatitude tropospheric jets and frontal zones"
+      },
+      "restoring": {
+        "zh": "位涡梯度；斜压不稳定可放大扰动",
+        "en": "PV gradients; baroclinic instability can amplify disturbances"
+      },
+      "assumptions": {
+        "zh": "准地转、分层、垂向风切变",
+        "en": "Quasigeostrophic, stratified, vertical shear"
+      },
+      "dispersion": {
+        "zh": "实部近 Rossby：ω≈Uk−βk/(K²+Rd⁻²)；不稳定时 Im(ω)>0",
+        "en": "Real part Rossby-like: ω≈Uk−βk/(K²+Rd⁻²); Im(ω)>0 when unstable"
+      },
+      "dispersive": {
+        "zh": "传播且可增长；不是单纯中性自由波",
+        "en": "Propagating and growing; not a purely neutral free wave"
+      },
+      "period": {
+        "zh": "约 2–10 d",
+        "en": "about 2–10 d"
+      },
+      "scale": {
+        "zh": "约 1000–5000 km",
+        "en": "about 1000–5000 km"
+      },
+      "propagation": {
+        "zh": "通常随西风向东；群速造成下游发展",
+        "en": "Usually eastward with westerlies; group velocity drives downstream development"
+      },
+      "source": {
+        "zh": "南北温度梯度和垂直风切变的可用位能",
+        "en": "Available potential energy from meridional temperature gradient and vertical shear"
+      },
+      "observation": {
+        "zh": "500 hPa 高度、卫星云图、再分析涡度/位涡",
+        "en": "500-hPa height, satellite clouds and reanalysis vorticity/PV"
+      }
+    }
+  ]
+}
