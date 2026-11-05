@@ -45,6 +45,7 @@
 }
 .site-disclaimer a:hover,
 .site-disclaimer a:focus-visible { color: #064f4e; }
+.site-disclaimer a + a { margin-left: 18px; }
 html[data-language="zh"] .site-disclaimer p[lang="en"],
 html[data-language="en"] .site-disclaimer p[lang="zh-CN"] { display: none; }
 @media (max-width: 680px) {

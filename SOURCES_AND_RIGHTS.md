@@ -1,0 +1,14 @@
+# 素材来源与权利清单 / Sources and Rights Inventory
+
+更新日期 / Updated: 2026-11-05。此清单记录可查到的来源与尚待确认的权限；它不是对所有文件的授权声明。/ This inventory records identifiable sources and permissions that still need confirmation. It is not a licence for every file.
+
+| 材料 / Material | 来源与核验 / Source and check | 再使用边界 / Reuse boundary |
+| --- | --- | --- |
+| NOAA OISST v2.1 海表温度 / sea-surface temperature | [NOAA NCEI 产品说明](https://www.ncei.noaa.gov/products/optimum-interpolation-sst)；各专题的数据范围、基准期与处理方法需逐页核对。/ Check the NOAA product description and each topic's domain, baseline and processing. | 使用数据与图表时标明产品、版本、提供机构和处理方法，核对产品页的引用要求。/ Credit product, version, provider and processing method; follow the product's citation guidance. |
+| Argo 温盐剖面 / temperature-salinity profiles | [Argo 官方致谢与引用](https://argo.ucsd.edu/data/acknowledging-argo/)；[test2 案例记录](data/test2_argo_case/README.md)。/ Official acknowledgement guidance and test2 case notes. | 保留数据来源及下载日期、质量控制条件，并按 Argo 要求致谢和引用。/ Preserve provenance, retrieval date and QC criteria; acknowledge and cite Argo. |
+| NDBC 波浪观测 / wave observations | [NDBC 数据入口](https://www.ndbc.noaa.gov/)；[test3 案例记录](data/test3_wave_case/README.md)。/ NDBC data and test3 case notes. | 核对站点、变量、时段和来源说明；第三方再发布规则以原始来源为准。/ Verify station, variable, period and original source terms. |
+| 《Descriptive Physical Oceanography》及其他教材、论文 / textbook and papers | [出版社书目](https://www.sciencedirect.com/book/monograph/9780750645522/descriptive-physical-oceanography)；专题页另有具体引用。/ Publisher listing; topic pages give further references. | 公式、观点可按学术规范引用；扫描页、照片和原版插图的公开转载许可尚未逐项核验。/ Cite ideas and formulas properly; permission to republish scans, photographs or original figures has not been checked item by item. |
+| 课堂照片、截图、用户提供图片 / classroom photos, screenshots and user-provided images | 部分来自课堂材料或用户提供的文件，逐项作者与授权记录尚不完整。/ Some came from class material or user files; creator and permission records are incomplete. | 对外传播和再次使用前核实拍摄者、画面中人物、课件与图片权利；必要时取得许可或换成自制示意图。/ Check photographer, depicted people, slides and image rights before further publication or reuse; seek permission or use original replacements. |
+| 自编脚本、网页、说明与 AI 辅助草稿 / scripts, web pages, notes and AI-assisted drafts | [仓库历史](https://github.com/yihan8895-bot/ocean-class-notes/commits/main/)和[AI 使用与核验](ai-use.html)。/ Repository history and AI disclosure. | 仓库当前没有统一 `LICENSE` 文件。公开访问不等于获得全部内容的开放许可；AI 辅助也不改变第三方素材权利。/ There is no blanket `LICENSE` file. Public access is not an open licence for every asset, and AI assistance does not remove third-party rights. |
+
+如发现来源标注有误，或您是相关素材的权利人，请通过[仓库 Issues](https://github.com/yihan8895-bot/ocean-class-notes/issues)说明具体文件或页面，维护者可核对并更正。/ To flag a provenance error or rights concern, identify the file or page in the [repository Issues](https://github.com/yihan8895-bot/ocean-class-notes/issues) for review and correction.

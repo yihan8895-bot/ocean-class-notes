@@ -21,3 +21,5 @@
 ## 来源与许可 / Sources and licensing
 
 方法与数据来源见各篇文章。课堂图与本地研究输出可能包含用户或第三方素材；公开可读不代表这些素材自动获得再利用许可。Methods and data sources are linked in each article. Classroom figures and local research outputs may contain user or third-party material; public visibility does not imply a reuse licence for those assets.
+
+AI 辅助范围、可确认的模型记录、科学核验边界见[AI 使用与核验](ai-use.html)。素材来源与未确认的转载权限见[素材来源与权利清单](SOURCES_AND_RIGHTS.md)。本仓库目前没有统一 `LICENSE` 文件。/ See [AI use and verification](ai-use.html) for AI assistance, confirmed model information and validation limits. See the [sources and rights inventory](SOURCES_AND_RIGHTS.md) for provenance and unresolved reuse permissions. This repository currently has no blanket `LICENSE` file.
